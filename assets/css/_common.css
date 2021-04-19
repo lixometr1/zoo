@@ -1,0 +1,24 @@
+.container {
+  @apply max-w-[1450px] mx-auto px-[22px];
+}
+body {
+  @apply text-grey font-main bg-grey-bg;
+}
+.border-circle-green {
+  background: url(~@/assets/icons/border_circle_green.svg?data) left bottom;
+  background-repeat: repeat-x;
+}
+.border-circle-grey {
+  background-image: url(~@/assets/icons/border_circle_grey.svg?data);
+  background-position: left bottom;
+  background-repeat: repeat-x;
+  @apply text-grey;
+}
+
+.btn-green {
+  @apply flex items-center py-4 px-5 bg-green rounded-md text-white cursor-pointer transition hover:bg-green-700;
+}
+
+h2 {
+  @apply text-grey font-bold text-4xl lg:text-xl;
+}
