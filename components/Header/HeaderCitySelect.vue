@@ -1,6 +1,7 @@
 <template>
   <div class="relative">
-    <div
+    <a
+      href="javascript:void(0)"
       class="flex cursor-pointer items-center transform translate-y-0.5"
       @click="toggle"
     >
@@ -12,20 +13,21 @@
         :class="{ 'rotate-180': isOpen }"
         width="6"
       />
-    </div>
+    </a>
     <transition>
       <div
         v-if="isOpen"
         class="absolute top-8 left-0 bg-white border border-grey-light rounded-md p-3"
       >
-        <div
+        <a
           v-for="(city, idx) in cities"
           :key="idx"
+          href="javascript:void(0)"
           class="cursor-pointer hover:text-green"
           @click="selectCity(city)"
         >
           {{ city.name }}
-        </div>
+        </a>
       </div>
     </transition>
   </div>

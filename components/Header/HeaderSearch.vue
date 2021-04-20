@@ -7,7 +7,9 @@
       placeholder="Здесь может быть ваш запрос, например: Корм для собак"
       @keypress.enter="search"
     />
-    <svgSearch width="24" class="text-grey cursor-pointer" @click="search" />
+    <div class="cursor-pointer" @click="search">
+      <svgSearch width="24" class="text-grey" />
+    </div>
   </div>
 </template>
 

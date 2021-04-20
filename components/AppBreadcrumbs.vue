@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center">
+  <div class="flex items-center py-page lg:py-page-mob">
     <router-link class="flex items-center mr-1" :to="localePath('/')">
       <svgHome width="20" class="text-green mr-2 transform -translate-y-0.5" />
       <span class="text-sm text-grey text-opacity-50">/</span>

@@ -2,7 +2,7 @@
   @apply max-w-[1450px] mx-auto px-[22px];
 }
 body {
-  @apply text-grey font-main bg-grey-bg;
+  @apply text-grey font-main bg-grey-bg md:text-xs;
 }
 .border-circle-green {
   background: url(~@/assets/icons/border_circle_green.svg?data) left bottom;
@@ -16,9 +16,31 @@ body {
 }
 
 .btn-green {
-  @apply flex items-center py-4 px-5 bg-green rounded-md text-white cursor-pointer transition hover:bg-green-700;
+  @apply flex items-center justify-center font-bold py-4 px-5 bg-green rounded-md text-white cursor-pointer transition hover:bg-green-700;
 }
 
 h2 {
   @apply text-grey font-bold text-4xl lg:text-xl;
+}
+
+.circle-arrow {
+  @apply rounded-full bg-white  shadow-arrow flex items-center justify-center z-30 flex-shrink-0 transition;
+  width: 60px!important;
+  height: 60px!important;
+  color: theme('colors.grey.DEFAULT')!important;
+  &:hover {
+    background: theme('backgroundColor.green.DEFAULT')!important;
+    color: theme('colors.white')!important;
+  }
+  &.swiper-button-disabled {
+    @apply bg-grey-light;
+  }
+}
+.swiper-button-reset {
+  &.swiper-button-disabled {
+    opacity: 1!important;
+  }
+  &::after {
+    display: none;
+  }
 }

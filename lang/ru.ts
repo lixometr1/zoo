@@ -11,5 +11,9 @@ export default {
       "Товара",
       "Товаров"
    ],
-   sort: "Сортировать"
+   sort: "Сортировать",
+   leftReview: "Оставить отзыв",
+   available: "В наличии",
+   notAvailable: "Нет в наличии",
+   toCart: "В корзину"
 }

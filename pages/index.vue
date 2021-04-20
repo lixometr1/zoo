@@ -1,31 +1,37 @@
 <template>
   <div class="container">
-    <AppBreadcrumbs class="py-page" :items="breadcrumbs" />
+    <AppBreadcrumbs :items="breadcrumbs" />
     <div class="flex">
       <div class="w-[300px] flex-shrink-0">
         <CatalogFilters />
       </div>
-      <div class="flex-1">
-        <div class="flex justify-between">
-          <div class="flex items-baseline">
-            <h2 class="mr-4">Корм и лакомства для кошек</h2>
-            <span class="text-grey text-opacity-50">
-              1928 {{ $t('items[2]') }}
-            </span>
+      <div class="flex-1 min-w-0">
+        <CatalogHeader />
+        <div class="border-b border-grey border-opacity-20 pb-5.5">
+          <CatalogSubCategories />
+        </div>
+        <div class="py-5.5">
+          <CatalogTags />
+        </div>
+        <div>
+          <CatalogProducts />
+          <div class="-mt-3">
+            <CatalogLazyLoadBar class="!rounded-t-none" :cnt="22" />
           </div>
-          <div>
-            <div class="flex">
-              <span>{{ $t('sort') }}</span>
-            </div>
+          <div class="flex justify-center mt-7">
+            <APagination v-model="page" />
           </div>
         </div>
       </div>
+    </div>
+    <div class="mt-28">
+      <ProductsSlider title="Акции" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
@@ -40,7 +46,9 @@ export default defineComponent({
         name: 'Корм и лакомства для кошек',
       },
     ]
+    const page = ref(1)
     return {
+      page,
       breadcrumbs,
     }
   },

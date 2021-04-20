@@ -2,7 +2,8 @@
   <div
     class="flex items-center leading-none divide-x-2 divide-opacity-50 divide-grey"
   >
-    <div
+    <a
+      href="javascript:void(0)"
       v-for="(locale, idx) in locales"
       :key="idx"
       class="uppercase px-2 cursor-pointer text-grey text-opacity-50 font-bold"
@@ -10,7 +11,7 @@
       @click="selectLocale(locale.code)"
     >
       {{ locale.code }}
-    </div>
+    </a>
   </div>
 </template>
 

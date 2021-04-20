@@ -1,5 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-
+const plugin = require('tailwindcss/plugin')
 module.exports = {
   purge: [
     './components/**/*.{vue,js}',
@@ -34,28 +34,51 @@ module.exports = {
     fontFamily: {
       main: ['Gilroy', ...defaultTheme.fontFamily.sans]
     },
-    boxShadow: {
-
-    },
     screens: {
-      lg: { max: '1440px' },
+      lg: { max: '1435px' },
       md: { max: '990px' },
       sm: { max: '760px' },
       xs: { max: '550px' },
       xxs: { max: '350px' },
     },
     extend: {
+      fontSize: {
+        '2lg': '1.375rem',
+        xxs: '0.625rem',
+      },
+      spacing: {
+        5.5: '1.375rem',
+        4.5: '1.125rem',
+      },
       padding: {
-        page: '30px'
+        page: '30px',
+        'page-mob': '15px',
       },
       borderRadius: {
         12: '12px',
         5: '5px'
+      },
+      boxShadow: {
+        arrow: '0px 4px 25px rgba(69, 80, 103, 0.2)',
+        image: '10px 10px 24px rgba(82, 98, 114, 0.25)'
       }
     }
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities, theme }) => {
+      const utilities = [
+        {
+          '.flex-center': {
+            display: 'flex',
+            'align-items': "center",
+            'justify-content': 'center'
+          }
+        }
+      ]
+      addUtilities(utilities)
+    })
+  ],
 }
