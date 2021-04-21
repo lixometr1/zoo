@@ -12,7 +12,7 @@
         </slot>
       </template> -->
     </VSelect>
-  </div>
+  </div> 
 </template>
 
 <script lang="ts">
