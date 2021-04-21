@@ -1,0 +1,17 @@
+.custom-range-slider {
+  height: 8px !important;
+  .vue-slider-rail {
+    @apply shadow-inner bg-white;
+  }
+  .vue-slider-process {
+    @apply bg-green bg-opacity-50;
+  }
+  .vue-slider-dot {
+    width: 30px !important;
+    height: 30px !important;
+    .vue-slider-dot-handle {
+      @apply bg-green border-2 border-white hover:bg-green-700 transition-colors;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    }
+  }
+}

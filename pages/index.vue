@@ -2,7 +2,7 @@
   <div class="container">
     <AppBreadcrumbs :items="breadcrumbs" />
     <div class="flex">
-      <div class="w-[300px] flex-shrink-0">
+      <div class="w-[300px] flex-shrink-0 mr-12">
         <CatalogFilters />
       </div>
       <div class="flex-1 min-w-0">

@@ -5,10 +5,10 @@
       <span class="text-grey text-opacity-50"> 1928 {{ $t('items[2]') }} </span>
     </div>
     <div>
-      <div class="flex items-center">
-        <span>{{ $t('sort') }}</span>
+      <div class="flex items-center font-medium">
+        <span class="text-opacity-50 text-grey">{{ $t('sort') }}:</span>
         <div class="w-[220px] ml-3">
-          <ASelect :options="['По умалочанию', 'По возрастанию']" />
+          <ASelect :value="'По умолчанию'" :options="['По умолочанию', 'По возрастанию']" />
         </div>
       </div>
     </div>

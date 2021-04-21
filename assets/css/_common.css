@@ -1,5 +1,5 @@
 .container {
-  @apply max-w-[1450px] mx-auto px-[22px];
+  @apply max-w-[1490px] mx-auto px-5.5;
 }
 body {
   @apply text-grey font-main bg-grey-bg md:text-xs;
@@ -25,12 +25,12 @@ h2 {
 
 .circle-arrow {
   @apply rounded-full bg-white  shadow-arrow flex items-center justify-center z-30 flex-shrink-0 transition;
-  width: 60px!important;
-  height: 60px!important;
-  color: theme('colors.grey.DEFAULT')!important;
+  width: 60px !important;
+  height: 60px !important;
+  color: theme('colors.grey.DEFAULT') !important;
   &:hover {
-    background: theme('backgroundColor.green.DEFAULT')!important;
-    color: theme('colors.white')!important;
+    background: theme('backgroundColor.green.DEFAULT') !important;
+    color: theme('colors.white') !important;
   }
   &.swiper-button-disabled {
     @apply bg-grey-light;
@@ -38,7 +38,7 @@ h2 {
 }
 .swiper-button-reset {
   &.swiper-button-disabled {
-    opacity: 1!important;
+    opacity: 1 !important;
   }
   &::after {
     display: none;

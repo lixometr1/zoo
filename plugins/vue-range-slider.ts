@@ -7,5 +7,5 @@ import 'vue-slider-component/dist-css/vue-slider-component.css'
 // import theme
 import 'vue-slider-component/theme/default.css'
 export default defineNuxtPlugin((ctx: Context) => {
-    Vue.component('VueSlider', VueSlider)
+    Vue.component('VueRangeSlider', VueSlider)
 })

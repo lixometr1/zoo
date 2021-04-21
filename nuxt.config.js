@@ -34,6 +34,9 @@ export default {
       src: "@/plugins/vue-paginate",
       mode: "client"
     },
+    {
+      src: "@/plugins/vue-scrollbar",
+    },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

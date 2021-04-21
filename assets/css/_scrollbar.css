@@ -1,0 +1,18 @@
+.custom-scrollbar {
+  .ps__rail-y {
+    @apply rounded-full shadow-inner;
+    
+    opacity: 1 !important;
+  }
+  .ps__thumb-y {
+    background: theme('backgroundColor.green.DEFAULT') !important;
+    right: 0;
+    &:hover {
+      background: theme('backgroundColor.green.700') !important;
+    }
+  }
+  .ps__thumb-y,
+  .ps__rail-y {
+    width: 8px !important;
+  }
+}
