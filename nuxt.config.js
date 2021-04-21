@@ -57,13 +57,9 @@ export default {
   modules: [
     '@nuxtjs/axios',
     'nuxt-i18n',
-    "@nuxtjs/style-resources",
     "@nuxtjs/svg",
     'cookie-universal-nuxt'
   ],
-  styleResources: {
-    scss: ["~assets/scss/_vars.scss", "~assets/scss/_mixin.scss"]
-  },
   i18n: {
     detectBrowserLanguage: {
       useCookie: true,
