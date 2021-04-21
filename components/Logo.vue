@@ -5,7 +5,7 @@
       width="95"
       class="flex-shrink-0 mr-4"
       alt=""
-    />
+    /> 
     <div class="leading-4" v-html="$t('logoText')"></div>
   </div>
 </template>

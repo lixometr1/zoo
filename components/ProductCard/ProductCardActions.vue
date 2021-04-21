@@ -5,7 +5,7 @@
     </a>
     <a href="#" class="opacity-50 block cursor-pointer hover:opacity-100 transition">
       <svgCompare width="24" />
-    </a>
+    </a> 
   </div>
 </template>
 

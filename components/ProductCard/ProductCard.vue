@@ -14,7 +14,7 @@
     <ProductCardAvailable class="mt-5" :has="true" />
     <router-link :to="productLink" class="block truncate font-bold"
       >Royal Canin Maxi Adult - 12 sad sd</router-link
-    >
+    > 
     <ProductCardPrice class="mt-4" :price="3200" :oldPrice="3.78" :sale="13" />
     <button class="btn-green mt-4.5 w-full" @click="addToCart">
       {{ $t('toCart') }}

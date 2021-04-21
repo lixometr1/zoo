@@ -1,6 +1,6 @@
 <template>
   <div class="flex app-pagination">
-    <client-only>
+    <client-only> 
       <VPaginate
         :value="page"
         :page-range="4"

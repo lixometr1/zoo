@@ -3,7 +3,7 @@
     <svgStar class="star-stroke" />
     <svgStarFill class="star-fill" />
   </div>
-</template>
+</template> 
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'

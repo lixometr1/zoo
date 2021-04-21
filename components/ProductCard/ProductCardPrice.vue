@@ -5,8 +5,8 @@
         {{ oldPrice }}
       </div>
       <div
-        class="bg-yellow font-bold text-sm px-2 py-1.5 ml-2 rounded-md leading-none"
         v-if="sale"
+        class="bg-yellow font-bold text-sm px-2 py-1.5 ml-2 rounded-md leading-none"
       >
         -{{ sale }}%
       </div>

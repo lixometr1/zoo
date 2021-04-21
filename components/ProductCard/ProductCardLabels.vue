@@ -5,6 +5,7 @@
       :key="idx"
       :text="label.name"
       :type="label.type"
+      
     />
   </div>
 </template>

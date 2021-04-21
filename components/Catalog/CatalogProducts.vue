@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-wrap">
-    <ProductCard v-for="(item, idx) in 10" :key="idx" />
+    <ProductCard v-for="(item, idx) in 10" :key="idx" /> 
   </div>
 </template>
 

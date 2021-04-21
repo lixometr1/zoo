@@ -5,7 +5,7 @@
         <span v-bind="attributes">
           <svgArrowDown width="8" class="text-grey" />
         </span>
-      </template>
+      </template> 
       <!-- <template #option="option">
         <slot name="option">
           <div class="">{{ option.label }}</div>

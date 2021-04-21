@@ -7,7 +7,7 @@
     <div v-else class="flex text-grey items-center">
       <div>{{ text }}</div>
     </div>
-  </div>
+  </div> 
 </template>
 
 <script lang="ts">

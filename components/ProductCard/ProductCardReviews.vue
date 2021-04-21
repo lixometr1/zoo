@@ -2,9 +2,9 @@
   <div>
     <div class="flex space-x-1.5" v-if="hasReviews">
       <StarHandler
-        class="w-[18px] text-yellow"
         v-for="item in 5"
         :key="item"
+        class="w-[18px] text-yellow"
         :active="item <= stars"
         v-bind="$attrs"
       />
