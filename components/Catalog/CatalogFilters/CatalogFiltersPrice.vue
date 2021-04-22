@@ -31,8 +31,20 @@ import { defineComponent, ref } from '@nuxtjs/composition-api'
 export default defineComponent({
   setup() {
     const prices = ref([10, 30])
-    const onPrice1 = (val: string) => {}
-    const onPrice2 = (val: string) => {}
+    const onPrice1 = (val: string) => {
+      const numVal = parseInt(val)
+      if (isNaN(numVal)) {
+        return
+      }
+      prices.value[0] = numVal
+    }
+    const onPrice2 = (val: string) => {
+      const numVal = parseInt(val)
+      if (isNaN(numVal)) {
+        return
+      }
+      prices.value[0] = numVal
+    }
     return { prices, onPrice1, onPrice2 }
   },
 })
