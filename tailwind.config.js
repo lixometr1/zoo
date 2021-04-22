@@ -1,6 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 module.exports = {
+  important: true,
   purge: [
     './components/**/*.{vue,js}',
     './layouts/**/*.vue',
@@ -60,7 +61,8 @@ module.exports = {
       },
       boxShadow: {
         arrow: '0px 4px 25px rgba(69, 80, 103, 0.2)',
-        image: '10px 10px 24px rgba(82, 98, 114, 0.25)'
+        image: '10px 10px 24px rgba(82, 98, 114, 0.25)',
+        inner: 'inset 1px 1px 4px rgba(0, 0, 0, 0.15)'
       }
     }
   },
@@ -76,7 +78,19 @@ module.exports = {
             'align-items': "center",
             'justify-content': 'center'
           }
-        }
+        },
+        {
+          '.flex-y-center': {
+            display: 'flex',
+            'align-items': "center",
+          }
+        },
+        {
+          '.flex-x-center': {
+            display: 'flex',
+            'justify-content': 'center'
+          }
+        },
       ]
       addUtilities(utilities)
     })

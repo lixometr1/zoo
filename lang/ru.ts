@@ -15,5 +15,10 @@ export default {
    leftReview: "Оставить отзыв",
    available: "В наличии",
    notAvailable: "Нет в наличии",
+   youChoose: "Вы выбрали",
+   clear: "Очистить",
+   price: "Цена",
+   brand: "Бренд",
+   all: "Все",
    toCart: "В корзину"
 }
