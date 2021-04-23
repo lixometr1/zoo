@@ -20,9 +20,11 @@ body {
 }
 
 h2 {
-  @apply text-grey font-bold text-4xl lg:text-xl;
+  @apply text-grey font-bold text-4xl md:text-xl;
 }
-
+h3 {
+  @apply text-grey font-bold text-2xl md:text-lg;
+}
 .circle-arrow {
   @apply rounded-full bg-white  shadow-arrow flex items-center justify-center z-30 flex-shrink-0 transition;
   width: 60px !important;

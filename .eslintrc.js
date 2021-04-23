@@ -22,6 +22,7 @@ module.exports = {
     'no-trailing-spaces': 'off',
     'padded-blocks': 'off',
     'vue/html-indent': 'off',
-    'vue/require-default-prop': 'off'
+    'vue/require-default-prop': 'off',
+    'vue/attribute-hyphenation': 'off'
   },
 }

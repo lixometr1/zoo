@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-wrap">
-    <ProductCard v-for="(item, idx) in 10" :key="idx" /> 
+  <div class="catalog-products flex flex-wrap">
+    <ProductCard class="catalog-product" v-for="(item, idx) in 10" :key="idx" /> 
   </div>
 </template>
 
@@ -15,4 +15,7 @@ export default defineComponent({
 </script>
 
 <style lang="postcss">
+.catalog-product {
+  @apply w-1/4 xl:w-1/3 lg:w-1/2;
+}
 </style>

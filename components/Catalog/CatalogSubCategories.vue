@@ -81,7 +81,7 @@ export default defineComponent({
 
     const sliderOpts: SwiperOptions = {
       slidesPerView: 'auto',
-      freeMode: true,
+      // freeMode: true,
       // spaceBetween: 20,
       threshold: 5,
     }

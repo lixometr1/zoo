@@ -1,7 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 module.exports = {
-  important: true,
   purge: [
     './components/**/*.{vue,js}',
     './layouts/**/*.vue',
@@ -36,7 +35,8 @@ module.exports = {
       main: ['Gilroy', ...defaultTheme.fontFamily.sans]
     },
     screens: {
-      lg: { max: '1435px' },
+      xl: { max: '1435px' },
+      lg: { max: '1200px' },
       md: { max: '990px' },
       sm: { max: '760px' },
       xs: { max: '550px' },
@@ -48,6 +48,7 @@ module.exports = {
         xxs: '0.625rem',
       },
       spacing: {
+        18: '4.5rem',
         5.5: '1.375rem',
         4.5: '1.125rem',
       },

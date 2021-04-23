@@ -26,6 +26,10 @@
     </div>
     <div class="mt-28">
       <ProductsSlider title="Акции" />
+      <ProductsSlider class="mt-20" title="Просмотренные товары" />
+    </div>
+    <div class="mt-20">
+      <CatalogSeoText />
     </div>
   </div>
 </template>

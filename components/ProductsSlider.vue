@@ -3,8 +3,8 @@
     <h2 v-if="title" class="mb-9">{{ title }}</h2>
     <client-only>
       <swiper :options="sliderOpts">
-        <swiper-slide v-for="(product, idx) in 6" :key="idx">
-          <ProductCard />
+        <swiper-slide v-for="(product, idx) in 10" :key="idx">
+          <ProductCard :showBtn="false" :showLabels="false" size="sm"/>
         </swiper-slide>
         <div slot="button-next" class="swiper-button-next circle-arrow swiper-button-reset">
           <svgArrowRight width="10" />
@@ -34,12 +34,30 @@ export default defineComponent({
   },
   setup() {
     const sliderOpts: SwiperOptions = {
-      slidesPerView: 4,
+      slidesPerView: 2,
       threshold: 5,
+      breakpoints: {
+        1450: {
+          slidesPerView: 7
+        },
+        1300: {
+          slidesPerView: 6
+        },
+        1100: {
+          slidesPerView: 5
+        },
+        990: {
+          slidesPerView: 4
+        },
+        760: {
+          slidesPerView: 3
+        }
+      },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+
     }
     return { sliderOpts }
   },
