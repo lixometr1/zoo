@@ -1,5 +1,5 @@
 <template>
-  <div class="header-burger" :class="{ active }" @click="toggle">
+  <div class="header-burger" :class="{ active: isOpen }" @click="toggle">
     <span></span>
     <span></span>
     <span></span>
@@ -8,14 +8,12 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@nuxtjs/composition-api'
-
+import useMobileMenu from '@/utils/compositions/useMobileMenu'
 export default defineComponent({
   setup() {
-    const active = ref(false)
-    const toggle = () => {
-      active.value = !active.value
-    }
-    return { active, toggle }
+    const { isOpen, toggle } = useMobileMenu()
+
+    return { isOpen, toggle }
   },
 })
 </script>
@@ -25,7 +23,7 @@ export default defineComponent({
   @apply h-[20px] w-[30px] cursor-pointer relative;
   span {
     @apply w-[30px] h-[3px] bg-grey block absolute;
-    transition: .4s;
+    transition: 0.4s;
     &:nth-child(1) {
       @apply top-0;
     }

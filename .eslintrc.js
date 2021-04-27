@@ -24,6 +24,7 @@ module.exports = {
     'vue/html-indent': 'off',
     'vue/require-default-prop': 'off',
     'vue/attribute-hyphenation': 'off',
-    'vue/max-attributes-per-line': 'off'
+    'vue/max-attributes-per-line': 'off',
+    curly: 'off'
   },
 }

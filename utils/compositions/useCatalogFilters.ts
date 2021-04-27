@@ -1,12 +1,7 @@
 import { ref } from '@nuxtjs/composition-api'
-const isOpen = ref(false)
+import useOpen from '@/utils/compositions/useOpen'
+const { isOpen, open, close } = useOpen()
 
 export default function useCatalogFilters() {
-  const open = () => {
-    isOpen.value = true
-  }
-  const close = () => {
-    isOpen.value = false
-  }
   return { open, close, isOpen }
 }

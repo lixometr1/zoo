@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <AppBreadcrumbs :items="breadcrumbs" />
-    <div class="flex">
+    <div class="flex mt-7 sm:mt-2">
       <div class="w-[300px] flex-shrink-0 mr-12 lg:hidden">
         <CatalogFilters />
       </div>
@@ -38,6 +38,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { ModalName } from '~/types/modal.enum'
+import useModal from '~/utils/compositions/useModal'
 
 export default defineComponent({
   setup() {

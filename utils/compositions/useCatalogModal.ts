@@ -1,12 +1,7 @@
 import { ref } from '@nuxtjs/composition-api'
-const isOpen = ref(false)
+import useOpen from './useOpen'
+const { isOpen, open, close } = useOpen()
 
 export default function useCatalogModal() {
-  const open = () => {
-    isOpen.value = true
-  }
-  const close = () => {
-    isOpen.value = false
-  }
   return { open, close, isOpen }
 }
