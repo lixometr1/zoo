@@ -1,22 +1,33 @@
 <template>
   <div class="py-4 bg-white border-b border-grey-light">
     <div class="container">
-      <div class="flex items-center">
-        <HeaderCatalogBtn class="mr-8" />
+      <div class="flex items-center relative">
+        <HeaderCatalogBtn class="mr-8" @click.native="toggleCatalogModal" />
         <HeaderSearch class="flex-grow" />
         <HeaderFeatureBtns class="border-r border-l border-grey-light mx-7" />
         <HeaderCart />
+        <CatalogModal />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, nextTick, ref } from '@nuxtjs/composition-api'
+import useCatalogModal from '~/utils/compositions/useCatalogModal'
 
 export default defineComponent({
   setup() {
-    return {}
+    const { isOpen, open, close } = useCatalogModal()
+
+    const toggleCatalogModal = () => {
+      if (!isOpen.value) {
+        open()
+      } else {
+        close()
+      }
+    }
+    return { toggleCatalogModal }
   },
 })
 </script>

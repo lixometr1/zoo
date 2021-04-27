@@ -1,8 +1,8 @@
 .container {
-  @apply max-w-[1490px] mx-auto px-5.5;
+  @apply max-w-[1494px] mx-auto px-5.5 lg:px-9 md:px-5.5;
 }
 body {
-  @apply text-grey font-main bg-grey-bg md:text-xs;
+  @apply text-grey font-main bg-grey-bg md:text-sm sm:text-xs;
 }
 .border-circle-green {
   background: url(~@/assets/icons/border_circle_green.svg?data) left bottom;
@@ -16,11 +16,13 @@ body {
 }
 
 .btn-green {
-  @apply flex items-center justify-center font-bold py-4 px-5 bg-green rounded-md text-white cursor-pointer transition hover:bg-green-700;
+  @apply flex items-center justify-center font-bold py-4 px-5 
+  bg-green rounded-md text-white cursor-pointer transition hover:bg-green-700
+  sm:px-4 sm:py-3;
 }
 
 h2 {
-  @apply text-grey font-bold text-4xl md:text-xl;
+  @apply text-grey font-bold text-4xl md:text-2xl sm:text-lg sm:leading-5;
 }
 h3 {
   @apply text-grey font-bold text-2xl md:text-lg;
@@ -30,6 +32,14 @@ h3 {
   width: 60px !important;
   height: 60px !important;
   color: theme('colors.grey.DEFAULT') !important;
+  @media screen and (max-width: theme('screens.lg.max')) {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  @media screen and (max-width: theme('screens.sm.max')) {
+    width: 36px !important;
+    height: 36px !important;
+  }
   &:hover {
     background: theme('backgroundColor.green.DEFAULT') !important;
     color: theme('colors.white') !important;

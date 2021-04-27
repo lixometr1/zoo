@@ -3,10 +3,11 @@
     <div class="container">
       <div class="flex items-center">
         <router-link :to="localePath('/')"> <Logo /></router-link>
-        <HeaderMenu class="flex-auto px-6" />
-        <HeaderLocaleSwitcher class="mr-6" />
+        <HeaderMenu class="flex-auto px-6 lg:hidden" />
+        <HeaderLocaleSwitcher class="mr-6 lg:ml-auto" />
         <HeaderPhones class="mr-7" />
         <HeaderAccount />
+        <HeaderBurger class="hidden lg:block ml-10" />
       </div>
     </div>
   </div>

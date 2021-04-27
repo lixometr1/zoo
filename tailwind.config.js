@@ -35,8 +35,8 @@ module.exports = {
       main: ['Gilroy', ...defaultTheme.fontFamily.sans]
     },
     screens: {
-      xl: { max: '1435px' },
-      lg: { max: '1200px' },
+      xl: { max: '1450px' },
+      lg: { max: '1350px' },
       md: { max: '990px' },
       sm: { max: '760px' },
       xs: { max: '550px' },
@@ -64,6 +64,13 @@ module.exports = {
         arrow: '0px 4px 25px rgba(69, 80, 103, 0.2)',
         image: '10px 10px 24px rgba(82, 98, 114, 0.25)',
         inner: 'inset 1px 1px 4px rgba(0, 0, 0, 0.15)'
+      },
+      zIndex: {
+        100: 100,
+        200: 200, 
+        300: 300,
+        400: 400,
+        500: 500
       }
     }
   },

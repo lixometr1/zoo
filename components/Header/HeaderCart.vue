@@ -8,7 +8,7 @@
         {{ cartCnt }}
       </div>
     </div>
-    <div class="ml-5">
+    <div class="ml-5 xs:hidden">
       <span class="text-green font-medium">{{ cartPrice }}</span>
       <span class="text-sm text-grey text-opacity-70">грн</span>
     </div>

@@ -37,6 +37,10 @@ export default {
     {
       src: "@/plugins/vue-scrollbar",
     },
+    {
+      src: "@/plugins/vue-click-outside",
+      mode: 'client'
+    },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

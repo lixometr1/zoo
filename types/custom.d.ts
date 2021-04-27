@@ -18,3 +18,7 @@ declare module '@ivanv/vue-collapse-transition' {
   export const CollapseTransition: any
   export default CollapseTransition
 }
+declare module 'v-click-outside' {
+  export const content: any
+  export default content
+}

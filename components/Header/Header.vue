@@ -1,8 +1,13 @@
 <template>
   <div class="header">
-   <HeaderTopBar />
-   <HeaderMainBar />
-   <HeaderActionsBar />
+    <div class="md:hidden">
+      <HeaderTopBar />
+      <HeaderMainBar />
+      <HeaderActionsBar />
+    </div>
+    <div class="hidden md:block">
+      <HeaderMob />
+    </div>
   </div>
 </template>
 

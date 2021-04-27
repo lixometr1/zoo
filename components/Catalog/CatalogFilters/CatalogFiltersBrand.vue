@@ -7,7 +7,7 @@
         @click="search"
       />
       <input
-        v-mode="searchPhrase"
+        v-model="searchPhrase"
         type="text"
         class="catalog-filters-brand-input"
         placeholder="Поиск по списку"

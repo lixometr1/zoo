@@ -1,5 +1,5 @@
 <template>
-  <button class="w-full lazy-load-bar focus:outline-none">
+  <button class="lazy-load-bar">
     <div class="mr-4"><svgRefresh class="text-green" width="25" /></div>
     <div class="text-blue font-bold" tabindex="0" @click="load">
       Показать еще {{ cnt }} <span class="lowercase">{{ itemsText }}</span>
@@ -37,6 +37,11 @@ export default defineComponent({
 
 <style lang="postcss">
 .lazy-load-bar {
-  @apply flex justify-center items-center bg-white rounded-lg py-9 border border-grey-light;
+  @apply flex justify-center items-center bg-white rounded-lg py-9 border border-grey-light
+  focus:outline-none w-full 
+   sm:py-5 sm:pt-8 sm:-ml-5.5 ;
+  @media screen and (max-width: theme('screens.sm.max')) {
+    width: calc(100% + 2.75rem);
+  }
 }
 </style>

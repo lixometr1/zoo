@@ -2,10 +2,10 @@
   <div>
     <a
       href="javascript:void(0)"
-      class="flex-y-center justify-between pb-4 border-b border-opacity-30 border-grey"
+      class="flex-y-center justify-between pb-4 border-b border-opacity-30 border-grey sm:pb-2.5"
       @click="toggle"
     >
-      <div class="font-bold text-lg">{{ title }}</div>
+      <div class="font-bold text-lg sm:text-sm">{{ title }}</div>
       <svgArrowDown
         width="14"
         class="text-grey transform transition"

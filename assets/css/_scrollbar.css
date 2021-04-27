@@ -15,4 +15,7 @@
   .ps__rail-y {
     width: 8px !important;
   }
+  &:not(.ps) {
+    overflow: hidden;
+  }
 }

@@ -31,7 +31,7 @@ export default defineComponent({
           leading-3
           rounded-full 
           w-14 h-14 p-1 
-          xl:w-11 xl:h-11 xl:text-xxs
+          md:w-11 md:h-11 md:text-xxs
           select-none;
   &.red {
     @apply bg-red text-white;

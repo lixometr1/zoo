@@ -5,7 +5,7 @@
     >
       <div class="flex-y-center">
         <svgFilters width="20" class="text-green mr-3" />
-        <div class="text-lg font-bold">{{ $t('youChoose') }}:</div>
+        <div class="text-lg font-bold sm:text-sm">{{ $t('youChoose') }}:</div>
       </div>
       <a
         href="javascript:void(0)"
@@ -13,7 +13,7 @@
         @click.prevent="clearAll"
       >
         <svgCross width="8" class="text-blue mr-2" />
-        <div class="text-blue font-bold text-sm uppercase">
+        <div class="text-blue font-bold text-sm uppercase sm:text-xs">
           {{ $t('clear') }} {{ $t('all') }}
         </div>
       </a>
@@ -83,7 +83,9 @@ export default defineComponent({
     @apply flex items-start flex-col space-y-1.5 mt-7 h-[188px] pr-8;
   }
   &__item {
-    @apply flex-y-center py-2 px-5.5 rounded-full border border-grey-light bg-white max-w-full whitespace-nowrap;
+    @apply flex-y-center py-2 px-5.5 rounded-full border 
+    border-grey-light bg-white max-w-full whitespace-nowrap
+    sm:px-4;
   }
 }
 </style>

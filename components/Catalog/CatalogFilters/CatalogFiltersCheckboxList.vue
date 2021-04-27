@@ -4,7 +4,7 @@
       <div
         v-for="(item, idx) in items"
         :key="idx"
-        class="flex-y-center select-none cursor-pointer text-base font-medium"
+        class="flex-y-center select-none cursor-pointer text-base font-medium sm:text-xs"
         @click="toggle(idx)"
       >
         <ACheckbox class="mr-2" :value="activeValues.includes(idx)" />
