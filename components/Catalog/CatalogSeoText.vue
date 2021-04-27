@@ -72,6 +72,7 @@ export default defineComponent({
       }
     }
     &::before {
+      @apply hidden sm:block;
       content: '';
       width: 100%;
       height: 30px;
