@@ -17,7 +17,7 @@ export default {
   close: 'Закрыть',
   popularCategories: 'Популярные категории',
   searchPlaceholder: 'Здесь может быть ваш запрос, например: Корм для собак',
-  searchPlaceholderMob: 'Я ищу',
+  searchPlaceholderMob: 'Я ищу...',
   leftReview: 'Оставить отзыв',
   available: 'В наличии',
   notAvailable: 'Нет в наличии',
@@ -26,6 +26,8 @@ export default {
   price: 'Цена',
   brand: 'Бренд',
   all: 'Все',
+  allCategories: 'Все категории',
+  catalogItems: 'Каталог товаров',
   toCart: 'В корзину',
   footer: {
     copyright: 'Copyright © Zoo.com.ua, 2021 | Все права защищены',

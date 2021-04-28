@@ -56,3 +56,22 @@ h3 {
     display: none;
   }
 }
+
+.blur-down {
+  &::before {
+    @apply hidden sm:block;
+    content: '';
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: linear-gradient(
+      to top,
+      theme('colors.grey.bg') 20%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+}
