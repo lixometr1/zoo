@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="mt-auto">
-      <span class="text-2lg"> {{ price }}</span> <span class="text-grey text-opacity-50">{{ currency }}</span>
+      <span class="text-2lg sm:text-lg"> {{ price }}</span> <span class="text-grey text-opacity-50">{{ currency }}</span>
     </div>
   </div>
 </template>
