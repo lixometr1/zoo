@@ -4,7 +4,7 @@
       <svgUser width="14" class="text-green" />
     </div>
     <div class="text-white">
-      <div class="font-bold font-sm">Андрей Маринович</div>
+      <div class="font-bold text-sm">Андрей Маринович</div>
       <div class="text-xs">xolxllz@gmail.com</div>
     </div>
   </div>

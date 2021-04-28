@@ -1,5 +1,5 @@
 <template>
-  <div class="border-r border-grey border-opacity-30 pr-9">
+  <div class="border-r border-grey border-opacity-30 pr-9 lg:border-none">
     <div
       class="text-lg font-bold mb-2.5 text-opacity-50 text-grey flex-shrink-0"
     >

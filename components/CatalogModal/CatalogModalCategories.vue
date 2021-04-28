@@ -1,5 +1,5 @@
 <template>
-  <perfect-scrollbar class="px-9 custom-scrollbar lg:px-5 max-h-full">
+  <div class="px-9 lg:px-5 max-h-full">
     <div class="flex space-x-4">
       <div class="w-1/3 space-y-2.5 lg:w-1/2">
         <CatalogModalCategoriesItem
@@ -23,7 +23,7 @@
         />
       </div>
     </div>
-  </perfect-scrollbar>
+  </div>
 </template>
 
 <script lang="ts">
