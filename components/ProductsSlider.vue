@@ -85,7 +85,7 @@ export default defineComponent({
     @apply lg:absolute lg:top-[40px] lg:pr-[140px] lg:w-full lg:transform lg:-translate-y-1/2 sm:top-[28px]  sm:pr-[110px];
   }
   &__arrow {
-    @apply lg:top-[10px] lg:mt-0;
+    @apply lg:top-[10px] mt-0;
     svg {
       @apply sm:w-[8px];
     }
