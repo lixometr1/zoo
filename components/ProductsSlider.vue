@@ -109,7 +109,6 @@ export default defineComponent({
     }
     @screen lg {
       left: auto;
-      /* transform: translate(-50%); */
     }
   }
 }
