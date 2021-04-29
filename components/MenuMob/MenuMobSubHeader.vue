@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between text-grey">
+  <div class="flex-y-center justify-between text-grey">
     <svgArrowLeft width="20" class="cursor-pointer" @click="goBack" />
     <div class="font-bold text-base">
       {{ title }}

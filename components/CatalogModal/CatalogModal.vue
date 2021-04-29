@@ -32,7 +32,7 @@ export default defineComponent({
 <style lang="postcss">
 .catalog-modal {
   @apply absolute -bottom-8 transform translate-y-full
-            w-full flex z-50
+            w-auto flex z-50
             h-[500px];
   box-shadow: 10px 10px 40px rgba(62, 63, 67, 0.1);
 }
