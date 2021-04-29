@@ -1,4 +1,5 @@
 import { Type } from 'class-transformer'
+import { ImageEntity } from './image.entity'
 
 class ProductItem {
   id: 1
@@ -16,6 +17,13 @@ class ProductItem {
   created_at: string
   updated_at: string
   deleted_at: null
+
+  @Type(() => ImageEntity)
+  media: ImageEntity[]
+
+  get defaultImage() {
+    return this.media[0]
+  }
 }
 export class ProductEntity {
   id: number

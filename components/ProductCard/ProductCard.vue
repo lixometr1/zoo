@@ -8,7 +8,7 @@
       class="block product-card__image"
       :class="{ full: isFullImage }"
     >
-      <img src="@/assets/img/product_mock.png" alt="" />
+      <img :src="image" alt="" />
     </router-link>
     <div class="product-card__content">
       <ProductCardActions />
@@ -72,7 +72,7 @@ export default defineComponent({
     const { multilineTitle, item } = toRefs(props)
     const addToCart = () => {}
     const productLink = '#'
-    const isFullImage = computed(() => false)
+    const isFullImage = computed(() => true)
     const topSale = computed(() => {
       return !!item?.value?.defaultItem?.top_sale_label
     })
@@ -108,7 +108,11 @@ export default defineComponent({
       return 0
     })
 
+    const image = computed(() => {
+      return item?.value?.defaultItem?.defaultImage?.url
+    })
     return {
+      image,
       isPopular,
       name,
       sale,

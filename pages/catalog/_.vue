@@ -69,6 +69,7 @@ export default defineComponent({
     const products = computed(() => {
       const prods = resultProducts.value?.product || []
       return prods.map((p: ProductEntity) => plainToClass(ProductEntity, p))
+
     })
     const breadcrumbs = [
       {

@@ -1,7 +1,7 @@
 <template>
   <a href="#" class="flex items-center" @click.prevent="openCart">
     <div class="relative">
-      <svgCart width="30" />
+      <svgCart width="30" class="text-grey hover:text-opacity-80" />
       <div
         class="absolute top-0 right-0 text-xs leading-none text-white bg-green rounded-full py-0.5 px-1.5 transform translate-x-2/4"
       >
