@@ -27,7 +27,13 @@ export default defineComponent({
         : [
             {
               name: 'Royal Canin Maxi Adult - 1...',
-              price: 42
+              price: 42,
+              salePrice: 20
+            },
+            {
+              name: 'Royal Canin Maxi Adult - 1...',
+              price: 42,
+              salePrice: 32
             },
             {
               name: 'Royal Canin Maxi Adult - 1...',
@@ -35,11 +41,8 @@ export default defineComponent({
             },
             {
               name: 'Royal Canin Maxi Adult - 1...',
-              price: 42
-            },
-            {
-              name: 'Royal Canin Maxi Adult - 1...',
-              price: 42
+              price: 42,
+              salePrice: 18
             },
             {
               name: 'Royal Canin Maxi Adult - 1...',
