@@ -29,7 +29,9 @@
       "@nuxtjs/axios",
       "@types/node",
       "nuxt-i18n",
-      "@/types/custom.d"
+      "@/types/custom.d",
+      "@nuxtjs/toast",
+      "cookie-universal-nuxt",
     ]
   },
   "exclude": [

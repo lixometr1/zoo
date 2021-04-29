@@ -7,7 +7,10 @@
           :key="idx"
           class="!w-[150px] pr-5 sm:pr-1 sm:!w-24"
         >
-          <router-link to="#" class="sm:flex sm:flex-col sm:items-center">
+          <router-link
+            :to="item.link || '#'"
+            class="sm:flex sm:flex-col sm:items-center"
+          >
             <img
               :src="item.img"
               alt=""
@@ -27,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, useContext } from '@nuxtjs/composition-api'
 // eslint-disable-next-line import/named
 import { SwiperOptions } from 'swiper'
 import useTextShort from '@/utils/compositions/useTextShort'
@@ -36,9 +39,10 @@ export default defineComponent({
   setup() {
     const items = [
       {
-        img: require('@/assets/img/cat_1.png'),
-        name: 'Сухой корм для кошек ',
+        img: require('@/assets/img/dog_mock.png'),
+        name: 'Игрушки для собак',
         cnt: 809,
+        link: useContext().localePath('/catalog/dog-items/toys')
       },
       {
         img: require('@/assets/img/cat_2.png'),

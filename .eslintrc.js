@@ -25,6 +25,7 @@ module.exports = {
     'vue/require-default-prop': 'off',
     'vue/attribute-hyphenation': 'off',
     'vue/max-attributes-per-line': 'off',
-    curly: 'off'
+    curly: 'off',
+    camelcase: 'off'
   },
 }

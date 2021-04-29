@@ -6,7 +6,7 @@
       <h3 class="mb-5 sm:mb-2">{{ menuCol.title }}</h3>
       <ul class="space-y-2">
         <li v-for="(link, index) in menuCol.items" :key="index">
-          <router-link class="text-grey text-opacity-70" :to="link.link || '#'">
+          <router-link class="text-grey text-opacity-70 hover:text-green" :to="link.link || '#'">
             {{ link.name }}
           </router-link>
         </li>

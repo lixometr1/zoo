@@ -18,7 +18,7 @@ body {
 .btn-green {
   @apply flex items-center justify-center font-bold py-4 px-5 
   bg-green rounded-md text-white cursor-pointer transition hover:bg-green-700
-  sm:px-4 sm:py-3;
+  sm:px-4 sm:py-3 focus:outline-none;
 }
 
 h2 {

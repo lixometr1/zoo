@@ -1,15 +1,66 @@
 <template>
   <div class="catalog-products flex flex-wrap sm:-ml-5.5 sm:-mr-5.5">
-    <ProductCard class="catalog-product" v-for="(item, idx) in 10" :key="idx" /> 
+    <ProductCard
+      v-for="(item, idx) in testItems"
+      :key="idx"
+      class="catalog-product"
+      :item="item"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { computed, defineComponent, toRefs } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  setup() {
-    return {}
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  setup(props) {
+    const { items } = toRefs(props)
+    const testItems = computed(() => {
+      return items.value?.length
+        ? items.value
+        : [
+            {
+              name: 'Royal Canin Maxi Adult - 1...',
+              price: 42
+            },
+            {
+              name: 'Royal Canin Maxi Adult - 1...',
+              price: 42
+            },
+            {
+              name: 'Royal Canin Maxi Adult - 1...',
+              price: 42
+            },
+            {
+              name: 'Royal Canin Maxi Adult - 1...',
+              price: 42
+            },
+            {
+              name: 'Royal Canin Maxi Adult - 1...',
+              price: 42
+            },
+            {
+              name: 'Royal Canin Maxi Adult - 1...',
+              price: 42
+            },
+            {
+              name: 'Royal Canin Maxi Adult - 1...',
+              price: 42
+            },
+            {
+              name: 'Royal Canin Maxi Adult - 1...',
+              price: 42
+            },
+          
+          ]
+    })
+    return { testItems }
   },
 })
 </script>

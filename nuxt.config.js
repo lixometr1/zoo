@@ -17,6 +17,7 @@ export default {
   css: [
     "~assets/css/styles.css"
   ],
+  loading: false,
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -41,6 +42,8 @@ export default {
       src: "@/plugins/vue-click-outside",
       mode: 'client'
     },
+    '@/plugins/reflect-metadata'
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -65,7 +68,8 @@ export default {
     '@nuxtjs/axios',
     'nuxt-i18n',
     "@nuxtjs/svg",
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
+    '@nuxtjs/toast',
   ],
   i18n: {
     detectBrowserLanguage: {

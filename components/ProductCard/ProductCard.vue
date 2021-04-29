@@ -12,7 +12,11 @@
     </router-link>
     <div class="product-card__content">
       <ProductCardActions />
-      <ProductCardLabels v-if="showLabels" />
+      <ProductCardLabels
+        v-if="showLabels"
+        :topSale="topSale"
+        :isPopular="isPopular"
+      />
       <ProductCardReviews
         class="mt-4"
         :stars="4"
@@ -21,15 +25,14 @@
       />
       <ProductCardAvailable class="mt-4" :has="true" />
       <router-link :to="productLink" class="block font-bold product-card__name">
-        Royal Canin Maxi Adult - 11545 ru s1rfrefs asd asd as asd asdasd asd
-        adsd ads</router-link
+        {{ name }}</router-link
       >
       <ProductCardPrice
         :size="size"
         class="mt-4"
-        :price="3200"
-        :oldPrice="3.78"
-        :sale="13"
+        :price="price"
+        :oldPrice="oldPrice"
+        :sale="sale"
       />
       <button v-if="showBtn" class="btn-green mt-4.5 w-full" @click="addToCart">
         {{ $t('toCart') }}
@@ -42,7 +45,7 @@
 import { computed, defineComponent, toRefs } from '@nuxtjs/composition-api'
 import useResizeValue from '~/utils/compositions/useResizeValue'
 import useTextShort from '~/utils/compositions/useTextShort'
-import { ProductEntity } from '~/utils/models/Product'
+import { ProductEntity } from '~/utils/models/product.entity'
 
 export default defineComponent({
   props: {
@@ -59,7 +62,6 @@ export default defineComponent({
     },
     item: {
       type: ProductEntity,
-      default: () => new ProductEntity(),
     },
     multilineTitle: {
       type: Boolean,
@@ -67,11 +69,57 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const { multilineTitle } = toRefs(props)
+    const { multilineTitle, item } = toRefs(props)
     const addToCart = () => {}
     const productLink = '#'
     const isFullImage = computed(() => false)
-    return { addToCart, productLink, isFullImage }
+    const topSale = computed(() => {
+      return !!item?.value?.defaultItem?.top_sale_label
+    })
+    const isPopular = computed(() => {
+      return !!item?.value?.defaultItem?.popular_label
+    })
+    const name = computed(() => {
+      return item?.value?.name || 'Royal Canin Maxi Adult - 1'
+    })
+    const hasSale = computed(() => {
+      return (
+        !!item?.value?.salePrice && item.value.salePrice !== item.value.price
+      )
+    })
+    const price = computed(() => {
+      if (hasSale.value) {
+        return item?.value?.salePrice
+      } else {
+        return item?.value?.price || 100
+      }
+    })
+    const oldPrice = computed(() => {
+      if (hasSale.value) {
+        return item?.value?.price
+      }
+      return 0
+    })
+    const sale = computed(() => {
+      if (!hasSale.value) return 0
+      if (oldPrice.value && price.value) {
+        return 100 - Math.round((price?.value / oldPrice?.value) * 100)
+      }
+      return 0
+    })
+
+    return {
+      isPopular,
+      name,
+      sale,
+      price,
+      hasSale,
+      oldPrice,
+      topSale,
+      addToCart,
+      productLink,
+      isFullImage,
+    }
   },
 })
 </script>
@@ -103,8 +151,7 @@ export default defineComponent({
       -webkit-line-clamp: 2;
       display: -webkit-box;
       white-space: initial;
-    -webkit-box-orient: vertical;
-      
+      -webkit-box-orient: vertical;
     }
   }
   &__image {
