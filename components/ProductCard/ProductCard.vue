@@ -72,7 +72,7 @@ export default defineComponent({
     const { multilineTitle, item } = toRefs(props)
     const addToCart = () => {}
     const productLink = '#'
-    const isFullImage = computed(() => true)
+    const isFullImage = computed(() => !!item?.value?.defaultItem?.defaultImage?.url)
     const topSale = computed(() => {
       return !!item?.value?.defaultItem?.top_sale_label
     })
@@ -109,7 +109,7 @@ export default defineComponent({
     })
 
     const image = computed(() => {
-      return item?.value?.defaultItem?.defaultImage?.url
+      return item?.value?.defaultItem?.defaultImage?.url || require('@/assets/img/product_mock.png')
     })
     return {
       image,
