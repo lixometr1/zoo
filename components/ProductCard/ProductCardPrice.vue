@@ -1,5 +1,5 @@
 <template>
-  <div class="h-16 product-card-price flex flex-col">
+  <div class="h-16 product-card-price flex flex-col sm:h-12">
     <div v-if="oldPrice" class="flex items-center">
       <div
         class="product-card-price__old text-opacity-50 text-grey product-card-old-price"
@@ -8,7 +8,7 @@
       </div>
       <div
         v-if="sale"
-        class="bg-yellow font-bold text-sm px-2 py-1.5 ml-2 rounded-md leading-none"
+        class="bg-yellow font-bold text-sm px-2 py-1.5 ml-2 rounded-md leading-none sm:text-xs sm:py-0.5"
       >
         -{{ sale }}%
       </div>

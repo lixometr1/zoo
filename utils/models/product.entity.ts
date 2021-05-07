@@ -22,7 +22,7 @@ class ProductItem {
   media: ImageEntity[]
 
   get defaultImage() {
-    return this.media[0]
+    return this.media && this.media[0]
   }
 }
 export class ProductEntity {
@@ -47,18 +47,47 @@ export class ProductEntity {
   product_item: ProductItem[]
 
   get defaultItem() {
-    return this.product_item[0]
+    return this.product_item && this.product_item[0]
   }
 
   get name() {
     return this.defaultItem?.title
   }
 
-  get price() {
+  get salePrice() {
+    return parseFloat(this.defaultItem?.sale_price)
+  }
+
+  get hasSale() {
+    return (
+      !!this.salePrice && this.salePrice !== this.staticPrice
+    )
+  }
+
+  get staticPrice() {
     return parseFloat(this.defaultItem?.price)
   }
 
-  get salePrice() {
-    return parseFloat(this.defaultItem?.sale_price)
+  get price() {
+    if (this.hasSale) {
+      return this.salePrice
+    } else {
+      return this.staticPrice || 100
+    }
+  }
+
+  get oldPrice() {
+    if (this.hasSale) {
+      return this.staticPrice
+    }
+    return 0
+  }
+
+  get sale() {
+    if (!this.hasSale) return 0
+    if (this.oldPrice && this.price) {
+      return 100 - Math.round((this.price / this.oldPrice) * 100)
+    }
+    return 0
   }
 }

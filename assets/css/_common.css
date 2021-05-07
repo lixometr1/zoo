@@ -2,7 +2,7 @@
   @apply max-w-[1494px] mx-auto px-5.5 lg:px-9 md:px-5.5;
 }
 body {
-  @apply text-grey font-main bg-grey-bg md:text-sm sm:text-xs;
+  @apply text-grey font-main min-h-screen bg-grey-bg md:text-sm sm:text-xs ;
 }
 .border-circle-green {
   background: url(~@/assets/icons/border_circle_green.svg?data) left bottom;
@@ -74,4 +74,11 @@ h3 {
       rgba(255, 255, 255, 0) 100%
     );
   }
+}
+
+.page-wrapper {
+  @apply flex-1 w-full;
+}
+.page-layout {
+  @apply flex flex-col items-start justify-start min-h-screen;
 }

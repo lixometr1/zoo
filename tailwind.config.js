@@ -67,7 +67,7 @@ module.exports = {
       },
       zIndex: {
         100: 100,
-        200: 200, 
+        200: 200,
         300: 300,
         400: 400,
         500: 500
@@ -78,6 +78,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    require('@tailwindcss/aspect-ratio'),
     plugin(({ addUtilities, theme }) => {
       const utilities = [
         {

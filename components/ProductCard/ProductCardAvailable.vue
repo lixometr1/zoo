@@ -4,10 +4,11 @@
       <svgCheckMark width="10" class="mr-2" />
       <div>{{ text }}</div>
     </div>
-    <div v-else class="flex text-grey items-center">
+    <div v-else class="flex text-grey items-center opacity-40">
+      <svgCross class="mr-2" width="9" />
       <div>{{ text }}</div>
     </div>
-  </div> 
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,8 +19,10 @@ import {
   useContext,
 } from '@nuxtjs/composition-api'
 import svgCheckMark from '@/assets/icons/checkmark.svg?inline'
+import svgCross from '@/assets/icons/cross.svg?inline'
+
 export default defineComponent({
-  components: { svgCheckMark },
+  components: { svgCheckMark, svgCross },
   props: {
     has: {
       type: Boolean,

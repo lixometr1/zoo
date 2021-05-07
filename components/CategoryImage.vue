@@ -19,10 +19,20 @@ export default defineComponent({
 
 <style lang="postcss">
 .category-image {
-  @apply w-[230px] h-[230px] border-[3px] border-white rounded-full sm:w-[100px] sm:h-[100px];
-  box-shadow: 5px 10px 40px rgba(0, 0, 0, 0.2);
+  @apply rounded-full relative -m-3;
+  &::before {
+    content: "";
+    @apply aspect-h-1 aspect-w-1 bg-white absolute z-10 rounded-full;
+    top: 6.5%;
+    left: 6.5%;
+    right: 6.5%;
+    bottom: 6.5%;
+    /* width: 100%;
+    height: 100%; */
+    box-shadow: 5px 10px 40px rgba(0, 0, 0, 0.2);
+  }
   img {
-    @apply object-cover max-h-full rounded-full;
+    @apply object-contain max-h-full w-full relative z-20;
   }
 }
 </style>

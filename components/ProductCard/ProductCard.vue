@@ -1,7 +1,16 @@
 <template>
   <div
-    class="product-card relative"
-    :class="{ 'size-sm': size === 'sm', 'name-multiline': multilineTitle }"
+    ref="selfEl"
+    class="product-card"
+    :class="{
+      'size-sm': size === 'sm',
+      'is-available': isAvailable,
+      'name-multiline': multilineTitle,
+      'hover-collapse': hoverCollapse,
+      'is-hover': hoverClass,
+    }"
+    @mouseenter.self="onMouseEnter"
+    @mouseleave="onMouseLeave"
   >
     <router-link
       :to="productLink"
@@ -9,6 +18,11 @@
       :class="{ full: isFullImage }"
     >
       <img :src="image" alt="" />
+      <transition name="t-fade">
+        <button v-if="isHover" class="product-card__quick-view" @click.prevent>
+          {{ $t('quickView') }}
+        </button>
+      </transition>
     </router-link>
     <div class="product-card__content">
       <ProductCardActions />
@@ -18,23 +32,45 @@
         :isPopular="isPopular"
       />
       <ProductCardReviews
+        v-if="showReviews"
         class="mt-4"
         :stars="4"
         :hasReviews="true"
         :total="43"
       />
-      <ProductCardAvailable class="mt-4" :has="true" />
-      <router-link :to="productLink" class="block font-bold product-card__name">
+      <ProductCardAvailable class="mt-4" :has="isAvailable" />
+      <router-link
+        :to="productLink"
+        class="block font-bold text-grey product-card__name"
+        :class="{ 'text-opacity-50': !isAvailable }"
+      >
         {{ name }}</router-link
       >
+      <CollapseTransition
+        @before-enter="beforeHoverEnter"
+        @after-enter="afterHoverEnter"
+        @before-leave="beforeHoverLeave"
+        @after-leave="afterHoverLeave"
+      >
+        <ProductCardVariations
+          v-if="isHover"
+          v-model="activeVariations"
+          class="pt-4"
+          :items="variations"
+        />
+      </CollapseTransition>
       <ProductCardPrice
         :size="size"
-        class="mt-4"
+        class="mt-4 sm:mt-2"
         :price="price"
         :oldPrice="oldPrice"
         :sale="sale"
       />
-      <button v-if="showBtn" class="btn-green mt-4.5 w-full" @click="addToCart">
+      <button
+        v-if="showBtn"
+        class="btn-green mt-4.5 w-full sm:mt-2"
+        @click="addToCart"
+      >
         {{ $t('toCart') }}
       </button>
     </div>
@@ -42,12 +78,22 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, toRefs } from '@nuxtjs/composition-api'
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  reactive,
+  ref,
+  toRefs,
+} from '@nuxtjs/composition-api'
+import { CollapseTransition } from '@ivanv/vue-collapse-transition'
+import useProductCardFields from './product-card-fields'
+
 import useResizeValue from '~/utils/compositions/useResizeValue'
 import useTextShort from '~/utils/compositions/useTextShort'
 import { ProductEntity } from '~/utils/models/product.entity'
-
 export default defineComponent({
+  components: { CollapseTransition },
   props: {
     size: {
       type: String,
@@ -60,6 +106,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    showReviews: {
+      type: Boolean,
+      default: true,
+    },
     item: {
       type: ProductEntity,
     },
@@ -67,51 +117,120 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    hoverCollapse: {
+      type: Boolean,
+      default: true,
+    },
   },
   setup(props) {
-    const { multilineTitle, item } = toRefs(props)
+    const { multilineTitle, item, hoverCollapse } = toRefs(props)
     const addToCart = () => {}
     const productLink = '#'
-    const isFullImage = computed(() => !!item?.value?.defaultItem?.defaultImage?.url)
-    const topSale = computed(() => {
-      return !!item?.value?.defaultItem?.top_sale_label
+    const selfEl = ref<HTMLElement>((null as any) as HTMLElement)
+    const {
+      isFullImage,
+      topSale,
+      isPopular,
+      name,
+      hasSale,
+      price,
+      oldPrice,
+      sale,
+      isAvailable,
+      image,
+      variations,
+      activeVariations,
+    } = useProductCardFields(item)
+    const isHover = ref(false)
+    const hoverClass = ref(false)
+    const itemClone = ref(null as any)
+    const animatingState = ref('leave')
+    let elDimensions = reactive({
+      left: 0,
+      top: 0,
+      width: 0,
+      height: 0,
+      borderRadius: '',
     })
-    const isPopular = computed(() => {
-      return !!item?.value?.defaultItem?.popular_label
-    })
-    const name = computed(() => {
-      return item?.value?.name || 'Royal Canin Maxi Adult - 1'
-    })
-    const hasSale = computed(() => {
-      return (
-        !!item?.value?.salePrice && item.value.salePrice !== item.value.price
-      )
-    })
-    const price = computed(() => {
-      if (hasSale.value) {
-        return item?.value?.salePrice
-      } else {
-        return item?.value?.price || 100
-      }
-    })
-    const oldPrice = computed(() => {
-      if (hasSale.value) {
-        return item?.value?.price
-      }
-      return 0
-    })
-    const sale = computed(() => {
-      if (!hasSale.value) return 0
-      if (oldPrice.value && price.value) {
-        return 100 - Math.round((price?.value / oldPrice?.value) * 100)
-      }
-      return 0
-    })
+    const onMouseEnter = () => {
+      if (hoverCollapse.value && isAvailable.value) {
+        isHover.value = true
+        const el = selfEl.value
+        const rect = el.getBoundingClientRect()
+        const left = rect.left
+        const top = rect.top + window.scrollY
+        const width = el.offsetWidth
+        const height = el.offsetHeight
+        const borderRadius = getComputedStyle(el).borderRadius
+        elDimensions = reactive({
+          left,
+          top,
+          width,
+          height,
+          borderRadius,
+        })
+        if (
+          el.parentNode !== document.body &&
+          animatingState.value === 'leave'
+        ) {
+          hoverClass.value = true
 
-    const image = computed(() => {
-      return item?.value?.defaultItem?.defaultImage?.url || require('@/assets/img/product_mock.png')
-    })
+          itemClone.value = document.createElement('div')
+          const clone = itemClone.value
+          clone.style.width = `${elDimensions.width}px`
+          clone.style.height = `${elDimensions.height}px`
+          clone.style.borderRadius = `${elDimensions.borderRadius}px`
+
+          el.style.left = `${elDimensions.left}px`
+          el.style.top = `${elDimensions.top}px`
+          el.style.width = `${elDimensions.width}px`
+          el.after(clone)
+          document.body.appendChild(el)
+        }
+      }
+    }
+
+    const onMouseLeave = () => {
+      isHover.value = false
+    }
+    const afterHoverLeave = () => {
+      if (animatingState.value === 'enter') return
+      const el = selfEl.value
+
+      if (el.parentNode === document.body) {
+        el.style.left = ''
+        el.style.top = ''
+        el.style.width = ''
+        hoverClass.value = false
+
+        itemClone.value.after(el)
+        itemClone.value.remove()
+        itemClone.value = null
+      }
+      animatingState.value = 'leave'
+    }
+    const beforeHoverEnter = () => {
+      animatingState.value = 'enter'
+    }
+    const afterHoverEnter = () => {
+      animatingState.value = 'enter'
+    }
+    const beforeHoverLeave = () => {
+      animatingState.value = 'leave'
+    }
     return {
+      afterHoverEnter,
+      beforeHoverLeave,
+      selfEl,
+      beforeHoverEnter,
+      afterHoverLeave,
+      hoverClass,
+      isHover,
+      onMouseEnter,
+      onMouseLeave,
+      activeVariations,
+      variations,
+      isAvailable,
       image,
       isPopular,
       name,
@@ -130,12 +249,23 @@ export default defineComponent({
 
 <style lang="postcss">
 .product-card {
-  @apply box-border bg-white rounded-xl border border-grey-light pb-6 overflow-hidden;
+  @apply box-border bg-white rounded-xl border border-grey-light pb-6 overflow-hidden relative transition min-w-0;
   &.size-sm {
     @apply text-sm sm:text-xs;
   }
   &.size-sm &__content {
     @apply px-5.5;
+  }
+  &.hover-collapse {
+    &:hover {
+    }
+  }
+  &.is-hover {
+    position: absolute;
+    box-shadow: 0px 0px 30px rgba(82, 98, 114, 0.15);
+    z-index: 100;
+    padding-top: 40px;
+    transform: translateY(-60px);
   }
   &__content {
     @apply px-6 sm:px-3.5;
@@ -150,7 +280,7 @@ export default defineComponent({
   &__name {
     text-overflow: ellipsis;
     white-space: nowrap;
-    @apply overflow-hidden h-[20px] sm:h-[30px];
+    @apply overflow-hidden h-[20px] sm:h-[30px] max-w-full;
     @media screen and (max-width: theme('screens.sm.max')) {
       -webkit-line-clamp: 2;
       display: -webkit-box;
@@ -158,14 +288,20 @@ export default defineComponent({
       -webkit-box-orient: vertical;
     }
   }
+  &__quick-view {
+    @apply bg-white bg-opacity-90 py-3 px-4.5 font-medium  z-20 rounded-md focus:outline-none
+            hover:bg-opacity-100
+            absolute bottom-0 left-1/2 transform -translate-x-1/2;
+    box-shadow: 0px 0px 15px rgba(82, 98, 114, 0.25);
+  }
   &__image {
-    @apply h-[180px] flex items-center justify-center pt-6;
+    @apply h-[180px] flex items-center justify-center pt-6 relative md:px-5;
 
     img {
       @apply w-full h-full object-contain;
     }
     &.full {
-      @apply pt-0;
+      @apply pt-0 px-0;
       img {
         @apply object-cover;
       }

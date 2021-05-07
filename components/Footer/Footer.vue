@@ -1,5 +1,5 @@
 <template>
-  <footer class="pt-7 bg-white footer mt-18 md:mt-14 sm:mt-9">
+  <footer class="pt-7 bg-white footer mt-18 md:mt-14 sm:mt-9 w-full">
     <div class="container">
       <div class="flex pb-14 lg:flex-wrap">
         <FooterInfoCol class="footer-info-col w-1/4 lg:w-full lg:mb-12 sm:mb-10" />

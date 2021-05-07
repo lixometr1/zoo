@@ -30,7 +30,7 @@
       <ProductsSlider class="mt-20 md:mt-9" title="Просмотренные товары" />
     </div>
     <div class="mt-20 sm:mt-10">
-      <CatalogSeoText />
+      <SeoText />
     </div>
     <CatalogMobFilters />
   </div>

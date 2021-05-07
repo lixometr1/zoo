@@ -11,6 +11,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, toRefs } from '@nuxtjs/composition-api'
+import { plainToClass } from 'class-transformer'
+import { ProductEntity } from '~/utils/models/product.entity'
 
 export default defineComponent({
   props: {
@@ -25,42 +27,46 @@ export default defineComponent({
       return items.value?.length
         ? items.value
         : [
+            plainToClass(ProductEntity, {
+              name: 'Royal Canin Maxi Adult - 1...',
+              product_item: [
+                {
+                  title: 'Hey',
+                  price: 42,
+                  sale_price: 20, 
+                },
+              ],
+            }),
             {
               name: 'Royal Canin Maxi Adult - 1...',
               price: 42,
-              salePrice: 20
+              salePrice: 32,
             },
             {
               name: 'Royal Canin Maxi Adult - 1...',
               price: 42,
-              salePrice: 32
-            },
-            {
-              name: 'Royal Canin Maxi Adult - 1...',
-              price: 42
             },
             {
               name: 'Royal Canin Maxi Adult - 1...',
               price: 42,
-              salePrice: 18
+              salePrice: 18,
             },
             {
               name: 'Royal Canin Maxi Adult - 1...',
-              price: 42
+              price: 42,
             },
             {
               name: 'Royal Canin Maxi Adult - 1...',
-              price: 42
+              price: 42,
             },
             {
               name: 'Royal Canin Maxi Adult - 1...',
-              price: 42
+              price: 42,
             },
             {
               name: 'Royal Canin Maxi Adult - 1...',
-              price: 42
+              price: 42,
             },
-          
           ]
     })
     return { testItems }

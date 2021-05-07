@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header w-full">
     <div class="md:hidden">
       <HeaderTopBar />
       <HeaderMainBar />

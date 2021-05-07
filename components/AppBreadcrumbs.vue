@@ -12,7 +12,7 @@
         v-for="(link, idx) in breadcrumbsItems"
         :key="idx"
         :to="link.routeName ? localePath({ name: link.routeName }) : '#'"
-        class="text-grey text-opacity-50 mx-1"
+        class="text-grey text-opacity-50 mx-1 hover:text-opacity-100 transition-colors"
       >
         {{ link.name }} <span class="text-sm">/</span>
       </router-link>
