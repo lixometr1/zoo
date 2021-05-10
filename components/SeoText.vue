@@ -33,7 +33,7 @@
         >
       </p>
     </div>
-    <ArrowMore :open="isOpen" @click="toggle" />
+    <ArrowMore class="sm:!flex !hidden" :open="isOpen" @click="toggle" />
   </div>
 </template>
 
@@ -52,6 +52,9 @@ export default defineComponent({
 .catalog-seo-text {
   &__content {
     @apply sm:h-[270px] overflow-hidden relative z-10 transition;
+    &::before {
+      @apply hidden sm:block;
+    }
     &.open {
       @apply h-[100%];
       &::before {

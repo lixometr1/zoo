@@ -69,6 +69,42 @@ export default defineComponent({
       {
         image: require('@/assets/img/brand_mock_4.png'),
       },
+      {
+        image: require('@/assets/img/brand_mock_3.png'),
+      },
+      {
+        image: require('@/assets/img/brand_mock_4.png'),
+      },
+      {
+        image: require('@/assets/img/brand_mock_1.png'),
+      },
+      {
+        image: require('@/assets/img/brand_mock_1.png'),
+      },
+      {
+        image: require('@/assets/img/brand_mock_1.png'),
+      },
+      {
+        image: require('@/assets/img/brand_mock_2.png'),
+      },
+      {
+        image: require('@/assets/img/brand_mock_3.png'),
+      },
+      {
+        image: require('@/assets/img/brand_mock_4.png'),
+      },
+      {
+        image: require('@/assets/img/brand_mock_1.png'),
+      },
+      {
+        image: require('@/assets/img/brand_mock_1.png'),
+      },
+      {
+        image: require('@/assets/img/brand_mock_1.png'),
+      },
+      {
+        image: require('@/assets/img/brand_mock_2.png'),
+      },
     ]
     return { items }
   },

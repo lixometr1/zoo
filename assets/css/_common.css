@@ -1,8 +1,10 @@
 .container {
   @apply max-w-[1494px] mx-auto px-5.5 lg:px-9 md:px-5.5;
 }
+
+
 body {
-  @apply text-grey font-main min-h-screen bg-grey-bg md:text-sm sm:text-xs  ;
+  @apply text-grey font-main min-h-screen bg-grey-bg md:text-sm sm:text-xs;
 }
 .border-circle-green {
   background: url(~@/assets/icons/border_circle_green.svg?data) left bottom;
@@ -59,7 +61,6 @@ h3 {
 
 .blur-down {
   &::before {
-    @apply hidden sm:block;
     content: '';
     width: 100%;
     height: 30px;

@@ -1,7 +1,7 @@
 <template>
-  <div class="py-4 bg-white border-b border-grey-light">
+  <div class="bg-white border-b border-grey-light">
     <div class="container">
-      <div class="flex items-center relative">
+      <div class="flex items-center py-4 relative">
         <HeaderCatalogBtn class="mr-8" @click.native="toggleCatalogModal" />
         <HeaderSearch class="flex-grow" />
         <HeaderFeatureBtns class="border-r border-l border-grey-light mx-7" />

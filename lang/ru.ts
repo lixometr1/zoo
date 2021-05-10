@@ -25,6 +25,7 @@ export default {
   clear: 'Очистить',
   price: 'Цена',
   brand: 'Бренд',
+  brands: 'Бренды',
   all: 'Все',
   allCategories: 'Все категории',
   catalogItems: 'Каталог товаров',
@@ -34,6 +35,10 @@ export default {
   popular: "Популярное",
   watchAll: 'Смотреть все',
   quickView: 'Быстрый просмотр',
+  stockItems: "Акционный товар",
+  sellingHits: 'Хиты продаж',
+  productsNew: 'Новинки',
+  stocks: 'Акции',
   footer: {
     copyright: 'Copyright © Zoo.com.ua, 2021 | Все права защищены',
     questions: 'По всем вопросам',

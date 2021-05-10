@@ -24,12 +24,14 @@
         </swiper>
         <div
           :id="'swiper-button-next-' + _uid"
+          :class="arrowNextClass"
           class="swiper-button-next app-slider__arrow app-slider__arrow-next circle-arrow swiper-button-reset"
         >
           <svgArrowRight width="10" />
         </div>
         <div
           :id="'swiper-button-prev-' + _uid"
+          :class="arrowPrevClass"
           class="swiper-button-prev app-slider__arrow app-slider__arrow-prev circle-arrow swiper-button-reset"
         >
           <svgArrowLeft width="10" />
@@ -63,6 +65,12 @@ export default defineComponent({
       type: Array,
       default: () => [],
     },
+    arrowPrevClass: {
+      type: [Array, String, Object],
+    },
+    arrowNextClass: {
+      type: [Array, String, Object],
+    },
   },
   computed: {
     sliderOpts(): SwiperOptions {
@@ -83,7 +91,9 @@ export default defineComponent({
 .app-slider {
   @apply relative;
   &__title {
-    @apply mb-9 lg:absolute lg:top-[40px] lg:pr-[140px] lg:w-full lg:transform lg:-translate-y-1/2 sm:top-[28px]  sm:pr-[110px];
+    @apply mb-9 
+          lg:absolute lg:top-[40px] left-0 lg:right-[140px] lg:transform lg:-translate-y-1/2 
+          sm:top-[28px]  sm:right-[110px] z-20;
   }
   &__arrow {
     @apply lg:top-[10px] mt-0;

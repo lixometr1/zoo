@@ -82,6 +82,7 @@ import {
   computed,
   defineComponent,
   onMounted,
+  onUnmounted,
   reactive,
   ref,
   toRefs,
@@ -222,6 +223,7 @@ export default defineComponent({
     const beforeHoverLeave = () => {
       animatingState.value = 'leave'
     }
+    onUnmounted(() => afterHoverLeave())
     return {
       afterHoverEnter,
       beforeHoverLeave,

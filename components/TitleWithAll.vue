@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-9 md:mb-5 flex items-center xs:justify-between">
+  <div class="mb-9 md:mb-5 flex items-center sm:justify-between">
     <slot name="title">
       <h2>{{ title }}</h2>
     </slot>

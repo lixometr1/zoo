@@ -23,7 +23,7 @@ export default defineComponent({
 .arrow-more {
   @apply w-14 h-14 border-2 border-white rounded-full items-center justify-center
     bg-green cursor-pointer hover:bg-green-700 transition text-white 
-    sm:flex hidden mx-auto -mt-3 z-20 relative;
+   flex mx-auto -mt-3 z-20 relative;
   &.open {
     @apply !mt-2;
     svg {

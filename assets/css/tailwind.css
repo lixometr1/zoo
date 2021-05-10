@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @responsive {
+    .no-gutter {
+      @apply -mx-5.5 lg:-mx-9 md:-mx-5.5;
+    }
+  }
+}

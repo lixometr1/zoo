@@ -29,7 +29,7 @@ export default defineComponent({
     bottom: 6.5%;
     /* width: 100%;
     height: 100%; */
-    box-shadow: 5px 10px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 24px rgba(82, 98, 114, 0.25);
   }
   img {
     @apply object-contain max-h-full w-full relative z-20;

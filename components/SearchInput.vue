@@ -8,7 +8,7 @@
       @keypress.enter="search"
     />
     <div class="search-input__icon" @click="search">
-      <svgSearch width="24" class="text-grey" />
+      <svgSearch width="24" class="text-grey hover:text-green transition-colors" />
     </div>
   </div>
 </template>
