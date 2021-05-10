@@ -173,8 +173,6 @@ export default defineComponent({
           el.parentNode !== document.body &&
           animatingState.value === 'leave'
         ) {
-          hoverClass.value = true
-
           itemClone.value = document.createElement('div')
           const clone = itemClone.value
           clone.style.width = `${elDimensions.width}px`
@@ -184,14 +182,20 @@ export default defineComponent({
           el.style.left = `${elDimensions.left}px`
           el.style.top = `${elDimensions.top}px`
           el.style.width = `${elDimensions.width}px`
+          el.style.position = 'absolute'
+
           el.after(clone)
           document.body.appendChild(el)
+          setTimeout(() => {
+            hoverClass.value = true
+          }, 0)
         }
       }
     }
 
     const onMouseLeave = () => {
       isHover.value = false
+      hoverClass.value = false
     }
     const afterHoverLeave = () => {
       if (animatingState.value === 'enter') return
@@ -201,7 +205,7 @@ export default defineComponent({
         el.style.left = ''
         el.style.top = ''
         el.style.width = ''
-        hoverClass.value = false
+        el.style.position = ''
 
         itemClone.value.after(el)
         itemClone.value.remove()
@@ -261,7 +265,6 @@ export default defineComponent({
     }
   }
   &.is-hover {
-    position: absolute;
     box-shadow: 0px 0px 30px rgba(82, 98, 114, 0.15);
     z-index: 100;
     padding-top: 40px;

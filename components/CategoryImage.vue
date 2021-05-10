@@ -19,7 +19,7 @@ export default defineComponent({
 
 <style lang="postcss">
 .category-image {
-  @apply rounded-full relative -m-3;
+  @apply rounded-full relative ;
   &::before {
     content: "";
     @apply aspect-h-1 aspect-w-1 bg-white absolute z-10 rounded-full;

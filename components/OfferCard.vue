@@ -8,16 +8,13 @@
     <svgCircle class="offer-card__circle offer-card__circle-1" />
     <svgCircle class="offer-card__circle offer-card__circle-2" />
     <div class="offer-card__content">
-      <h2 class="text-white  offer-card__title" v-html="title" v-if="title"></h2>
+      <div v-if="brand" class="mb-4 offer-card__brand"><img :src="brand" alt="" /></div>
+      <h2 class="text-white offer-card__title" v-html="title" v-if="title"></h2>
       <h2 class="offer-card__sale" v-if="sale">{{ sale }}</h2>
       <div class="font-medium mt-2">
         {{ description }}
       </div>
-      <button
-        :to="link || '#'"
-        class="offer-card__btn"
-        :style="{ color }"
-      >
+      <button :to="link || '#'" class="offer-card__btn" :style="{ color }">
         {{ btn }}
       </button>
     </div>
@@ -41,6 +38,7 @@ export default defineComponent({
     color: String,
     logo: String,
     sale: String,
+    brand: String,
     bgType: {
       type: Number,
       default: 1,
@@ -57,7 +55,7 @@ export default defineComponent({
   @apply min-h-[320px] rounded-lg flex-y-center px-14 py-10 text-white
         bg-no-repeat bg-cover overflow-hidden relative
         md:px-10 md:py-8 sm:px-5 sm:py-4 sm:min-h-[250px];
-  box-shadow: 10px 10px 24px rgba(82, 98, 114, 0.35);
+  box-shadow: 0px 10px 24px rgba(82, 98, 114, 0.35);
   &__content {
     @apply max-w-[460px] text-white relative z-20 sm:max-w-[300px];
   }
@@ -66,6 +64,9 @@ export default defineComponent({
   }
   &__image {
     @apply absolute right-0 bottom-0 z-10 max-h-[100%] max-w-[50%];
+  }
+  &__brand {
+    @apply max-w-[80px];
   }
   &__btn {
     @apply mt-3 inline-block focus:outline-none px-5.5 py-4.5 
@@ -79,18 +80,18 @@ export default defineComponent({
   }
   &.bg-style-1 &__circle {
     &-1 {
-      @apply w-[288px] left-[210px] top-[-144px];
+      @apply w-[288px] left-[210px] top-[-160px] sm:w-[150px] sm:left-[150px] sm:top-[-75px];
     }
     &-2 {
-      @apply w-[520px]  left-[-310px] bottom-[-320px];
+      @apply w-[520px]  left-[-310px] bottom-[-320px] sm:left-[-50px] sm:w-[300px] sm:bottom-[-180px];
     }
   }
   &.bg-style-2 &__circle {
     &-1 {
-      @apply w-[228px] right-[200px] top-[-140px];
+      @apply w-[228px] right-[200px] top-[-140px] sm:w-[180px] sm:right-[150px] sm:top-[-100px];
     }
     &-2 {
-      @apply w-[400px] left-[-80px] bottom-[-240px];
+      @apply w-[400px] left-[-80px] bottom-[-240px] sm:w-[250px] sm:bottom-[-130px];
     }
   }
 }

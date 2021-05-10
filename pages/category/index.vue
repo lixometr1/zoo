@@ -6,7 +6,7 @@
       <CategoryOfferSlider class="mt-9 md:mt-5" />
       <CategorySubCategories class="mt-24 md:mt-5" />
     </div>
-    <CategoryBrands class="mt-24 md:mt-5" />
+    <BrandsBlock :title="$t('categoryBrands')" class="mt-24 md:mt-5" />
     <div class="container">
       <CategoryPopularSlider class="mt-18 md:mt-12 sm:mt-9" />
       <SeoText class="mt-32 md:mt-15 sm:mt-8" />

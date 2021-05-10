@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="catalog-sub-categories">
     <client-only>
       <swiper :options="sliderOpts">
         <swiper-slide
@@ -9,12 +9,16 @@
         >
           <router-link
             :to="item.link || '#'"
-            class="sm:flex sm:flex-col sm:items-center"
+            class="sm:flex sm:flex-col sm:items-center group"
           >
-            <img
-              :src="item.img"
+            <!-- <img
+              
               alt=""
               class="rounded-full border-4 border-white w-32 h-32 overflow-hidden object-cover shadow-image sm:w-16 sm:h-16 sm:border-2"
+            /> -->
+            <CategoryImage
+              :src="item.img"
+              class="catalog-sub-category w-32 h-32 sm:w-16 sm:h-16"
             />
             <div class="text-center text-sm font-bold mt-2 sm:text-xs">
               {{ shortName(item.name) }}
@@ -42,7 +46,7 @@ export default defineComponent({
         img: require('@/assets/img/dog_mock.png'),
         name: 'Игрушки для собак',
         cnt: 809,
-        link: useContext().localePath('/catalog/dog-items/toys')
+        link: useContext().localePath('/catalog/dog-items/toys'),
       },
       {
         img: require('@/assets/img/cat_2.png'),
@@ -50,42 +54,42 @@ export default defineComponent({
         cnt: 42,
       },
       {
-        img: require('@/assets/img/cat_3.png'),
+        img: require('@/assets/img/cat_1.png'),
         name: 'Сухой корм для кошек long text',
         cnt: 809,
       },
       {
-        img: require('@/assets/img/cat_3.png'),
+        img: require('@/assets/img/cat_1.png'),
         name: 'Сухой корм для кошек ',
         cnt: 809,
       },
       {
-        img: require('@/assets/img/cat_3.png'),
+        img: require('@/assets/img/cat_1.png'),
         name: 'Сухой корм для кошек ',
         cnt: 809,
       },
       {
-        img: require('@/assets/img/cat_3.png'),
+        img: require('@/assets/img/cat_1.png'),
         name: 'Сухой корм для кошек ',
         cnt: 809,
       },
       {
-        img: require('@/assets/img/cat_3.png'),
+        img: require('@/assets/img/cat_1.png'),
         name: 'Сухой корм для кошек ',
         cnt: 809,
       },
       {
-        img: require('@/assets/img/cat_3.png'),
+        img: require('@/assets/img/cat_1.png'),
         name: 'Сухой корм для кошек ',
         cnt: 809,
       },
       {
-        img: require('@/assets/img/cat_3.png'),
+        img: require('@/assets/img/cat_1.png'),
         name: 'Сухой корм для кошек ',
         cnt: 809,
       },
       {
-        img: require('@/assets/img/cat_3.png'),
+        img: require('@/assets/img/cat_1.png'),
         name: 'Сухой корм для кошек ',
         cnt: 809,
       },
@@ -116,4 +120,12 @@ export default defineComponent({
 </script>
 
 <style lang="postcss">
+.catalog-sub-categories {
+  .catalog-sub-category {
+    @apply transition transform  group-hover:scale-110;
+    &::before {
+      @apply shadow-image;
+    }
+  }
+}
 </style>

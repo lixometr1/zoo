@@ -1,13 +1,6 @@
 <template>
   <div>
-    <div class="mb-9 md:mb-5 flex items-center xs:flex-col xs:items-start">
-      <h2>{{ $t('popular') }}</h2>
-      <router-link
-        class="ml-7 xs:ml-0 xs:text-xs border-circle-grey text-sm"
-        to="#"
-        >{{ $t('watchAll') }}</router-link
-      >
-    </div>
+    <TitleWithAll link="#" :title="$t('popular')" />
     <AppSlider
       sliderClass="category-popular-slider"
       :items="items"

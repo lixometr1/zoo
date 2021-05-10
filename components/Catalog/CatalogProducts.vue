@@ -1,11 +1,8 @@
 <template>
   <div class="catalog-products flex flex-wrap sm:-ml-5.5 sm:-mr-5.5">
-    <ProductCard
-      v-for="(item, idx) in testItems"
-      :key="idx"
-      class="catalog-product"
-      :item="item"
-    />
+    <div v-for="(item, idx) in testItems" :key="idx" class="catalog-product">
+      <ProductCard :item="item" />
+    </div>
   </div>
 </template>
 
@@ -28,17 +25,17 @@ export default defineComponent({
         ? items.value
         : [
             plainToClass(ProductEntity, {
-              name: 'Royal Canin Maxi Adult - 1...',
+              name: 'Royal Canin Maxi Adult - 1 asd asd',
               product_item: [
                 {
                   title: 'Hey',
                   price: 42,
-                  sale_price: 20, 
+                  sale_price: 20,
                 },
               ],
             }),
             {
-              name: 'Royal Canin Maxi Adult - 1...',
+              name: 'Royal Canin Maxi Adult - 1 ad',
               price: 42,
               salePrice: 32,
             },
