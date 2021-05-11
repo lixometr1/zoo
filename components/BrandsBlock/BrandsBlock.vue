@@ -14,10 +14,12 @@
           :key="idx"
           :to="item.link || '#'"
           class="category-brands__item"
+          :class="{ 'sm:hidden': idx > 11, 'xxs:hidden': idx > 9 }"
         >
           <img :src="item.image" class="mx-auto" alt="" />
         </router-link>
       </div>
+      <router-link to="#" class="btn-green sm:!py-4.5 !hidden sm:!flex mt-6">{{ $t('watchAll') }}</router-link>
     </div>
   </div>
 </template>

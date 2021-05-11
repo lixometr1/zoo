@@ -1,25 +1,36 @@
 <template>
   <div class="products-collapse" :class="{ open: isOpen, 'has-more': hasMore }">
-    <div class="products-collapse__wrapper" :class="{ 'blur-down': hasMore }">
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
-        <div v-for="(item, idx) in items" :key="idx" class="">
-          <ProductCard
-            :multilineTitle="true"
-            :showReviews="false"
-            :item="item"
-            class="products-slider__product"
-          />
+    <!-- <CollapseTransition> -->
+      <div class="products-collapse__wrapper" :class="{ 'blur-down': hasMore }">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
+          <div v-for="(item, idx) in items" :key="idx" class="">
+            <ProductCard
+              :multilineTitle="true"
+              :showReviews="false"
+              :item="item"
+              class="products-slider__product"
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <ArrowMore class="-top-3.5" v-if="hasMore" :open="isOpen" @click="toggle" />
+    <!-- </CollapseTransition> -->
+    <ArrowMore
+      v-if="hasMore"
+      class="-top-3.5"
+      :class="{ '!top-0': isOpen }"
+      :open="isOpen"
+      @click="toggle"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, ref, toRefs } from '@nuxtjs/composition-api'
 import useOpen from '@/utils/compositions/useOpen'
+// import { CollapseTransition } from '@ivanv/vue-collapse-transition'
+
 export default defineComponent({
+  // components: { CollapseTransition },
   props: {
     items: {
       type: Array,

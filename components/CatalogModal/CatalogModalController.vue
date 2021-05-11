@@ -1,9 +1,7 @@
 <template>
-  <div class="flex relative">
-    <HomeCategoriesList />
-    <div class="flex-1 pl-12 lg:pl-5 md:pl-0 min-w-0 sm:no-gutter">
-      <HomeOfferSlider />
-    </div>
+  <div class="flex max-h-full">
+    <CatalogModalMenu v-model="activeItem" class="mr-2" />
+    <CatalogModalItems />
   </div>
 </template>
 
@@ -12,8 +10,8 @@ import { defineComponent, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
-    return {
-    }
+    const activeItem = ref('')
+    return { activeItem }
   },
 })
 </script>

@@ -32,7 +32,7 @@ export default defineComponent({
         title: 'Скучали за акциями?',
         description:
           'Мы знаем как поднять ему нasd kasd askldj alskdj aklsj dla asd as laастроение! ',
-        image: require('@/assets/img/category_offer_1.png'),
+        image: require('@/assets/img/home_offer_dog.png'),
         color: '#C20000',
         oldPrice: '4 176',
         price: '5 200',
@@ -42,7 +42,7 @@ export default defineComponent({
         title: 'Скучали за акциями?',
         description:
           'Мы знаем как поднять ему нasd kasd askldj alskdj aklsj dla asd as laастроение! ',
-        image: require('@/assets/img/category_offer_1.png'),
+        image: require('@/assets/img/home_offer_dog.png'),
         color: '#C20000',
         oldPrice: '4 176',
         price: '299',
@@ -52,7 +52,7 @@ export default defineComponent({
         title: 'Скучали за акциями?',
         description:
           'Мы знаем как поднять ему нasd kasd askldj alskdj aklsj dla asd as laастроение! ',
-        image: require('@/assets/img/category_offer_1.png'),
+        image: require('@/assets/img/home_offer_dog.png'),
         color: '#C20000',
         oldPrice: '4 176',
         price: '3 776',
@@ -62,7 +62,7 @@ export default defineComponent({
         title: 'Скучали за акциями?',
         description:
           'Мы знаем как поднять ему нasd kasd askldj alskdj aklsj dla asd as laастроение! ',
-        image: require('@/assets/img/category_offer_1.png'),
+        image: require('@/assets/img/home_offer_dog.png'),
         color: '#C20000',
         oldPrice: '4 176',
         price: '3 776',

@@ -39,6 +39,7 @@ export default {
   sellingHits: 'Хиты продаж',
   productsNew: 'Новинки',
   stocks: 'Акции',
+  ends: "Заканчивается",
   footer: {
     copyright: 'Copyright © Zoo.com.ua, 2021 | Все права защищены',
     questions: 'По всем вопросам',

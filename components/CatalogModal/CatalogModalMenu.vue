@@ -6,6 +6,7 @@
       v-for="(item, idx) in items"
       :key="idx"
       class="catalog-modal-menu__item group"
+      @mouseenter="selectItem(item)"
     >
       <div class="flex-y-center">
         <component
@@ -27,7 +28,7 @@ import svgBrand from '@/assets/icons/brand_mock.svg?inline'
 import svgDog from '@/assets/icons/dog_mock.svg?inline'
 export default defineComponent({
   components: { svgArrowRight },
-  setup() {
+  setup(props, { emit }) {
     const items = [
       {
         name: 'Бренды',
@@ -64,7 +65,16 @@ export default defineComponent({
         name: 'Товары для кошек',
       },
     ]
+    const selectItem = (item: any) => {
+      emit('input', item.name)
+    }
+
+    const deselectItem = () => {
+      emit('input', undefined)
+    }
     return {
+      selectItem,
+      deselectItem,
       items,
     }
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="app-slider">
-    <div v-if="title || $slots.title" class="app-slider__title">
+    <div v-if="title || $slots.title" class="app-slider__title" :class="titleClass">
       <slot name="title">
         <h2>
           {{ title }}
@@ -69,6 +69,9 @@ export default defineComponent({
       type: [Array, String, Object],
     },
     arrowNextClass: {
+      type: [Array, String, Object],
+    },
+    titleClass: {
       type: [Array, String, Object],
     },
   },
