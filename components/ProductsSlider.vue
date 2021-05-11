@@ -15,6 +15,7 @@
           :multilineTitle="false"
           :showReviews="false"
           :item="item"
+          v-bind="productOptions"
           class="products-slider__product"
         />
       </template>
@@ -32,6 +33,10 @@ export default defineComponent({
   props: {
     title: String,
     link: String,
+    productOptions: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   setup() {
     const items = computed(() => {

@@ -26,8 +26,8 @@ export default function useProductCardFields(item?: Ref<ProductEntity | undefine
   const sale = computed(() => {
     return item?.value?.sale
   })
-  const isAvailable = computed(() => {
-    return true
+  const availableStatus = computed(() => {
+    return 1
   })
   const image = computed(() => {
     return (
@@ -93,7 +93,7 @@ export default function useProductCardFields(item?: Ref<ProductEntity | undefine
     price,
     oldPrice,
     sale,
-    isAvailable,
+    availableStatus,
     image,
     variations,
     activeVariations,

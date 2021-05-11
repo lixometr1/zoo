@@ -4,7 +4,7 @@
     class="product-card"
     :class="{
       'size-sm': size === 'sm',
-      'is-available': isAvailable,
+      'is-available': availableStatus === 1,
       'name-multiline': multilineTitle,
       'hover-collapse': hoverCollapse,
       'is-hover': hoverClass,
@@ -38,11 +38,11 @@
         :hasReviews="true"
         :total="43"
       />
-      <ProductCardAvailable class="mt-4" :has="isAvailable" />
+      <ProductCardAvailable class="mt-4" :status="availableStatus" />
       <router-link
         :to="productLink"
         class="block font-bold text-grey product-card__name"
-        :class="{ 'text-opacity-50': !isAvailable }"
+        :class="{ 'text-opacity-50': availableStatus === 0 }"
       >
         {{ name }}</router-link
       >
@@ -66,6 +66,7 @@
         :oldPrice="oldPrice"
         :sale="sale"
       />
+      <ProductCardCnt v-if="showChooseCnt" v-model="activeCnt" class="mt-2" />
       <button
         v-if="showBtn"
         class="btn-green mt-4.5 w-full sm:mt-2"
@@ -122,6 +123,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    showChooseCnt: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const { multilineTitle, item, hoverCollapse } = toRefs(props)
@@ -137,7 +142,7 @@ export default defineComponent({
       price,
       oldPrice,
       sale,
-      isAvailable,
+      availableStatus,
       image,
       variations,
       activeVariations,
@@ -154,7 +159,7 @@ export default defineComponent({
       borderRadius: '',
     })
     const onMouseEnter = () => {
-      if (hoverCollapse.value && isAvailable.value) {
+      if (hoverCollapse.value && availableStatus.value === 1) {
         isHover.value = true
         const el = selfEl.value
         const rect = el.getBoundingClientRect()
@@ -224,7 +229,9 @@ export default defineComponent({
       animatingState.value = 'leave'
     }
     onUnmounted(() => afterHoverLeave())
+    const activeCnt = ref(1)
     return {
+      activeCnt,
       afterHoverEnter,
       beforeHoverLeave,
       selfEl,
@@ -236,7 +243,7 @@ export default defineComponent({
       onMouseLeave,
       activeVariations,
       variations,
-      isAvailable,
+      availableStatus,
       image,
       isPopular,
       name,

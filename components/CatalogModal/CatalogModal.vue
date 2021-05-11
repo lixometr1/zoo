@@ -4,8 +4,7 @@
     v-click-outside="{ handler: closeMenu, middleware: clickMiddleware }"
     class="catalog-modal md:hidden"
   >
-    <CatalogModalMenu class="pr-2" />
-    <CatalogModalItems />
+    <CatalogModalController />
   </div>
 </template>
 
@@ -17,7 +16,9 @@ export default defineComponent({
   setup() {
     const { isOpen, close } = useCatalogModal()
     const clickMiddleware = (e: MouseEvent) => {
-      return !(e.target as HTMLElement)?.className?.includes('header-catalog-btn')
+      return !(e.target as HTMLElement)?.className?.includes(
+        'header-catalog-btn'
+      )
     }
     const closeMenu = () => {
       setTimeout(() => {
@@ -32,7 +33,7 @@ export default defineComponent({
 <style lang="postcss">
 .catalog-modal {
   @apply absolute -bottom-5.5 transform translate-y-full
-            w-auto flex z-50
+            w-auto z-50
             h-[500px];
   box-shadow: 10px 10px 40px rgba(62, 63, 67, 0.1);
 }

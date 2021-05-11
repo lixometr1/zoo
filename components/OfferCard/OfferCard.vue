@@ -6,7 +6,7 @@
   >
     <OfferCardBg :type="bgType" :color="color" />
     <div class="offer-card__content">
-      <div v-if="brand" class="mb-4 offer-card__brand">
+      <div v-if="brand" class="offer-card__brand">
         <img :src="brand" alt="" />
       </div>
       <h2 v-if="title" v-html="title" class="offer-card__title"></h2>
@@ -17,6 +17,7 @@
       <button v-if="btn" class="offer-card__btn" :style="{ color }">
         {{ btn }}
       </button>
+      <slot name="content" />
     </div>
     <img class="offer-card__image" :src="image" :alt="title" />
     <slot name="other" />
@@ -55,7 +56,7 @@ export default defineComponent({
         md:px-10 md:py-8 sm:px-5 sm:py-4 sm:min-h-[250px];
   box-shadow: 0px 10px 24px rgba(82, 98, 114, 0.35);
   &__content {
-    @apply max-w-[460px] relative z-20 sm:max-w-[200px];
+    @apply max-w-[70%] relative z-20 sm:max-w-[200px];
     color: inherit;
   }
   &__sale {
@@ -66,10 +67,11 @@ export default defineComponent({
     color: inherit;
   }
   &__image {
-    @apply absolute right-0 bottom-0 z-10 max-h-[100%] max-w-[50%] lg:max-w-[70%] md:max-w-[50%] sm:max-w-[80%];
+    @apply absolute right-0 top-1/2 transform -translate-y-1/2 
+          z-10 max-h-[100%] max-w-[50%] lg:max-w-[70%] md:max-w-[50%] sm:max-w-[80%];
   }
   &__brand {
-    @apply max-w-[80px];
+    @apply max-w-[80px] mb-5;
   }
   &__btn {
     @apply mt-3 inline-block focus:outline-none px-5.5 py-4.5 
@@ -79,6 +81,9 @@ export default defineComponent({
   }
   &.bg-style-0 {
     @apply text-grey;
+  }
+  &.bg-style-0 &__sale {
+    @apply text-green;
   }
 }
 </style>
