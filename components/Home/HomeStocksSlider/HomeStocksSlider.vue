@@ -100,6 +100,7 @@ export default defineComponent({
           },
           760: {
             spaceBetween: 0,
+            slidesPerView: 2,
           },
           600: {
             slidesPerView: 2,
