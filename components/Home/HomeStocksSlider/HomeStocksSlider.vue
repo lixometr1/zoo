@@ -15,7 +15,9 @@
         <div class="px-3 sm:px-0">
           <OfferCard :class="{}" v-bind="item">
             <template #other>
-              <div class="offer-card__date">{{ item.date }}</div>
+              <div class="offer-card__date">
+                {{ item.date }}
+              </div>
             </template>
           </OfferCard>
         </div>
