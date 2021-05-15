@@ -15,7 +15,7 @@ export default defineComponent({
   props: {
     text: String,
     type: {
-      type: String,
+      type: String as () => ITypes,
     },
   },
   setup() {

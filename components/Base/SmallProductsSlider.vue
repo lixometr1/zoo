@@ -1,6 +1,6 @@
 <template>
   <div class="small-products-slider">
-    <AppSlider :items="items" :title="title" :sliderOptions="sliderOpts">
+    <ASlider :items="items" :title="title" :sliderOptions="sliderOpts">
       <template #slide="{}">
         <ProductCard
           :showBtn="false"
@@ -10,7 +10,7 @@
           :multilineTitle="true"
         />
       </template>
-    </AppSlider>
+    </ASlider>
   </div>
 </template>
 

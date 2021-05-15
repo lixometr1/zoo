@@ -1,7 +1,7 @@
 <template>
   <div>
     <TitleWithAll link="#" :title="$t('popular')" />
-    <AppSlider
+    <ASlider
       sliderClass="category-popular-slider"
       :items="items"
       :sliderOptions="sliderOpts"
@@ -13,7 +13,7 @@
           class="category-popular-slider__product"
         />
       </template>
-    </AppSlider>
+    </ASlider>
   </div>
 </template>
 

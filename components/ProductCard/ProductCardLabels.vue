@@ -10,8 +10,13 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, toRefs } from '@nuxtjs/composition-api'
-
+import {
+  computed,
+  defineComponent,
+  toRefs,
+  useContext,
+} from '@nuxtjs/composition-api'
+import { ProductLabels } from '@/types/constants'
 export default defineComponent({
   props: {
     active: {
@@ -23,21 +28,18 @@ export default defineComponent({
   },
   setup(props) {
     const { topSale, isPopular } = toRefs(props)
-    const items = computed(() => {
-      const labels = [
-        {
-          name: 'Хит продаж',
-          type: 'yellow',
-          is: 'topSale',
-        },
-        {
-          name: 'Товар дня',
-          type: 'red',
-          is: 'popular',
-        },
-      ]
 
-      return labels.filter((label) => {
+    const labels = computed(() => {
+      return ProductLabels.map((label) => {
+        const name = useContext().i18n.t(`productLabels.${label.is}`)
+        return {
+          ...label,
+          name,
+        }
+      })
+    })
+    const items = computed(() => {
+      return labels.value.filter((label) => {
         if (label.is === 'popular' && isPopular?.value) return true
         if (label.is === 'topSale' && topSale?.value) return true
         return false

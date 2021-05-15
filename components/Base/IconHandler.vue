@@ -1,19 +1,21 @@
 <template>
-  <div class="star-handler" :class="{ active, hover }">
-    <svgStar class="star-stroke" />
-    <svgStarFill class="star-fill" />
+  <div class="icon-handler" :class="{ active, hover }">
+    <slot
+      v-bind="{ attrs: { class: 'icon-stroke ' + strokeClass } }"
+      name="stroke"
+    />
+    <slot v-bind="{ attrs: { class: 'icon-fill ' + fillClass } }" name="fill" />
   </div>
 </template> 
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import svgStar from '@/assets/icons/star.svg?inline'
-import svgStarFill from '@/assets/icons/star_fill.svg?inline'
 export default defineComponent({
-  components: { svgStar, svgStarFill },
   props: {
     active: Boolean,
     hover: Boolean,
+    strokeClass: [String, Array, Object],
+    fillClass: [String, Array, Object],
   },
   setup() {
     return {}
@@ -22,16 +24,16 @@ export default defineComponent({
 </script>
 
 <style lang="postcss">
-.star-handler {
-  .star-fill {
+.icon-handler {
+  .icon-fill {
     display: none;
   }
   &.hover:hover,
   &.active {
-    .star-stroke {
+    .icon-stroke {
       display: none;
     }
-    .star-fill {
+    .icon-fill {
       display: block;
     }
   }

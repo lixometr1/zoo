@@ -1,13 +1,13 @@
 <template>
-  <AppSlider
-    sliderClass="!pb-8 !-mx-5"
+  <ASlider
+    sliderClass="!pb-8 !-mx-3"
     :items="items"
     :sliderOptions="sliderOpts"
   >
     <template #slide="{ item }">
       <CategoryOfferSliderItem v-bind="item" />
     </template>
-  </AppSlider>
+  </ASlider>
 </template>
 
 <script lang="ts">
@@ -17,7 +17,7 @@ export default defineComponent({
   setup() {
     const items = [
       {
-        title: 'Ваш мопс <br> не доволен кормом?',
+        title: 'Ваш мопс не доволен кормом?',
         description:
           'Мы знаем как поднять ему настроение! Переходите в каталог еды для породы Мопс и порайдуте своего питомца!',
         btn: 'Посмотреть ассортимент',
@@ -35,7 +35,7 @@ export default defineComponent({
         brand: require('@/assets/img/whiskas_mock.png'),
       },
       {
-        title: 'Ваш мопс <br> не доволен кормом?',
+        title: 'Ваш мопс не доволен кормом?',
         description:
           'Мы знаем как поднять ему настроение! Переходите в каталог еды для породы Мопс и порайдуте своего питомца!',
         btn: 'Посмотреть ассортимент',

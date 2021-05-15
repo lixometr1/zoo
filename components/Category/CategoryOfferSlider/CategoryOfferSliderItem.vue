@@ -24,7 +24,7 @@ export default defineComponent({
 
 <style lang="postcss">
 .category-offer-slider-item {
-  @apply px-5;
+  @apply px-3;
   &__image {
     img {
       @apply w-full max-h-full max-w-full;

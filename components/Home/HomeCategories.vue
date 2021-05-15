@@ -1,6 +1,6 @@
 <template>
   <div class="home-categories md:no-gutter">
-    <AppSlider
+    <ASlider
       arrowNextClass="md:!hidden"
       arrowPrevClass="md:!hidden"
       :sliderOptions="sliderOpts"
@@ -25,7 +25,7 @@
           </div>
         </router-link>
       </template>
-    </AppSlider>
+    </ASlider>
   </div>
 </template>
 

@@ -8,7 +8,7 @@
       :class="{ active: value === item.value }"
       @click.prevent="chooseItem(item.value)"
     >
-      {{ item.name }} шт.
+      {{ item.name }} {{ $t('itemPiece') }}.
       <span v-if="item.sale" class="product-card-cnt__item-sale"
         >-{{ item.sale }}%</span
       >
@@ -47,7 +47,7 @@ export default defineComponent({
 .product-card-cnt {
   @apply flex border border-opacity-50 rounded-full 
         h-[26px] text-sm w-full;
-  border-color: #D0D0D0;
+  border-color: #d0d0d0;
 
   &__item {
     @apply flex-1 font-medium flex-center text-center rounded-full m-[-1px]

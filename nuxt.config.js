@@ -28,6 +28,9 @@ export default {
       src: "@/plugins/vue-select",
     },
     {
+      src: "@/plugins/vue-date-filter",
+    },
+    {
       src: "@/plugins/vue-awesome-swiper",
       mode: "client"
     },
@@ -42,12 +45,22 @@ export default {
       src: "@/plugins/vue-click-outside",
       mode: 'client'
     },
+    {
+      src: "@/plugins/vue-sticky",
+      mode: 'client'
+    },
+
     '@/plugins/reflect-metadata'
 
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: {
+    dirs: [
+      '~/components',
+      '~/components/Base'
+    ]
+  },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [

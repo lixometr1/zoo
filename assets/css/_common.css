@@ -7,19 +7,28 @@ body {
   @apply text-grey font-main min-h-screen bg-grey-bg md:text-sm sm:text-xs;
 }
 .border-circle-green {
-  background: url(~@/assets/icons/border_circle_green.svg?data) left bottom;
-  background-repeat: repeat-x;
+  /* background: url(~@/assets/icons/border_circle_green.svg?data) left bottom;
+  background-repeat: repeat-x; */
+  @apply text-green border-b-2 border-green border-dotted; 
+
 }
 .border-circle-grey {
-  background-image: url(~@/assets/icons/border_circle_grey.svg?data);
+  /* background-image: url(~@/assets/icons/border_circle_grey.svg?data);
   background-position: left bottom;
   background-repeat: repeat-x;
-  @apply text-grey;
+  */
+  @apply text-grey border-b-2 border-grey border-dotted; 
 }
 
 .btn-green {
   @apply flex items-center justify-center font-bold py-4 px-5 
   bg-green rounded-md text-white cursor-pointer transition hover:bg-green-700
+  sm:px-4 sm:py-3 focus:outline-none;
+}
+.btn-green-stroke {
+  @apply flex items-center justify-center font-bold py-4 px-5 
+  rounded-md cursor-pointer transition 
+  text-green border border-green hover:bg-green hover:text-white
   sm:px-4 sm:py-3 focus:outline-none;
 }
 

@@ -38,7 +38,7 @@
         :hasReviews="true"
         :total="43"
       />
-      <ProductCardAvailable class="mt-4" :status="availableStatus" />
+      <ProductAvailable class="mt-4" :status="availableStatus" />
       <router-link
         :to="productLink"
         class="block font-bold text-grey product-card__name"
@@ -66,7 +66,7 @@
         :oldPrice="oldPrice"
         :sale="sale"
       />
-      <ProductCardCnt v-if="showChooseCnt" v-model="activeCnt" class="mt-2" />
+      <ProductCntChooser v-if="showChooseCnt" v-model="activeCnt" class="mt-2" />
       <button
         v-if="showBtn"
         class="btn-green mt-4.5 w-full sm:mt-2"
@@ -262,7 +262,7 @@ export default defineComponent({
 
 <style lang="postcss">
 .product-card {
-  @apply box-border bg-white rounded-xl border border-grey-light pb-6 overflow-hidden relative transition min-w-0;
+  @apply box-border bg-white rounded-xl border border-grey-light pb-6 overflow-hidden relative transition min-w-0 delay-75;
   &.size-sm {
     @apply text-sm sm:text-xs;
   }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <TitleWithAll class="hidden md:flex" :link="link" :title="title" />
-    <AppSlider
+    <ASlider
       sliderClass="products-slider"
       :items="items"
       :sliderOptions="sliderOpts"
@@ -19,7 +19,7 @@
           class="products-slider__product"
         />
       </template>
-    </AppSlider>
+    </ASlider>
     <ProductsCollapse :items="items" class="hidden md:block" />
   </div>
 </template>

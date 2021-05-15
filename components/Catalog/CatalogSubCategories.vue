@@ -18,9 +18,9 @@
             /> -->
             <CategoryImage
               :src="item.img"
-              class="catalog-sub-category w-32 h-32 sm:w-16 sm:h-16"
+              class="catalog-sub-category w-32 h-32 sm:w-18 sm:h-18"
             />
-            <div class="text-center text-sm font-bold mt-2 sm:text-xs">
+            <div class="text-center text-sm font-bold mt-2 sm:text-xs sm:mt-0">
               {{ shortName(item.name) }}
               <span class="text-grey text-opacity-50 sm:hidden">{{
                 item.cnt

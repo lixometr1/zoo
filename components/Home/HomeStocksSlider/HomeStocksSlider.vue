@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <AppSlider
+    <ASlider
       :items="items"
       arrowNextClass="md:!hidden"
       arrowPrevClass="md:!hidden"
@@ -22,7 +22,7 @@
           </OfferCard>
         </div>
       </template>
-    </AppSlider>
+    </ASlider>
   </div>
 </template>
 
