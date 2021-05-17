@@ -1,8 +1,8 @@
 <template>
-  <div class="pb-5 border-b border-grey-light">
+  <div class="pb-5 border-b border-grey-light sm:border-none sm:pb-0">
     <div class="mb-3">
-      <span class="font-bold text-lg"> {{ title }}</span>
-      <span class="font-medium text-grey text-opacity-50 ml-2">{{
+      <span class="font-bold text-lg sm:text-sm"> {{ title }}</span>
+      <span class="font-medium text-grey text-opacity-50 ml-2 sm:text-sm">{{
         activeVariationName
       }}</span>
     </div>

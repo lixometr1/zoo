@@ -21,9 +21,10 @@ export default defineComponent({
   props: {
     topSale: Boolean,
     popular: Boolean,
+    isNew: Boolean,
   },
   setup(props) {
-    const { topSale, popular } = toRefs(props)
+    const { topSale, popular, isNew } = toRefs(props)
 
     const labels = computed(() => {
       return ProductLabels.map((label) => {
@@ -38,6 +39,7 @@ export default defineComponent({
       return labels.value.filter((label) => {
         if (label.is === 'popular' && popular?.value) return true
         if (label.is === 'topSale' && topSale?.value) return true
+        if (label.is === 'new' && isNew?.value) return true
         return false
       })
     })

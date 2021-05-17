@@ -1,7 +1,7 @@
 <template>
   <div class="category-brands">
     <div class="container">
-      <TitleWithAll class="!mb-0" :title="title" :showAll="showAll" />
+      <TitleWithAll class="" :title="title" :showAll="showAll" />
       <div
         v-if="description"
         class="mt-3 text-grey text-opacity-80 w-9/12 md:w-full"

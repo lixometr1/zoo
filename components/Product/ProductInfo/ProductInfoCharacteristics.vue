@@ -1,7 +1,7 @@
 <template>
-  <div class="product-characteristics flex">
-    <div class="flex-1 mr-14 space-y-3">
-      <div v-for="(item, idx) in col1" :key="idx" class="flex items-baseline">
+  <div class="product-characteristics flex sm:flex-col">
+    <div class="flex-1 mr-14 space-y-3 sm:mr-0 sm:mb-4">
+      <div v-for="(item, idx) in col1" :key="idx" class="flex items-baseline text-grey text-opacity-80">
         <div>
           {{ item.name }}
         </div>
@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="flex-1 space-y-3">
-      <div v-for="(item, idx) in col2" :key="idx" class="flex items-baseline">
+      <div v-for="(item, idx) in col2" :key="idx" class="flex items-baseline text-grey text-opacity-80">
         <div>
           {{ item.name }}
         </div>

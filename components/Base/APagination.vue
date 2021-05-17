@@ -24,6 +24,7 @@ import { defineComponent, ref } from '@nuxtjs/composition-api'
 import svgArrowLeft from '@/assets/icons/arrow_left_triangle.svg?raw'
 import svgArrowRight from '@/assets/icons/arrow_right_triangle.svg?raw'
 import useResize from '~/utils/compositions/useResize'
+import { Breakpoints } from '~/types/constants'
 export default defineComponent({
   props: {
     totalPages: Number,
@@ -35,7 +36,7 @@ export default defineComponent({
     }
     const pageRange = ref(4)
     useResize((wW) => {
-      if (wW < 960) {
+      if (wW < Breakpoints.md) {
         pageRange.value = 3
       } else {
         pageRange.value = 4

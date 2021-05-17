@@ -23,10 +23,12 @@ export default defineComponent({
       default: () => ({}),
     },
   },
-  setup(props) {
+  setup(props, { emit }) {
     const { item } = toRefs(props)
     const src = computed(() => item.value.src)
-    const openModal = () => {}
+    const openModal = () => {
+      emit('open')
+    }
     return { openModal, src }
   },
 })

@@ -2,28 +2,29 @@
   @apply max-w-[1494px] mx-auto px-5.5 lg:px-9 md:px-5.5;
 }
 
-
 body {
   @apply text-grey font-main min-h-screen bg-grey-bg md:text-sm sm:text-xs;
 }
 .border-circle-green {
   /* background: url(~@/assets/icons/border_circle_green.svg?data) left bottom;
   background-repeat: repeat-x; */
-  @apply text-green border-b-2 border-green border-dotted; 
-
+  @apply text-green border-b-2 border-green border-dotted;
 }
 .border-circle-grey {
   /* background-image: url(~@/assets/icons/border_circle_grey.svg?data);
   background-position: left bottom;
   background-repeat: repeat-x;
   */
-  @apply text-grey border-b-2 border-grey border-dotted; 
+  @apply text-grey border-b-2 border-grey border-dotted;
 }
 
 .btn-green {
   @apply flex items-center justify-center font-bold py-4 px-5 
   bg-green rounded-md text-white cursor-pointer transition hover:bg-green-700
   sm:px-4 sm:py-3 focus:outline-none;
+  &.btn-green--shadow {
+    box-shadow: 0 5px 20px rgba(32, 194, 89, 0.5);
+  }
 }
 .btn-green-stroke {
   @apply flex items-center justify-center font-bold py-4 px-5 
@@ -32,18 +33,25 @@ body {
   sm:px-4 sm:py-3 focus:outline-none;
 }
 
+h1 {
+  @apply text-grey font-bold text-4xl md:text-2xl sm:text-lg sm:leading-5;
+}
 h2 {
   @apply text-grey font-bold text-4xl md:text-2xl sm:text-lg sm:leading-5;
 }
 h3 {
-  @apply text-grey font-bold text-2xl md:text-lg;
+  @apply text-grey font-bold text-3xl md:text-lg;
+}
+h4 {
+  @apply text-grey font-bold text-2lg md:text-lg sm:text-base;
+
 }
 .circle-arrow {
   @apply rounded-full bg-white  shadow-arrow flex items-center justify-center z-30 flex-shrink-0 transition;
   width: 60px !important;
   height: 60px !important;
   color: theme('colors.grey.DEFAULT') !important;
-  @media screen and (max-width: theme('screens.lg.max')) {
+  @media screen and (max-width: theme('screens.slider.max')) {
     width: 50px !important;
     height: 50px !important;
   }
@@ -77,7 +85,7 @@ h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 10;
+    z-index: 20;
     background: linear-gradient(
       to top,
       theme('colors.grey.bg') 20%,

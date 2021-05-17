@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center space-x-5">
-    <a href="#"> <svgCompare class="cursor-pointer text-grey text-opacity-50 hover:text-green transition" width="33" /></a>
-    <a href="#"><svgWishList class="cursor-pointer text-grey text-opacity-50 hover:text-green transition" width="30" /></a>
+    <a href="#"> <svgCompare class="cursor-pointer text-grey text-opacity-50 hover:text-green transition max-w-full" width="33" /></a>
+    <a href="#"><svgWishList class="cursor-pointer text-grey text-opacity-50 hover:text-green transition max-w-full" width="30" /></a>
   </div>
 </template>
 

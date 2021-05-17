@@ -5,7 +5,7 @@
     <div class="select-none cursor-pointer h-3 flex-center group" @click="minus">
       <svgMinus width="12" class="text-grey opacity-50 group-hover:opacity-100 transition-opacity" />
     </div>
-    <div class="text-2lg font-medium">
+    <div class="text-2lg font-medium sm:text-base">
       {{ value }}
     </div>
     <div class="select-none cursor-pointer h-3 flex-center group" @click="plus">

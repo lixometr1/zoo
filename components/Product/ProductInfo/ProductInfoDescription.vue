@@ -1,7 +1,7 @@
 <template>
   <div class="product-description">
     <div>
-      <h3>Royal Canin Maxi Adult</h3>
+      <h4 class="sm:text-lg">Royal Canin Maxi Adult</h4>
       <p>
         Pro Plan Sterilised Senior 7+ Сухой корм для стерилизованных кошек
         старше 7 лет с индейкой Сухой корм для пожилых котов и кошек включает
@@ -14,8 +14,8 @@
       </p>
     </div>
     <div class="mt-4">
-      <h3>Основные компоненты:</h3>
-      <ul class="grid-flow-col grid-rows-6 grid">
+      <h4>Основные компоненты:</h4>
+      <ul class="grid-flow-col grid-rows-6 grid sm:flex sm:flex-col sm:space-y-1.5 ">
         <li><svgCheckmark width="10" />мясо индейки (14%)</li>
         <li><svgCheckmark width="10" />сухой белок</li>
         <li><svgCheckmark width="10" />рис</li>
@@ -46,7 +46,7 @@ export default defineComponent({
 
 <style lang="postcss">
 .product-description {
-  h3 {
+  h4 {
     @apply mb-2;
   }
   ul {

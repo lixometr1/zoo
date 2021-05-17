@@ -1,27 +1,16 @@
 <template>
-  <div class="products-collapse" :class="{ open: isOpen, 'has-more': hasMore }">
-    <!-- <CollapseTransition> -->
-      <div class="products-collapse__wrapper" :class="{ 'blur-down': hasMore }">
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
-          <div v-for="(item, idx) in items" :key="idx" class="">
-            <ProductCard
-              :multilineTitle="true"
-              :showReviews="false"
-              :item="item"
-              class="products-slider__product"
-            />
-          </div>
-        </div>
+  <ArrowCollapse height="600px" class="products-collapse" :hasMore="hasMore">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
+      <div v-for="(item, idx) in items" :key="idx" class="">
+        <ProductCard
+          :multilineTitle="true"
+          :showReviews="false"
+          :item="item"
+          class="products-slider__product"
+        />
       </div>
-    <!-- </CollapseTransition> -->
-    <ArrowMore
-      v-if="hasMore"
-      class="-top-3.5"
-      :class="{ '!top-0': isOpen }"
-      :open="isOpen"
-      @click="toggle"
-    />
-  </div>
+    </div>
+  </ArrowCollapse>
 </template>
 
 <script lang="ts">
@@ -51,17 +40,5 @@ export default defineComponent({
 
 <style lang="postcss">
 .products-collapse {
-  &__wrapper {
-    @apply relative;
-  }
-  &.has-more &__wrapper {
-    @apply max-h-[600px] overflow-hidden;
-  }
-  &.open &__wrapper {
-    max-height: none;
-    &::before {
-      @apply hidden;
-    }
-  }
 }
 </style>

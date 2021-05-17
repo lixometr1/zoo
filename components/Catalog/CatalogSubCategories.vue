@@ -39,6 +39,7 @@ import { defineComponent, useContext } from '@nuxtjs/composition-api'
 import { SwiperOptions } from 'swiper'
 import useTextShort from '@/utils/compositions/useTextShort'
 import useResizeValue from '~/utils/compositions/useResizeValue'
+import { Breakpoints } from '~/types/constants'
 export default defineComponent({
   setup() {
     const items = [
@@ -102,7 +103,7 @@ export default defineComponent({
       threshold: 5,
     }
     const { value: textLength } = useResizeValue<number>((wW) => {
-      if (wW < 760) {
+      if (wW < Breakpoints.sm) {
         return 20
       }
       return 25

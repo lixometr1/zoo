@@ -1,16 +1,15 @@
 <template>
   <div class="pb-6">
-    <div class="flex-y-center">
-      <div class="text-2lg font-bold">{{ item.name }}</div>
-      <div class="ml-2">
+    <div class="flex-y-center xs:flex-col xs:items-start">
+      <h4 class="font-bold">{{ item.name }}</h4>
+      <div class="ml-2 xs:w-full xs:ml-0 xs:mt-1">
         <StarsPanel
           :stars="item.stars"
-          :strokeClass="'text-opacity-50 text-grey'"
         />
       </div>
     </div>
-    <div class="mt-2 text-opacity-50 text-grey flex-y-center">
-      <svgCalendar width="20" />
+    <div class="mt-2 text-opacity-50 text-grey flex-y-center xs:mt-4">
+      <svgCalendar width="20" class="sm:w-4"/>
       <div class="font-medium ml-3">
         {{ item.date | dateFormat('DD.MM.YYYY') }}
       </div>
@@ -18,13 +17,13 @@
     <div class="mt-4 text-opacity-80 text-grey">
       {{ item.text }}
     </div>
-    <div v-if="item.pros" class="mt-7">
+    <div v-if="item.pros" class="mt-7 sm:mt-5">
       <div class="font-bold text-lg text-opacity-80 text-grey">
         {{ $t('pros') }}
       </div>
       {{ item.pros }}
     </div>
-    <div v-if="item.cons" class="mt-7">
+    <div v-if="item.cons" class="mt-7 sm:mt-5">
       <div class="font-bold text-lg text-opacity-80 text-grey">
         {{ $t('cons') }}
       </div>

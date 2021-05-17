@@ -10,7 +10,7 @@
       'is-hover': hoverClass,
     }"
     @mouseenter.self="onMouseEnter"
-    @mouseleave="onMouseLeave"
+    @mouseleave.self="onMouseLeave"
   >
     <router-link
       :to="productLink"
@@ -29,7 +29,7 @@
       <ProductCardLabels
         v-if="showLabels"
         :topSale="topSale"
-        :isPopular="isPopular"
+        :popular="isPopular"
       />
       <ProductCardReviews
         v-if="showReviews"
@@ -66,7 +66,11 @@
         :oldPrice="oldPrice"
         :sale="sale"
       />
-      <ProductCntChooser v-if="showChooseCnt" v-model="activeCnt" class="mt-2" />
+      <ProductCntChooser
+        v-if="showChooseCnt"
+        v-model="activeCnt"
+        class="mt-2"
+      />
       <button
         v-if="showBtn"
         class="btn-green mt-4.5 w-full sm:mt-2"
@@ -113,7 +117,8 @@ export default defineComponent({
       default: true,
     },
     item: {
-      type: ProductEntity,
+      type: Object as () => ProductEntity,
+      default: () => ({}),
     },
     multilineTitle: {
       type: Boolean,
@@ -200,11 +205,12 @@ export default defineComponent({
     }
 
     const onMouseLeave = () => {
+      console.log('leave')
       isHover.value = false
-      hoverClass.value = false
     }
     const afterHoverLeave = () => {
       if (animatingState.value === 'enter') return
+
       const el = selfEl.value
 
       if (el.parentNode === document.body) {
@@ -218,6 +224,7 @@ export default defineComponent({
         itemClone.value = null
       }
       animatingState.value = 'leave'
+      hoverClass.value = false
     }
     const beforeHoverEnter = () => {
       animatingState.value = 'enter'
@@ -307,15 +314,15 @@ export default defineComponent({
     box-shadow: 0px 0px 15px rgba(82, 98, 114, 0.25);
   }
   &__image {
-    @apply h-[180px] flex items-center justify-center pt-6 relative md:px-5;
+    @apply h-[180px] flex items-center justify-center pt-6 relative md:px-5 ;
 
     img {
-      @apply w-full h-full object-contain;
+      @apply max-w-full max-h-full object-contain sm:max-w-[80%];
     }
     &.full {
       @apply pt-0 px-0;
       img {
-        @apply object-cover;
+        @apply object-cover sm:max-w-full;
       }
     }
   }

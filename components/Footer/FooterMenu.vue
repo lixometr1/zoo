@@ -3,7 +3,7 @@
     class="flex justify-between xl:justify-around lg:text-center sm:flex-col sm:items-center sm:space-y-7"
   >
     <div v-for="(menuCol, idx) in items" :key="idx">
-      <h3 class="mb-5 sm:mb-2">{{ menuCol.title }}</h3>
+      <h4 class="mb-5 sm:mb-2">{{ menuCol.title }}</h4>
       <ul class="space-y-2">
         <li v-for="(link, index) in menuCol.items" :key="index">
           <router-link class="text-grey text-opacity-70 hover:text-green" :to="link.link || '#'">

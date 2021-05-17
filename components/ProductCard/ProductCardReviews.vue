@@ -1,16 +1,9 @@
 <template>
   <div>
-    <div class="flex space-x-1.5" v-if="hasReviews">
-      <StarHandler
-        v-for="item in 5"
-        :key="item"
-        class="w-[18px] text-yellow"
-        :active="item <= stars"
-        v-bind="$attrs"
-      />
-      <div class="ml-4 text-sm font-semibold">{{ total }}</div>
-    </div>
-    <div class="flex items-center text-blue text-sm" v-else>
+    <StarsPanel v-if="hasReviews" v-bind="$attrs" :stars="stars">
+      <div class="ml-1 text-sm font-semibold">{{ total }}</div>
+    </StarsPanel>
+    <div v-else class="flex items-center text-blue text-sm">
       <svgReviews class="w-5.5 mr-2" />
       <a href="#" @click.prevent="sendReview">
         {{ $t('leftReview') }}
@@ -21,10 +14,8 @@
 
 <script lang="ts">
 import { computed, defineComponent } from '@nuxtjs/composition-api'
-import svgReviews from '@/assets/icons/set_review.svg?inline'
 export default defineComponent({
   inheritAttrs: false,
-  components: { svgReviews },
   props: {
     stars: Number,
     total: Number,

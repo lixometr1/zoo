@@ -49,6 +49,10 @@ export default {
       src: "@/plugins/vue-sticky",
       mode: 'client'
     },
+    {
+      src: "@/plugins/vue-mask",
+      mode: 'client'
+    },
 
     '@/plugins/reflect-metadata'
 
@@ -72,7 +76,8 @@ export default {
   ],
   tailwindcss: {
     configPath: 'tailwind.config.js',
-    jit: true,
+    cssPath: '~/assets/css/tailwind.css',
+    // jit: true,
     exposeConfig: true,
     config: {},
   },
@@ -113,6 +118,7 @@ export default {
     postcss: {
       plugins: {
         'postcss-import': true,
+        "postcss-nested": {}
       }
     }
   },

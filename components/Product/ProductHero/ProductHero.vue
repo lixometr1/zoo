@@ -1,8 +1,8 @@
 <template>
   <div
-    class="border border-grey-light rounded-xl p-7 flex items-start bg-white md:flex-col md:items-stretch"
+    class="border border-grey-light rounded-xl p-7 flex items-start bg-white md:flex-col md:items-stretch md:no-gutter relative"
     sticky-container
-  >
+  > 
     <div class="flex-1 mr-3 h-full relative">
       <ProductHeroImage
         v-sticky="shouldStick"
@@ -18,6 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { Breakpoints } from '~/types/constants'
 import useResize from '~/utils/compositions/useResize'
 export default defineComponent({
   props: {
@@ -29,7 +30,7 @@ export default defineComponent({
   setup() {
     const shouldStick = ref(false)
     useResize((wWidth) => {
-      if (wWidth < 990) {
+      if (wWidth < Breakpoints.md) {
         shouldStick.value = false
       } else {
         shouldStick.value = true

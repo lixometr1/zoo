@@ -3,14 +3,14 @@
     <div class="container">
       <HomeFirstBlock class="mb-16 lg:mb-10 md:mb-12" />
       <HomeCategories class="mb-18 md:mb-8" />
-      <ProductsSlider
+      <ProductsSliderCollapse
         :title="$t('stockItems')"
         class="mb-18 md:mb-8"
         :productOptions="{ showChooseCnt: true }"
       />
       <HomeStocksSlider class="mb-18 md:mb-10" />
-      <ProductsSlider :title="$t('sellingHits')" class="mb-18 md:mb-10" />
-      <ProductsSlider :title="$t('productsNew')" class="mb-18 md:mb-10" />
+      <ProductsSliderCollapse :title="$t('sellingHits')" class="mb-18 md:mb-10" />
+      <ProductsSliderCollapse :title="$t('productsNew')" class="mb-18 md:mb-10" />
     </div>
     <BrandsBlock
       :title="$t('brands')"

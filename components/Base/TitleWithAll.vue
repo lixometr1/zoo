@@ -1,11 +1,11 @@
 <template>
-  <div class="mb-9 md:mb-5 flex items-center sm:justify-between">
+  <div class="title-with-all">
     <slot name="title">
       <h2>{{ title }}</h2>
     </slot>
     <router-link
       v-if="showAll"
-      class="ml-7 xs:ml-0 xs:text-xs border-circle-grey text-sm"
+      class="title-with-all__link border-circle-grey "
       :to="link || '#'"
       >{{ $t('watchAll') }}</router-link
     >
@@ -31,4 +31,10 @@ export default defineComponent({
 </script>
 
 <style lang="postcss">
+.title-with-all {
+  @apply flex items-center;
+  &__link {
+    @apply ml-7 sm:ml-3 xs:text-xs text-sm hover:text-green hover:border-green transition-colors;
+  }
+}
 </style>

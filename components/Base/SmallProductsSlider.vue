@@ -1,6 +1,12 @@
 <template>
   <div class="small-products-slider">
-    <ASlider :items="items" :title="title" :sliderOptions="sliderOpts">
+    <ASlider
+      :items="items"
+      :title="title"
+      :sliderOptions="sliderOpts"
+      v-bind="$attrs"
+      v-on="$listeners"
+    >
       <template #slide="{}">
         <ProductCard
           :showBtn="false"

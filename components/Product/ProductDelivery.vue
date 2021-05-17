@@ -2,7 +2,7 @@
   <div class="product-delivery" :class="{ open: isOpen }">
     <div class="product-delivery__header" @click="headerClick">
       {{ $t('deliveryToCity') }}:
-      <div class="border-circle-green font-bold ml-2">Киев</div>
+      <div class="border-circle-green font-bold ml-2 leading-4">Киев</div>
       <div class="product-delivery__arrow"><svgArrowDown width="10" /></div>
     </div>
     <client-only>
@@ -56,6 +56,7 @@ import useOpen from '~/utils/compositions/useOpen'
 
 import useResizeValue from '~/utils/compositions/useResizeValue'
 import useResize from '~/utils/compositions/useResize'
+import { Breakpoints } from '~/types/constants'
 export default defineComponent({
   components: { svgArrowDown, CollapseTransition },
   setup() {
@@ -95,7 +96,7 @@ export default defineComponent({
     const { isOpen, toggle, close, open } = useOpen()
     const isMobile = ref(false)
     useResize((wWidth) => {
-      if (wWidth < 760) {
+      if (wWidth < Breakpoints.sm) {
         isMobile.value = true
         close()
       } else {
@@ -115,15 +116,14 @@ export default defineComponent({
 
 <style lang="postcss">
 .product-delivery {
-  @apply text-sm xs:text-xs relative;
+  @apply text-sm xs:text-xs relative ;
   &__header {
     @apply border border-grey-light px-7 py-4.5 sm:px-4.5
           flex-y-center sm:cursor-pointer rounded-lg select-none;
     background: #f8f8f8;
   }
   &__content {
-    @apply border-l border-r border-b border-grey-light bg-white rounded-br-lg rounded-bl divide-y divide-grey-light
-          sm:absolute z-20 left-0 right-0;
+    @apply border-l border-r border-b border-grey-light bg-white rounded-br-lg rounded-bl divide-y divide-grey-light;
     &-item {
       @apply px-7 py-3  flex items-center sm:px-4.5;
     }

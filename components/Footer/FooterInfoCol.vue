@@ -18,11 +18,7 @@
       </div>
       <div class="flex items-center mb-1 lg:justify-end sm:justify-center">
         <div class="w-5 mr-2">
-          <img
-            class="mx-auto"
-            src="@/assets/icons/smartphone.svg"
-            alt="image"
-          />
+          <svgPhone width="12" class="text-grey mx-auto" />
         </div>
         <a href="tel:+38 066 364 19 19" class="border-circle-grey">
           +38 066 364 19 19
@@ -45,8 +41,9 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-
+import svgPhone from '@/assets/icons/smartphone.svg?inline'
 export default defineComponent({
+  components: { svgPhone },
   setup() {
     return {}
   },

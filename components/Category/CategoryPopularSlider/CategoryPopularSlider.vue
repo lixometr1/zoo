@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TitleWithAll link="#" :title="$t('popular')" />
+    <TitleWithAll class="mb-9 md:mb-5 " link="#" :title="$t('popular')" />
     <ASlider
       sliderClass="category-popular-slider"
       :items="items"

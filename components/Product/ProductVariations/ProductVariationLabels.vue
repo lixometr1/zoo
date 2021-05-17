@@ -38,7 +38,8 @@ export default defineComponent({
   @apply flex flex-wrap;
   &__item {
     @apply mr-1 mb-1 font-bold text-sm border-grey border-opacity-30 border 
-          py-2.5 px-6 rounded-full hover:bg-opacity-20 hover:bg-green hover:border-green transition;
+          py-2.5 px-6 rounded-full hover:bg-opacity-20 hover:bg-green hover:border-green transition
+          sm:text-xs sm:px-4 sm:py-2.5;
     &.active {
       @apply bg-green text-white border-green;
     }

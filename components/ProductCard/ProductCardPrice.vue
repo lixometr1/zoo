@@ -30,10 +30,13 @@ export default defineComponent({
   }
   .product-price {
     &__price {
-      @apply text-2lg;
+      @apply text-2lg sm:text-lg;
     }
     &__currency {
-      @apply text-base;
+      @apply text-base sm:text-sm;
+    }
+    &__old {
+      @apply sm:text-xs;
     }
   }
 }

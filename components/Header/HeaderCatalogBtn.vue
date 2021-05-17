@@ -1,5 +1,5 @@
 <template>
-  <div class="btn-green w-[300px] lg:w-[250px] header-catalog-btn">
+  <div class="btn-green w-[300px] lg:w-[250px] btn-green--shadow">
     <svgBurger width="20" class="mr-4" />
     <div class="font-bold">{{ $t('catalog') }}</div>
     <svgArrowDown

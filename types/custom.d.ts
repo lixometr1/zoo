@@ -22,3 +22,7 @@ declare module 'v-click-outside' {
   export const content: any
   export default content
 }
+declare module 'v-mask' {
+  export const content: any
+  export default content
+}

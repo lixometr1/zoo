@@ -53,7 +53,7 @@ export default defineComponent({
   @apply space-x-9 border-b border-grey border-opacity-30 flex;
   .product-info-tab {
     @apply pb-4 block border-b-[5px] border-transparent font-semibold text-grey text-opacity-50 transition-colors border-opacity-40
-        relative top-[1px] select-none;
+        relative top-[1px] select-none hover:text-green;
     &.active {
       @apply border-green text-green;
     }

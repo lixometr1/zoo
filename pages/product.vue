@@ -4,6 +4,13 @@
       <AppBreadcrumbs :items="breadcrumbs" />
       <ProductHero />
       <ProductInfo class="mt-12 md:mt-10" />
+      <ProductSimilarItems class="mt-18 md:mt-14" />
+    </div>
+    <ProductBrandItems class="mt-18 md:mt-14" />
+    <div class="container">
+      <ProductGroupedItems class="mt-18 md:mt-14" />
+      <ProductWatchedItems class="mt-18 md:mt-14" />
+      <ProductSubCategories class="mt-18 md:mt-14" />
     </div>
   </div>
 </template>

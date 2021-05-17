@@ -1,24 +1,19 @@
 <template>
-  <div class="flex items-center">
-    <div class="flex space-x-1.5">
-      <StarHandler
-        v-for="item in 5"
-        :key="item"
-        class="w-[18px] text-yellow"
-        :active="item <= stars"
-        v-bind="$attrs"
-      />
-    </div>
-    <div class="ml-4 text-lg">
-      <span class="font-semibold">
-        {{ total }}
-      </span>
-      <span class="text-grey text-opacity-50 font-medium lowercase">{{
-        reviewText
-      }}</span>
+  <div class="flex items-center sm:flex-col sm:items-start">
+    <div class="flex sm:mb-2.5">
+      <StarsPanel :stars="stars">
+        <div class="ml-2.5 text-lg sm:text-sm">
+          <span class="font-semibold">
+            {{ total }}
+          </span>
+          <span class="text-grey text-opacity-50 font-medium lowercase">{{
+            reviewText
+          }}</span>
+        </div>
+      </StarsPanel>
     </div>
     <a
-      class="ml-4 font-semibold border-circle-grey text-grey opacity-50 text-sm hover:opacity-100 transition"
+      class="ml-4 font-semibold border-circle-grey text-grey opacity-50 text-sm hover:opacity-100 transition sm:ml-0"
       href="#"
       @click.prevent="sendReview"
     >

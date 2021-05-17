@@ -5,22 +5,28 @@
       :popular="true"
       :topSale="true"
     />
+    <ProductFeaturesBtn class="hidden md:flex absolute right-0 top-0 flex-col space-x-0 space-y-4 z-20 sm:w-7"/>
     <div class="md:hidden flex items-start h-[425px]">
       <ProductThumbSlider
         v-model="activeImageIndex"
         class="w-[100px] h-full"
         :items="images"
       />
-      <ProductImage class="ml-3 h-full flex-1" :item="activeImage" />
+      <ProductImage
+        class="ml-3 h-full flex-1"
+        :item="activeImage"
+        @open="openModal(activeImageIndex)"
+      />
     </div>
     <div class="hidden md:block">
-      <ProductImagesSlider :items="images" />
+      <ProductImagesSlider :items="images" @open="openModal" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
+import useModal from '~/utils/compositions/useModal'
 
 export default defineComponent({
   setup() {
@@ -50,7 +56,10 @@ export default defineComponent({
     const activeImage = computed(() => {
       return images.value[activeImageIndex.value]
     })
-    return { images, activeImage, activeImageIndex }
+    const openModal = (startIndex: number) => {
+      const { showByName } = useModal()
+    }
+    return { images, activeImage, activeImageIndex, openModal }
   },
 })
 </script>

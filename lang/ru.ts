@@ -55,10 +55,23 @@ export default {
   productRating: 'Рейтинг товара',
   pros: 'Преимущества',
   cons: 'Недостатки',
+  showMore: 'Показать еще',
+  similarProducts: 'Похожие товары',
+  otherProducts: 'Другие товары',
+  economyTogether: "Вместе экономнее!",
+  watchedItems: 'Просмотренные товары',
+  oneClick: {
+    title: 'Введите номер телефона',
+    description: 'И мы Вам перезвоним для оформления заказа',
+    btn: 'Жду звонка!'
+  },
   productLabels: {
     topSale: 'Хит продаж',
     popular: 'Товар дня',
+    new: 'Новинка',
   },
+  economy: "Экономия",
+  phone: 'Телефон',
   footer: {
     copyright: 'Copyright © Zoo.com.ua, 2021 | Все права защищены',
     questions: 'По всем вопросам',

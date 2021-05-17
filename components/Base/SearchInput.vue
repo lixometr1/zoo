@@ -17,6 +17,7 @@
 import { defineComponent, ref, useContext } from '@nuxtjs/composition-api'
 import svgSearch from '@/assets/icons/search.svg?inline'
 import useResizeValue from '@/utils/compositions/useResizeValue'
+import { Breakpoints } from '~/types/constants'
 export default defineComponent({
   components: { svgSearch },
   setup(props, { emit }) {
@@ -29,7 +30,7 @@ export default defineComponent({
       mob: useContext().i18n.t('searchPlaceholderMob'),
     }
     const { value: inpPlaceholder } = useResizeValue((wWidth) => {
-      if (wWidth < 992) {
+      if (wWidth < Breakpoints.md) {
         return placeholderTexts.mob
       } else {
         return placeholderTexts.desktop

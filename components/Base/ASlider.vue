@@ -1,6 +1,10 @@
 <template>
   <div class="app-slider">
-    <div v-if="title || $slots.title" class="app-slider__title" :class="titleClass">
+    <div
+      v-if="title || $slots.title"
+      class="app-slider__title"
+      :class="titleClass"
+    >
       <slot name="title">
         <h2>
           {{ title }}
@@ -95,39 +99,40 @@ export default defineComponent({
   @apply relative;
   &__title {
     @apply mb-9 
-          lg:absolute lg:top-[40px] left-0 lg:right-[140px] lg:transform lg:-translate-y-1/2 
+          slider:absolute slider:top-[40px] left-0 slider:right-[140px] slider:transform slider:-translate-y-1/2 
           sm:top-[28px]  sm:right-[110px] z-20;
   }
   &__arrow {
-    @apply lg:top-[10px] mt-0;
+    @apply slider:top-[10px] mt-0;
     svg {
       @apply sm:w-[8px];
     }
   }
   &__slider {
-    @apply lg:pt-[80px] sm:pt-[60px];
+    @apply slider:pt-[80px] sm:pt-[60px];
   }
   &__arrow-next {
-    @apply transform translate-x-full -translate-y-1/2  -right-5 lg:right-0 lg:translate-x-0;
+    @apply transform translate-x-full -translate-y-1/2  -right-9 slider:right-0 slider:transform-none;
 
-    @media screen and (max-width: 1680px) {
+    /* @media screen and (max-width: 1680px) {
       right: 20px;
       transform: translate(0, -50%);
-    }
-    @screen lg {
+    } */
+    /* @screen slider {
       transform: translate(0);
-    }
+    } */
   }
   &__arrow-prev {
-    @apply -left-5 transform -translate-x-full -translate-y-1/2  lg:right-[80px] sm:right-[62px];
-    @media screen and (max-width: 1680px) {
+    @apply -left-9 transform -translate-x-full -translate-y-1/2  slider:right-[60px] sm:right-[45px] 
+    slider:transform-none slider:left-auto;
+    /* @media screen and (max-width: 1680px) {
       left: 20px;
       transform: translate(0, -50%);
-    }
-    @screen lg {
+    } */
+    /* @screen slider {
       transform: translate(0);
       left: auto;
-    }
+    } */
   }
 }
 </style>

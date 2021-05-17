@@ -1,63 +1,52 @@
 <template>
   <div>
     <ProductInfoReviewsSummary />
-    <div class="space-y-9 mt-9">
-      <ProductInfoReviewsItem
-        v-for="(item, idx) in items"
-        :key="idx"
-        :item="item"
-        class="border-b border-grey-500"
+    <ProductInfoReviewsItems class="mt-9" />
+    <div class="flex-y-center flex-col mt-5">
+      <LoadMoreText
+        class="my-7 sm:my-4"
+        :cnt="reviewsToLoad"
+        :itemsSclon="reviewsSclon"
+        @click="loadMoreReviews"
       />
+      <button
+        class="btn-green btn-green--shadow !px-9 py-4.5 sm:text-sm"
+        aria-expanded="false"
+        type="button"
+        @click="leftReview"
+      >
+        {{ $t('leftReview') }}
+      </button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import {
+  computed,
+  defineComponent,
+  ref,
+  useContext,
+} from '@nuxtjs/composition-api'
 
+import useWordSclon from '~/utils/compositions/useWordSclon'
 export default defineComponent({
   setup() {
-    const items = [
-      {
-        name: 'Андрей Маринович',
-        stars: 3,
-        date: new Date('2019-12-20'),
-        text:
-          'Равным образом постоянное информационно-пропагандистское обеспечение нашей деятельности способствует подготовки и реализации существенных финансовых и административных условий. Товарищи!',
-        pros: 'Класный дизайн, дедушке понравился',
-        cons: 'Цена кусаеться',
-        likes: 123,
-        dislikes: 23,
-        action: 'like'
-      },
-      {
-        name: 'Андрей Маринович',
-        stars: 3,
-        date: new Date('2019-12-20'),
-
-        text:
-          'Равным образом постоянное информационно-пропагандистское обеспечение нашей деятельности способствует подготовки и реализации существенных финансовых и административных условий. Товарищи!',
-        pros: 'Класный дизайн, дедушке понравился',
-        cons: 'Цена кусаеться',
-        likes: 123,
-        dislikes: 23,
-      },
-      {
-        name: 'Андрей Маринович',
-        stars: 4,
-        date: new Date('2019-12-20'),
-
-        text:
-          'Равным образом постоянное информационно-пропагандистское обеспечение нашей деятельности способствует подготовки и реализации существенных финансовых и административных условий. Товарищи!',
-        pros: 'Класный дизайн, дедушке понравился',
-        cons: 'Цена кусаеться',
-        likes: 123,
-        dislikes: 23,
-        action: 'dislike'
-
-      },
-    ]
-    return { items }
+    const leftReview = () => {}
+    const loadMoreReviews = () => {}
+    const reviewsToLoad = ref(23)
+    const reviewsSclon = (useContext().i18n.t('reviews') as any) as string[]
+    const itemsText = computed(() => {
+      const { exec } = useWordSclon(reviewsSclon)
+      return exec(reviewsToLoad.value)
+    })
+    return {
+      leftReview,
+      itemsText,
+      reviewsToLoad,
+      reviewsSclon,
+      loadMoreReviews,
+    }
   },
 })
 </script>

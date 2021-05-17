@@ -22,7 +22,7 @@ export default defineComponent({
   props: {
     price: [Number, String],
     oldPrice: [Number, String],
-    sale: Number,
+    sale: [Number, String],
     showPiece: Boolean
   },
   setup() {
@@ -41,7 +41,7 @@ export default defineComponent({
     @apply h-14;
   }
   &__old {
-    @apply relative  text-opacity-50 text-grey;
+    @apply relative  text-opacity-50 text-grey sm:text-sm;
     &::before {
       content: '';
       @apply absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 rotate-[-15deg] 
@@ -52,10 +52,10 @@ export default defineComponent({
     @apply bg-yellow font-bold text-sm px-2 py-1.5 ml-2 rounded-md leading-none sm:text-xs sm:py-0.5;
   }
   &__price {
-    @apply text-3xl sm:text-lg;
+    @apply text-3xl sm:text-2lg;
   }
   &__currency {
-    @apply text-grey text-opacity-50 text-lg;
+    @apply text-grey text-opacity-50 text-lg sm:text-sm;
   }
 }
 </style>

@@ -1,9 +1,21 @@
 <template>
   <div class="product-images-slider">
     <client-only>
-      <swiper class="" :options="sliderOpts">
-        <swiper-slide v-for="(item, idx) in items" :key="idx">
-          <img :src="item.src" alt="product-image">
+      <swiper
+        class="product-images-slider__slider"
+        :options="sliderOpts"
+        @clickSlider="clickSlide"
+      >
+        <swiper-slide
+          v-for="(item, idx) in items"
+          :key="idx"
+          class="product-images-slider__slide"
+        >
+          <img class="mx-auto" :src="item.src" alt="product-image" />
+          <VideoIcon
+            v-if="item.type === 'video'"
+            class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 bg-white"
+          />
         </swiper-slide>
         <div
           slot="pagination"
@@ -25,8 +37,11 @@ export default defineComponent({
       default: () => [],
     },
   },
-  setup() {
-    return {}
+  setup(props, { emit }) {
+    const clickSlide = (idx: number) => {
+      emit('open', idx)
+    }
+    return { clickSlide }
   },
   computed: {
     sliderOpts(): SwiperOptions {
@@ -46,5 +61,23 @@ export default defineComponent({
 
 <style lang="postcss">
 .product-images-slider {
+  @apply md:h-[400px] sm:h-[300px];
+  &__slider {
+    @apply pb-8 h-full;
+  }
+  &__pagination {
+    .swiper-pagination-bullet {
+      @apply bg-grey-500 opacity-100;
+    }
+    .swiper-pagination-bullet-active {
+      @apply bg-green;
+    }
+  }
+  &__slide {
+    @apply p-4 relative cursor-pointer flex-center;
+    img {
+      @apply max-h-full max-w-[80%] object-contain h-auto;
+    }
+  }
 }
 </style>

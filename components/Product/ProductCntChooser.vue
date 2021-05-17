@@ -52,7 +52,8 @@ export default defineComponent({
   &__item {
     @apply flex-1 font-medium flex-center text-center rounded-full m-[-1px]
         border border-transparent transition
-        hover:text-green hover:border-green hover:bg-green hover:bg-opacity-20;
+        hover:text-green hover:border-green hover:bg-green hover:bg-opacity-20
+        sm:text-xs;
     &-sale {
       @apply text-green font-bold ml-1;
     }

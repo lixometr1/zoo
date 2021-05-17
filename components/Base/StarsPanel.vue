@@ -5,7 +5,7 @@
       :key="item"
       class="w-[18px] text-yellow"
       :active="item <= stars"
-      v-bind="$attrs"
+      v-bind="{ strokeClass: 'text-grey text-opacity-50', ...$attrs }"
     />
     <div>
       <slot />

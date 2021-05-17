@@ -31,7 +31,7 @@ export default defineComponent({
 .progress-bar {
   @apply flex-y-center;
   &__line {
-    @apply flex-1 rounded-full h-1.5 bg-white ;
+    @apply flex-1 rounded-full h-1.5 bg-white relative;
   }
   &__active {
     @apply rounded-full bg-yellow h-full;

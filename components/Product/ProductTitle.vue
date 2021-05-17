@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-3xl font-bold">{{ value }}</h1>
+    <h1 class="text-3xl sm:text-2xl xs:text-lg font-bold">{{ value }}</h1>
   </div>
 </template>
 

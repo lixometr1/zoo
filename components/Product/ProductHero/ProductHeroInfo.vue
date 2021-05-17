@@ -5,22 +5,22 @@
         :status="availableStatus"
       />
     </div>
-    <div class="flex items-start mt-4">
+    <div class="flex items-start mt-4 sm:mt-0">
       <ProductTitle :value="title" class="mr-3 md:mr-0" />
-      <ProductFeaturesBtn class="ml-auto" />
+      <ProductFeaturesBtn class="ml-auto md:hidden" />
     </div>
-    <div class="max-w-[220px]">
+    <div class="max-w-[220px] sm:max-w-[170px]">
       <ProductCntChooser v-model="activeCnt" class="mt-4" />
     </div>
     <ProductVariations v-model="activeVariations" class="mt-7" />
     <ProductPriceBlock
-      class="mt-7"
+      class="mt-7 "
       :price="'3 276'"
       :oldPrice="'3 787'"
       :sale="12"
     />
-    <ProductReviewBlock class="mt-7" :total="totalReviews" :stars="stars" />
-    <ProductDelivery class="mt-10" />
+    <ProductReviewBlock class="mt-7 sm:mt-10" :total="totalReviews" :stars="stars" />
+    <ProductDelivery class="mt-10 sm:mt-5.5" />
   </div>
 </template>
 
