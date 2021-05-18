@@ -94,7 +94,24 @@ export default defineComponent({
 .product-grouped-item {
   @apply flex-y-center md:flex-col md:items-stretch;
   .product-card {
-    @apply md:flex md:flex-row;
+    @apply md:flex md:flex-row md:items-center sm:py-2;
+    &__actions {
+      @apply sm:hidden;
+    }
+    &__available {
+      @apply sm:hidden;
+    }
+    &-price {
+      &.product-price {
+        @apply sm:h-auto sm:mt-1;
+      }
+      &__old {
+        @apply sm:hidden;
+      }
+    }
+    &__image {
+      @apply sm:pt-0 sm:h-[150px] xs:h-[90px];
+    }
   }
   &__circle {
     @apply rounded-full bg-white w-12 h-12 flex-center mx-2.5 flex-shrink-0

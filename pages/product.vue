@@ -12,6 +12,7 @@
       <ProductWatchedItems class="mt-18 md:mt-14" />
       <ProductSubCategories class="mt-18 md:mt-14" />
     </div>
+    <ProductBarMob />
   </div>
 </template>
 
@@ -39,7 +40,7 @@ export default defineComponent({
       ]
     })
     provide('product', ref({ test: true }))
-
+    provide('cnt', ref(1))
     return { breadcrumbs }
   },
 })

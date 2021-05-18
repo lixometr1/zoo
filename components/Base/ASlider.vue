@@ -29,7 +29,7 @@
         <div
           :id="'swiper-button-next-' + _uid"
           :class="arrowNextClass"
-          class="swiper-button-next app-slider__arrow app-slider__arrow-next circle-arrow swiper-button-reset"
+          class="swiper-button-next app-slider__arrow app-slider__arrow-next circle-arrow swiper-button-reset "
         >
           <svgArrowRight width="10" />
         </div>
@@ -104,9 +104,7 @@ export default defineComponent({
   }
   &__arrow {
     @apply slider:top-[10px] mt-0;
-    svg {
-      @apply sm:w-[8px];
-    }
+   
   }
   &__slider {
     @apply slider:pt-[80px] sm:pt-[60px];

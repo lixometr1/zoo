@@ -44,10 +44,9 @@ h3 {
 }
 h4 {
   @apply text-grey font-bold text-2lg md:text-lg sm:text-base;
-
 }
 .circle-arrow {
-  @apply rounded-full bg-white  shadow-arrow flex items-center justify-center z-30 flex-shrink-0 transition;
+  @apply rounded-full bg-white  shadow-arrow flex items-center justify-center z-30 flex-shrink-0 transition select-none;
   width: 60px !important;
   height: 60px !important;
   color: theme('colors.grey.DEFAULT') !important;
@@ -65,6 +64,9 @@ h4 {
   }
   &.swiper-button-disabled {
     @apply bg-grey-light;
+  }
+  svg {
+    @apply sm:w-[8px];
   }
 }
 .swiper-button-reset {
@@ -100,3 +102,4 @@ h4 {
 .page-layout {
   @apply flex flex-col items-start justify-start min-h-screen;
 }
+

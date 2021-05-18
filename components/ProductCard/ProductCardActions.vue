@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute px-3 py-5 left-0 top-0 text-grey space-y-4 bg-opacity-90 bg-white rounded-br-md">
+  <div class="product-card__actions absolute px-3 py-5 left-0 top-0 text-grey space-y-4 bg-opacity-90 bg-white rounded-br-md">
     <a href="#" class="opacity-50 block cursor-pointer hover:opacity-100 transition">
       <svgWishList width="24" />
     </a>

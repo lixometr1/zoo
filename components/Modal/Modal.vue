@@ -15,7 +15,6 @@
 <script>
 import useModal from '@/utils/compositions/useModal'
 import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
-// import svgClose from "@/assets/icons/close.svg";
 export default defineComponent({
   setup(props, { emit }) {
     const isOpen = ref(false)
@@ -73,45 +72,20 @@ export default defineComponent({
 
 <style lang="postcss">
 .modal-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @apply fixed top-0 left-0 right-0 bottom-0 w-full h-full z-500 flex-center;
 }
 
 .modal-overlay {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,.3);
+  @apply absolute top-0 left-0 right-0 bottom-0 z-10 bg-grey bg-opacity-70 transition-all;
 }
 
 .modal-content {
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.4);
-  padding: 3.5rem 7rem;
-  position: relative;
-  z-index: 2;
-  
+  @apply relative z-20 rounded-lg bg-white border border-grey-light p-7 transition-all;
 }
 
 .modal-close {
-  position: absolute;
-  top: 3.5rem;
-  right: 4rem;
-  cursor: pointer;
- 
+  @apply absolute top-7 right-7 cursor-pointer z-20 transition-opacity text-grey opacity-70 hover:opacity-100
+        sm:top-5 sm:right-5;
 }
 
 .modal-fade-enter,
@@ -127,6 +101,6 @@ export default defineComponent({
 
 .modal-fade-enter-active,
 .modal-fade-leave-active {
-  transition: .3s;
+  transition: 0.3s;
 }
 </style>

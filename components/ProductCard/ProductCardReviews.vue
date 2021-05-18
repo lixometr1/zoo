@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="product-card__reviews">
     <StarsPanel v-if="hasReviews" v-bind="$attrs" :stars="stars">
-      <div class="ml-1 text-sm font-semibold">{{ total }}</div>
+      <div class="ml-1 text-sm font-semibold pt-1">{{ total }}</div>
     </StarsPanel>
     <div v-else class="flex items-center text-blue text-sm">
       <svgReviews class="w-5.5 mr-2" />

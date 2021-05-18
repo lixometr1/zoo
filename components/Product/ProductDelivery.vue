@@ -2,7 +2,7 @@
   <div class="product-delivery" :class="{ open: isOpen }">
     <div class="product-delivery__header" @click="headerClick">
       {{ $t('deliveryToCity') }}:
-      <div class="border-circle-green font-bold ml-2 leading-4">Киев</div>
+      <div class="border-circle-green font-bold ml-2 leading-4 sm:ml-1">Киев</div>
       <div class="product-delivery__arrow"><svgArrowDown width="10" /></div>
     </div>
     <client-only>
@@ -118,7 +118,7 @@ export default defineComponent({
 .product-delivery {
   @apply text-sm xs:text-xs relative ;
   &__header {
-    @apply border border-grey-light px-7 py-4.5 sm:px-4.5
+    @apply border border-grey-light px-7 py-4.5 sm:px-4.5 sm:py-4
           flex-y-center sm:cursor-pointer rounded-lg select-none;
     background: #f8f8f8;
   }

@@ -9,7 +9,7 @@
         :sale="sale"
         :showPiece="true"
       />
-      <ProductCntCounter v-model="cnt" class="w-[110px] max-h-[60px] sm:max-h-[38px] ml-auto" />
+      <ProductCntCounter v-model="cnt" class="w-[110px] h-[60px] sm:h-[38px] ml-auto" />
     </div>
 
     <div class="relative">
@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { defineComponent, inject, ref } from '@nuxtjs/composition-api'
 import useOpen from '~/utils/compositions/useOpen'
 
 export default defineComponent({
@@ -61,7 +61,7 @@ export default defineComponent({
     } = useOpen()
 
     const addToCard = () => {}
-    const cnt = ref(1)
+    const cnt = inject('cnt')
     const clickOutsideMiddleware = (e: MouseEvent) => {
       return !(e.target as HTMLElement)?.className?.includes(
         'buy-one-click-btn'

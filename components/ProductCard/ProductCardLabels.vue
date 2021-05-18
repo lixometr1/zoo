@@ -1,6 +1,6 @@
 <template>
   <ProductLabels
-    class="flex flex-col absolute right-3 top-5 space-y-1.5"
+    class="product-card__labels flex flex-col absolute right-3 top-5 space-y-1.5"
     v-bind="$attrs"
     v-on="$listeners"
   />

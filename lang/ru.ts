@@ -60,6 +60,7 @@ export default {
   otherProducts: 'Другие товары',
   economyTogether: "Вместе экономнее!",
   watchedItems: 'Просмотренные товары',
+  onSum: 'На сумму',
   oneClick: {
     title: 'Введите номер телефона',
     description: 'И мы Вам перезвоним для оформления заказа',

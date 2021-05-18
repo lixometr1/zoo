@@ -4,7 +4,7 @@
       <swiper
         class="product-images-slider__slider"
         :options="sliderOpts"
-        @clickSlider="clickSlide"
+        @clickSlide="clickSlide"
       >
         <swiper-slide
           v-for="(item, idx) in items"

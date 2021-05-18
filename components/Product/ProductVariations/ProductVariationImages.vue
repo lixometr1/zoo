@@ -9,6 +9,9 @@
       @click.prevent="chooseItem(item.value)"
     >
       <img :src="item.image" alt="" />
+      <div class="product-card-variation-images__item-tooltip">
+        {{ item.title }}
+      </div>
     </a>
   </div>
 </template>
@@ -38,9 +41,24 @@ export default defineComponent({
   @apply flex flex-wrap;
   &__item {
     @apply mr-1 mb-1 border-grey-light border 
-          py-3 px-1 rounded-md hover:bg-opacity-20 hover:bg-green transition;
+          py-3 px-1 rounded-md hover:bg-opacity-20 hover:bg-green transition relative;
     &.active {
       @apply border-green;
+    }
+    &-tooltip {
+      @apply hidden text-center absolute -top-2 transform -translate-y-full border bg-white border-grey-light rounded-sm 
+        py-1.5 px-4 
+          text-sm font-medium text-grey text-opacity-50;
+      box-shadow: 5px 5px 10px rgba(69, 80, 103, 0.15);
+      &::before {
+        content: '';
+        @apply absolute bottom-0 transform translate-y-full left-[20%] w-[18px] h-[20px];
+        background: url(~@/assets/icons/tooltip_arrow.svg) center center
+          no-repeat;
+      }
+    }
+    &:hover &-tooltip {
+      @apply block;
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="font-medium">
+  <div class="product-card__available font-medium">
     <div
       v-if="status === 1 || status === 2"
       class="flex text-green items-center"

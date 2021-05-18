@@ -1,19 +1,15 @@
 <template>
   <div>
-    <TitleWithAll class="mb-9 md:mb-5 " link="#" :title="$t('popular')" />
-    <ASlider
-      sliderClass="category-popular-slider"
+    <ProductsSlider
       :items="items"
-      :sliderOptions="sliderOpts"
+      link="#"
+      :title="$t('popular')"
+      :showAll="true"
     >
       <template #slide="{}">
-        <ProductCard
-          :multilineTitle="false"
-          :showReviews="false"
-          class="category-popular-slider__product"
-        />
+        <ProductCard :multilineTitle="false" :showReviews="false" />
       </template>
-    </ASlider>
+    </ProductsSlider>
   </div>
 </template>
 
@@ -26,41 +22,10 @@ export default defineComponent({
     return { items }
   },
   computed: {
-    sliderOpts() {
-      const sliderOpts: SwiperOptions = {
-        slidesPerView: 2,
-        spaceBetween: 8,
-        breakpoints: {
-          1200: {
-            slidesPerView: 5,
-          },
-          900: {
-            slidesPerView: 4,
-            spaceBetween: 15,
-          },
-          650: {
-            slidesPerView: 3,
-          },
-        },
-      }
-      return sliderOpts
-    },
+    
   },
 })
 </script>
 
 <style lang="postcss">
-.category-popular-slider {
-  /* margin-bottom: -250px;
-    padding-bottom: 250px; */
-  /* z-index: 1000; */
-  position: relative;
-  /* &__product {
-        &:hover {
-            position: absolute;
-            height: 700px;
-            width: 100%;
-        }
-    } */
-}
 </style>

@@ -5,7 +5,9 @@
       :popular="true"
       :topSale="true"
     />
-    <ProductFeaturesBtn class="hidden md:flex absolute right-0 top-0 flex-col space-x-0 space-y-4 z-20 sm:w-7"/>
+    <ProductFeaturesBtn
+      class="hidden md:flex absolute right-0 top-0 flex-col space-x-0 space-y-4 z-20 sm:w-7"
+    />
     <div class="md:hidden flex items-start h-[425px]">
       <ProductThumbSlider
         v-model="activeImageIndex"
@@ -26,6 +28,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
+import { ModalName } from '~/types/modal.enum'
 import useModal from '~/utils/compositions/useModal'
 
 export default defineComponent({
@@ -58,6 +61,12 @@ export default defineComponent({
     })
     const openModal = (startIndex: number) => {
       const { showByName } = useModal()
+      showByName(ModalName.productImages, {
+        props: {
+          startIndex,
+          items: images.value
+        }
+      })
     }
     return { images, activeImage, activeImageIndex, openModal }
   },

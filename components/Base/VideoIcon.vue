@@ -1,5 +1,5 @@
 <template>
-  <div class="video-icon">
+  <div class="video-icon" v-on="$listeners">
     <svgPlay width="10" />
   </div>
 </template>
