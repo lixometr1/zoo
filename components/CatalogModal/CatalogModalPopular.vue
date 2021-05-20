@@ -6,14 +6,14 @@
       {{ $t('popularCategories') }}
     </div>
     <div class="space-y-0.5">
-      <router-link
+      <NuxtLink
         to="#"
         class="block text-opacity-70 text-grey hover:text-green"
         v-for="(popularCategory, idx) in popularCategories"
         :key="idx"
       >
         {{ popularCategory.name }}
-      </router-link>
+      </NuxtLink>
     </div>
   </div>
 </template>

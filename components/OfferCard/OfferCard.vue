@@ -1,5 +1,5 @@
 <template>
-  <router-link
+  <NuxtLink
     :to="link || '#'"
     class="offer-card"
     :class="{ [`bg-style-${bgType}`]: true }"
@@ -21,7 +21,7 @@
     </div>
     <img class="offer-card__image" :src="image" :alt="title" />
     <slot name="other" />
-  </router-link>
+  </NuxtLink>
 </template>
 
 <script lang="ts">

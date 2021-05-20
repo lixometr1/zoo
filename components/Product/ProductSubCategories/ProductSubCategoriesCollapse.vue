@@ -2,7 +2,7 @@
   <div>
     <ArrowCollapse height="125px" :hasMore="items.length > 12">
       <div class="grid grid-cols-3 gap-x-9 sm:flex sm:flex-col sm:gap-0 sm:space-y-2">
-        <router-link
+        <NuxtLink
           v-for="(item, idx) in items"
           :key="idx"
           to="#"
@@ -10,7 +10,7 @@
                   sm:mb-0 sm:text-xs"
         >
           {{ item.name }}
-        </router-link>
+        </NuxtLink>
       </div>
     </ArrowCollapse>
   </div>

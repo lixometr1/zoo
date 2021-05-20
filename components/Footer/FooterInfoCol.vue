@@ -5,9 +5,9 @@
     <div
       class="inline-block pb-3 border-b border-opacity-20 border-grey mb-5.5 lg:border-none sm:border-solid sm:pb-4 sm:w-full"
     >
-      <router-link class="block" :to="localePath('/')">
+      <NuxtLink class="block" :to="localePath('/')">
         <Logo class="footer-logo" />
-      </router-link>
+      </NuxtLink>
       <div class="hidden lg:block mt-5 sm:hidden">
         <FooterSocIcons />
       </div>

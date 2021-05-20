@@ -3,11 +3,11 @@
     <slot name="title">
       <h2>{{ title }}</h2>
     </slot>
-    <router-link
+    <NuxtLink
       v-if="showAll"
       class="title-with-all__link border-circle-grey "
       :to="link || '#'"
-      >{{ $t('watchAll') }}</router-link
+      >{{ $t('watchAll') }}</NuxtLink
     >
   </div>
 </template>

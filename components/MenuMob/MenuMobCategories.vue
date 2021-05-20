@@ -12,7 +12,7 @@
           {{ $t('popularCategories') }}
         </div>
         <div class="space-y-1.5">
-          <router-link
+          <NuxtLink
             v-for="(item, idx) in popularCategories"
             :key="idx"
             to="#"
@@ -23,13 +23,13 @@
               class="text-grey text-opacity-50 ml-auto"
               width="5"
             />
-          </router-link>
+          </NuxtLink>
         </div>
       </div>
       <div class="pt-5.5 blur-down">
         <div class="text-xxs font-bold mb-4.5">{{ $t('allCategories') }}</div>
         <div class="space-y-1.5">
-          <router-link
+          <NuxtLink
             v-for="(item, idx) in categories"
             :key="idx"
             to="#"
@@ -40,7 +40,7 @@
               class="text-grey text-opacity-50 ml-auto"
               width="5"
             />
-          </router-link>
+          </NuxtLink>
         </div>
       </div>
     </div>

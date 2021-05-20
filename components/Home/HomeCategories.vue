@@ -9,7 +9,7 @@
       :items="items"
     >
       <template #slide="{ item }">
-        <router-link
+        <NuxtLink
           :to="item.link || '#'"
           class="text-center flex-y-center flex-col w-[230px] md:w-[180px] xs:w-[130px]"
         >
@@ -23,7 +23,7 @@
               >{{ item.cnt }}</span
             >
           </div>
-        </router-link>
+        </NuxtLink>
       </template>
     </ASlider>
   </div>

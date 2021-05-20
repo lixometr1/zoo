@@ -1,10 +1,10 @@
 <template>
   <div class="pt-5.5 mt-5 border-t border-grey border-opacity-30 leading-none">
-    <router-link class="text-blue text-lg font-bold flex-y-center" to="#">
+    <NuxtLink class="text-blue text-lg font-bold flex-y-center" to="#">
       <span> {{ $t('all') }}</span>
       <span class="lowercase ml-1">{{ $t('categories[1]') }}</span>
       <svgArrowRight class="ml-2" width="5" />
-    </router-link>
+    </NuxtLink>
   </div>
 </template>
 

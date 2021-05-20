@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-wrap">
-    <router-link
+    <NuxtLink
       v-for="(item, idx) in items"
       :key="idx"
       to="#"
@@ -8,7 +8,7 @@
     >
       {{ item.name }}
       <span class="text-grey text-opacity-50 group-hover:text-green">{{ item.cnt }}</span>
-    </router-link>
+    </NuxtLink>
   </div>
 </template>
 

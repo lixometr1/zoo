@@ -12,7 +12,7 @@
     @mouseenter.self="onMouseEnter"
     @mouseleave.self="onMouseLeave"
   >
-    <router-link
+    <NuxtLink
       :to="productLink"
       class="block product-card__image"
       :class="{ full: isFullImage }"
@@ -23,7 +23,7 @@
           {{ $t('quickView') }}
         </button>
       </transition>
-    </router-link>
+    </NuxtLink>
     <div class="product-card__content">
       <ProductCardActions />
       <ProductCardLabels
@@ -39,12 +39,12 @@
         :total="43"
       />
       <ProductAvailable class="mt-4" :status="availableStatus" />
-      <router-link
+      <NuxtLink
         :to="productLink"
         class="block font-bold text-grey product-card__name"
         :class="{ 'text-opacity-50': availableStatus === 0 }"
       >
-        {{ name }}</router-link
+        {{ name }}</NuxtLink
       >
       <CollapseTransition
         @before-enter="beforeHoverEnter"

@@ -7,7 +7,7 @@
           :key="idx"
           class="!w-[150px] pr-5 sm:pr-1 sm:!w-24"
         >
-          <router-link
+          <NuxtLink
             :to="item.link || '#'"
             class="sm:flex sm:flex-col sm:items-center group"
           >
@@ -26,7 +26,7 @@
                 item.cnt
               }}</span>
             </div>
-          </router-link>
+          </NuxtLink>
         </swiper-slide>
       </swiper>
     </client-only>

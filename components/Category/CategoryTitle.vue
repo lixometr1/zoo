@@ -4,10 +4,10 @@
       class="inline-flex items-center mb-5 text-grey text-opacity-50 md:mb-3 hover:text-opacity-100 transition-colors"
     >
       <svgArrowLeft class="mr-2" width="12" />
-      <router-link
+      <NuxtLink
         :to="localePath('/')"
         class="text-sm sm:text-xs uppercase font-medium"
-        >{{ $t('goToMain') }}</router-link
+        >{{ $t('goToMain') }}</NuxtLink
       >
     </div>
     <h2 class="pb-9 md:pb-5 border-b border-grey border-opacity-20">

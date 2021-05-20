@@ -12,12 +12,12 @@
         :key="idx"
         class="w-1/2 flex-x-center mb-5"
       >
-        <router-link class="text-center" to="#">
+        <NuxtLink class="text-center" to="#">
           <CategoryImage class="!w-[100px] !h-[100px]" :src="item.icon" />
           <div class="font-sm font-medium mt-2.5">
             {{ item.name }}
           </div>
-        </router-link>
+        </NuxtLink>
       </div>
     </div>
   </div>

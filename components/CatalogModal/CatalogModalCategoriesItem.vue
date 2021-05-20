@@ -1,18 +1,18 @@
 <template>
   <div>
-    <router-link to="#" class="text-blue font-bold text-lg leading-none">
+    <NuxtLink to="#" class="text-blue font-bold text-lg leading-none">
       {{ title }}
       <svgArrowRight width="6" class="ml-1.5 inline-block" />
-    </router-link>
+    </NuxtLink>
     <div class="space-y-0.5 mt-2">
-      <router-link
+      <NuxtLink
         v-for="(subCategory, idx) in subCategories"
         :key="idx"
         to="#"
         class="block text-grey text-opacity-80 hover:text-green"
       >
         {{ subCategory.name }}
-      </router-link>
+      </NuxtLink>
     </div>
   </div>
 </template>

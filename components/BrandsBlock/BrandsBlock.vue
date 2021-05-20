@@ -9,7 +9,7 @@
         {{ description }}
       </div>
       <div class="flex flex-wrap mt-12 md:mt-5 sm:mt-3">
-        <router-link
+        <NuxtLink
           v-for="(item, idx) in items"
           :key="idx"
           :to="item.link || '#'"
@@ -17,9 +17,9 @@
           :class="{ 'sm:hidden': idx > 11, 'xxs:hidden': idx > 9 }"
         >
           <img :src="item.image" class="mx-auto" alt="" />
-        </router-link>
+        </NuxtLink>
       </div>
-      <router-link to="#" class="btn-green sm:!py-4.5 !hidden sm:!flex mt-6">{{ $t('watchAll') }}</router-link>
+      <NuxtLink to="#" class="btn-green sm:!py-4.5 !hidden sm:!flex mt-6">{{ $t('watchAll') }}</NuxtLink>
     </div>
   </div>
 </template>

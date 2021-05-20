@@ -2,7 +2,7 @@
   <div class="pb-16 md:pb-10 sm:pb-0">
     <div class="container">
       <AppBreadcrumbs :items="breadcrumbs" />
-      <CategoryTitle class="mt-7 md:mt-5" />
+      <CategoryTitle class="mt-4 md:mt-5" />
       <CategoryOfferSlider class="mt-9 md:mt-5" />
       <CategorySubCategories class="mt-24 md:mt-5" />
     </div>

@@ -1,21 +1,21 @@
 <template>
   <div
-    class="flex items-center py-page xl:py-page-mob font-medium whitespace-nowrap"
+    class="flex items-center py-page md:py-page-mob font-medium whitespace-nowrap"
   >
-    <router-link class="flex items-center " :to="localePath('/')">
+    <NuxtLink class="flex items-center " :to="localePath('/')">
       <svgHome width="20" class="text-green mr-2 transform -translate-y-0.5" />
       <span class="text-sm text-grey text-opacity-50 xs:inline hidden">...</span>
-    </router-link>
+    </NuxtLink>
     <div class="flex-y-center overflow-hidden overflow-ellipsis md:justify-end">
       <span class="text-sm text-grey text-opacity-50 mr-1">/</span>
-      <router-link
+      <NuxtLink
         v-for="(link, idx) in breadcrumbsItems"
         :key="idx"
         :to="link.routeName ? localePath({ name: link.routeName }) : '#'"
         class="text-grey text-opacity-50 mx-1 hover:text-opacity-100 transition-colors"
       >
         {{ link.name }} <span class="text-sm">/</span>
-      </router-link>
+      </NuxtLink>
     </div>
     <div class="mx-1">
       {{ currentItem.name }}

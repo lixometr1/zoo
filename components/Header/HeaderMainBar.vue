@@ -2,7 +2,7 @@
   <div class="py-4 bg-white border-b border-grey-light">
     <div class="container">
       <div class="flex items-center">
-        <router-link :to="localePath('/')"> <Logo /></router-link>
+        <NuxtLink :to="localePath('/')"> <Logo /></NuxtLink>
         <HeaderMenu class="flex-auto px-6 lg:hidden" />
         <HeaderLocaleSwitcher class="mr-6 lg:ml-auto" />
         <HeaderPhones class="mr-7" />

@@ -5,14 +5,15 @@
         <span v-bind="attributes">
           <svgArrowDown width="8" class="text-grey" />
         </span>
-      </template> 
-      <!-- <template #option="option">
-        <slot name="option">
-          <div class="">{{ option.label }}</div>
-        </slot>
-      </template> -->
+      </template>
+      <template #option="option">
+        <slot name="option" v-bind="option"> </slot>
+      </template>
+      <template #selected-option="option">
+        <slot name="selected-option" v-bind="option"> </slot>
+      </template>
     </VSelect>
-  </div> 
+  </div>
 </template>
 
 <script lang="ts">
@@ -45,7 +46,7 @@ export default defineComponent({
 .app-select {
   &.vs--open {
     .vs__dropdown-toggle {
-      @apply rounded-t-5 rounded-b-none ;
+      @apply rounded-t-5 rounded-b-none;
     }
   }
   .vs__dropdown-toggle {

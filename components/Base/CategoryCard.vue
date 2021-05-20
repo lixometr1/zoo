@@ -1,10 +1,10 @@
 <template>
-  <router-link :to="link || '#'" class="category-card">
+  <NuxtLink :to="link || '#'" class="category-card">
     <CategoryImage :src="icon" />
     <div class="mt-6 sm:mt-4 text-2lg sm:text-sm font-medium">
       {{ name }}
     </div>
-  </router-link>
+  </NuxtLink>
 </template>
 
 <script lang="ts">
