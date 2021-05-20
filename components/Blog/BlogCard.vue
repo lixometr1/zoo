@@ -22,7 +22,7 @@
       </p>
     </div>
     <div class="mt-3">
-      <NuxtLink class="font-bold text-green border-b-2 border-green border-dotted border-opacity-50 hover:border-solid hover:border-opacity-100 transition-all" :to="link">
+      <NuxtLink class="uppercase font-bold text-green border-b-2 border-green border-dotted border-opacity-50 hover:border-solid hover:border-opacity-100 transition-all" :to="link">
         {{ $t('readFull') }}
       </NuxtLink>
     </div>

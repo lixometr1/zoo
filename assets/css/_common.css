@@ -103,3 +103,15 @@ h4 {
   @apply flex flex-col items-start justify-start min-h-screen;
 }
 
+.checkmark-list {
+  li {
+    @apply flex items-start;
+    &::before {
+      @apply mr-2 flex-shrink-0 block w-3 h-3 relative top-[7px];
+      content: '';
+      background: url(~@/assets/icons/checkmark_green.svg) center center
+        no-repeat;
+        background-size: contain;
+    }
+  }
+}

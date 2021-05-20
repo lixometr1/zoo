@@ -1,5 +1,5 @@
 <template>
-  <button class="flex group" v-bind="$attrs" v-on="$listeners">
+  <button class="flex group focus:outline-none" v-bind="$attrs" v-on="$listeners">
     <div class="mr-4">
       <svgRefresh
         class="text-green"
