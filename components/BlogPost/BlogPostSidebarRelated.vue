@@ -4,11 +4,15 @@
       v-for="(item, i) in items"
       :key="i"
       to="#"
-      class="flex-y-center group py-1.5 px-7"
+      class="flex-y-center group py-1.5 px-7 xs:px-4"
     >
-      <img class="w-18 h-18 object-cover rounded-lg flex-shrink-0" :src="item.image" alt="" />
+      <img
+        class="w-18 h-18 object-cover rounded-lg flex-shrink-0 xs:w-12 xs:h-12 "
+        :src="item.image"
+        alt=""
+      />
       <div
-        class="ml-5 pr-3 leading-5 text-base font-bold group-hover:text-green group-hover:underline transition-all"
+        class="ml-5 pr-3 leading-5 text-base font-bold group-hover:text-green group-hover:underline transition-all xs:text-xs"
       >
         {{ item.title }}
       </div>

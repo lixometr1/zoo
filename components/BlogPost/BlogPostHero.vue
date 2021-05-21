@@ -15,10 +15,10 @@
         >{{ categoryName }}</NuxtLink
       >
     </div>
-    <div class="mt-4">
+    <div class="mt-4 sm:mt-3">
       <h1 class="sm:text-2lg">{{ title }}</h1>
     </div>
-    <div class="mt-5 text-lg font-medium xl:text-base md:font-normal sm:text-sm sm:mt-3 ">
+    <div class="mt-5 text-lg font-medium xl:text-base sm:text-sm sm:mt-3 ">
       <p>
         {{ description }}
       </p>

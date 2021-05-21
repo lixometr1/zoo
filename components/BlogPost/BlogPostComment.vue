@@ -1,7 +1,7 @@
 <template>
-  <div class="pb-7 border-b border-grey-500 font-medium">
+  <div class="pb-7 border-b border-grey-500 font-medium sm:text-sm">
     <div>
-      <h4>{{ name }}</h4>
+      <h4 class="sm:text-lg"> {{ name }}</h4>
     </div>
     <div class="mt-1.5 text-grey opacity-50 flex-y-center font-medium">
       <svgCalendar width="20" class="mr-2.5" />

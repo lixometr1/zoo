@@ -56,7 +56,7 @@
         встречи с будущим любимцем. У других же подбор имени вызывает трудности.
         Вот несколько идей, которые помогут придумать щенку имя.
       </p>
-      <ul class="checmark-list">
+      <ul class="checkmark-list">
         <li>
           Внешний вид может подсказать много вариантов имени. Какой у щенка цвет
           шерсти? Может, есть особая примета в виде пятна на мордочке или на
@@ -126,13 +126,13 @@ export default defineComponent({
 .blog-post-content {
    @apply font-medium;
   h2 {
-    @apply mb-4.5;
+    @apply mb-4.5 sm:text-2lg xs:mb-2 sm:leading-6;
   }
-  p {
+  p, ul, li {
     @apply text-lg mb-2 xl:text-base sm:text-sm;
   }
   > div {
-    @apply mb-7;
+    @apply mb-7 xs:mb-5;
   }
 }
 </style>

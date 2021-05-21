@@ -69,9 +69,10 @@ export default {
   onSum: 'На сумму',
   articlesMany: 'Статьи',
   readFull: 'Читать полностью',
-  readAlso: 'Читайте так же',
+  readAlso: 'Читайте также',
   shareArticle: 'Поделиться статьей',
   leftComment: 'Оставить комментарий',
+  articleAnotation: 'Содержание статьи',
   oneClick: {
     title: 'Введите номер телефона',
     description: 'И мы Вам перезвоним для оформления заказа',

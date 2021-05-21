@@ -1,7 +1,7 @@
 <template>
   <div>
     <TitleWithAll
-      class="hidden md:flex sm:justify-between mb-9 md:mb-5"
+      class="!hidden md:!flex sm:justify-between mb-9 md:mb-5"
       :link="link"
       :title="title"
       :showAll="showAll"
