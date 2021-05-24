@@ -17,28 +17,31 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { computed, defineComponent } from '@nuxtjs/composition-api'
 import svgArrowDown from '@/assets/icons/arrow_down_triangle.svg?inline'
 export default defineComponent({
   components: { svgArrowDown },
   inheritAttrs: false,
-  setup() {
-    return {}
+  props: {
+    selectClass: [String, Array, Object],
   },
-  computed: {
-    _listeners() {
-      return {
-        ...this.$listeners,
-      }
-    },
-    _attrs() {
+  setup(props, { listeners, attrs }) {
+    const _attrs = computed(() => {
       return {
         clearable: false,
         searchable: false,
-        ...this.$attrs,
+        class: props.selectClass,
+        ...attrs,
       }
-    },
+    })
+    const _listeners = computed(() => {
+      return {
+        ...listeners,
+      }
+    })
+    return { _attrs, _listeners }
   },
+  computed: {},
 })
 </script>
 
@@ -50,7 +53,7 @@ export default defineComponent({
     }
   }
   .vs__dropdown-toggle {
-    @apply rounded-md border border-grey-light px-3 py-2 bg-white;
+    @apply rounded-md border border-grey-light px-3 py-2 bg-white h-full;
   }
   .vs__dropdown-menu {
     @apply bg-white border border-grey-light rounded-b-5 shadow-none;

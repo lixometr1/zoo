@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-y-center">
+  <div class="flex-y-center ">
     <BlogFiltersSearch class="flex-1 mr-11 lg:mr-8 md:mr-0"/>
     <BlogFiltersSort class="md:hidden" />
   </div>
