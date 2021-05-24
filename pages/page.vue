@@ -13,7 +13,8 @@
           </span>
         </NuxtLink>
         <div>
-          <h1 class="mb-3 sm:text-lg sm:mb-1.5">Шаблон</h1>
+          <h1 class="mb-3 sm:text-lg sm:mb-1.5
+          ">Шаблон</h1>
           <div class="sm:text-sm">
             <p class="mb-3">
               Повседневная практика показывает, что укрепление и развитие
