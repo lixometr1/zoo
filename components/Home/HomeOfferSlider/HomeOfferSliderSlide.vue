@@ -11,7 +11,7 @@
             <span>{{ price }} {{ currency }}</span>
           </div>
         </div>
-        <div class="offer-card__label">ШОК ЦЕНА</div>
+        <div class="offer-card__label">{{ $t('shockPrice') }}</div>
       </template>
     </OfferCard>
   </div>
@@ -40,7 +40,7 @@ export default defineComponent({
     @apply !shadow-none h-full;
   }
   .offer-card {
-    @apply rounded-xl sm:rounded-none ;
+    @apply rounded-xl sm:rounded-none;
     &__title {
       @apply text-7xl lg:text-5xl sm:text-3xl xs:text-2xl xs:leading-5;
     }

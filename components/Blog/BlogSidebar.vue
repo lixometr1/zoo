@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="mb-10 sm:mb-3.5">{{ $t('articlesMany') }}</h1>
+    <h1 class="mb-10 md:mb-3.5">{{ $t('articlesMany') }}</h1>
     <BlogCategories class="md:hidden" :items="categories" />
     <BlogCategoriesMob class="hidden md:block" :items="categories" />
   </div>

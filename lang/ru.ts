@@ -52,7 +52,8 @@ export default {
   stockItems: 'Акционный товар',
   sellingHits: 'Хиты продаж',
   productsNew: 'Новинки',
-  stocks: 'Акции',
+  stocksMany: 'Акции',
+  goToBrands: "Вернуться к брендам",
   ends: 'Заканчивается',
   sku: 'Код товара',
   buyOneClick: 'Купить в 1 клик',
@@ -93,6 +94,7 @@ export default {
   phone: 'Телефон',
   searchByName: "Поиск по названию",
   hereCanBeYourRequest: 'Здесь может быть ваш запрос, например Happy Baby',
+  shockPrice: 'ШОК ЦЕНА',
   articlesSearch: 'Поиск по статьям',
   footer: {
     copyright: 'Copyright © Zoo.com.ua, 2021 | Все права защищены',

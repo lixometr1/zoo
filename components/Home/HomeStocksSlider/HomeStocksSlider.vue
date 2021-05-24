@@ -9,16 +9,16 @@
       titleClass="sm:!right-0"
     >
       <template #title>
-        <TitleWithAll class="mb-0" link="#" :title="$t('stocks')" />
+        <TitleWithAll class="mb-0" link="#" :title="$t('stocksMany')" />
       </template>
       <template #slide="{ item }">
         <div class="px-3 sm:px-0">
           <OfferCard :class="{}" v-bind="item">
-            <template #other>
+            <!-- <template #other>
               <div class="offer-card__date">
                 {{ item.date }}
               </div>
-            </template>
+            </template> -->
           </OfferCard>
         </div>
       </template>
@@ -118,8 +118,8 @@ export default defineComponent({
 
 <style lang="postcss">
 .offer-card {
-  &__date {
+  /* &__date {
     @apply absolute bottom-8 left-14 font-bold md:bottom-8 md:left-10 sm:left-5 sm:bottom-4 z-10;
-  }
+  } */
 }
 </style>
