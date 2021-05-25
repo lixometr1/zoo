@@ -1,5 +1,6 @@
 <template>
-  <NuxtLink
+  <component
+    :is="tag"
     :to="link || '#'"
     class="offer-card"
     :class="{ [`bg-style-${bgType}`]: true }"
@@ -10,8 +11,10 @@
         <div v-if="brand" class="offer-card__brand">
           <img :src="brand" alt="" />
         </div>
-        <h2 v-if="title" v-html="title" class="offer-card__title"></h2>
-        <h2 v-if="sale" class="offer-card__sale">{{ sale }}</h2>
+        <h2 v-if="title" class="offer-card__title" v-html="title"></h2>
+        <h2 v-if="sale" class="offer-card__sale">
+          {{ sale }}
+        </h2>
         <div
           v-if="description"
           class="offer-card__description font-medium mt-2"
@@ -30,7 +33,7 @@
     <img class="offer-card__image" :src="image" :alt="title" />
 
     <slot name="other" />
-  </NuxtLink>
+  </component>
 </template>
 
 <script lang="ts">
@@ -50,6 +53,10 @@ export default defineComponent({
     bgType: {
       type: Number,
       default: 1,
+    },
+    tag: {
+      type: String,
+      default: 'NuxtLink',
     },
   },
   setup() {

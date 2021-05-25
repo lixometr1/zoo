@@ -1,28 +1,6 @@
 <template>
   <div class="">
-    <ASlider
-      :items="items"
-      arrowNextClass="md:!hidden"
-      arrowPrevClass="md:!hidden"
-      :sliderOptions="sliderOpts"
-      sliderClass="!pb-8 !-mx-3 sm:!-mx-5.5"
-      titleClass="sm:!right-0"
-    >
-      <template #title>
-        <TitleWithAll class="mb-0" link="#" :title="$t('stocksMany')" />
-      </template>
-      <template #slide="{ item }">
-        <div class="px-3 sm:px-0">
-          <OfferCard :class="{}" v-bind="item">
-            <!-- <template #other>
-              <div class="offer-card__date">
-                {{ item.date }}
-              </div>
-            </template> -->
-          </OfferCard>
-        </div>
-      </template>
-    </ASlider>
+    <OffersSlider class="mb-0" link="#" :title="$t('stocksMany')" :items="items" />
   </div>
 </template>
 

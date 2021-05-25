@@ -5,7 +5,7 @@
       :key="i"
       class="px-2.5 my-10 w-1/3 lg:w-1/2 sm:w-full md:my-8 sm:my-4"
     >
-      <StockItem :item="item" />
+      <StocksItem :item="item" />
     </div>
   </div>
 </template>

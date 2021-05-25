@@ -1,12 +1,13 @@
 <template>
-  <a
-    href="javascript:void(0)"
+  <div
     class="inline-flex items-center mb-5 text-grey text-opacity-50 md:mb-3 hover:text-opacity-100 transition-colors"
     v-on="$listeners"
   >
     <svgArrowLeft class="mr-2" width="16" />
-    <div class="text-sm sm:text-xs uppercase font-medium xs:hidden">{{ title }}</div>
-  </a>
+    <div class="text-sm sm:text-xs uppercase font-medium xs:hidden">
+      {{ title }}
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

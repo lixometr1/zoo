@@ -96,6 +96,8 @@ export default {
   hereCanBeYourRequest: 'Здесь может быть ваш запрос, например Happy Baby',
   shockPrice: 'ШОК ЦЕНА',
   articlesSearch: 'Поиск по статьям',
+  otherStocks: 'Другие акции',
+  stockProducts: 'Акционные товары',
   footer: {
     copyright: 'Copyright © Zoo.com.ua, 2021 | Все права защищены',
     questions: 'По всем вопросам',

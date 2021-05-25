@@ -121,7 +121,7 @@ export default defineComponent({
     } */
   }
   &__arrow-prev {
-    @apply -left-9 transform -translate-x-full -translate-y-1/2  slider:right-[60px] sm:right-[45px] 
+    @apply !-left-9 transform -translate-x-full -translate-y-1/2  slider:right-[60px] sm:right-[45px] 
     slider:transform-none slider:left-auto;
     /* @media screen and (max-width: 1680px) {
       left: 20px;

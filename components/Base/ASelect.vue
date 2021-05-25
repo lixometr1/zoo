@@ -47,11 +47,6 @@ export default defineComponent({
 
 <style lang="postcss">
 .app-select {
-  &.vs--open {
-    .vs__dropdown-toggle {
-      @apply rounded-t-5 rounded-b-none;
-    }
-  }
   .vs__dropdown-toggle {
     @apply rounded-md border border-grey-light px-3 py-2 bg-white h-full;
   }
@@ -60,6 +55,11 @@ export default defineComponent({
   }
   .vs__dropdown-option {
     @apply bg-white hover:text-white hover:bg-green text-grey;
+  }
+  &.vs--open {
+    .vs__dropdown-toggle {
+      @apply rounded-t-5 rounded-b-none;
+    }
   }
 }
 </style>

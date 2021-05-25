@@ -322,7 +322,7 @@ export default defineComponent({
     &.full {
       @apply pt-0 px-0;
       img {
-        @apply object-cover sm:max-w-full;
+        @apply object-cover w-full h-full sm:max-w-full;
       }
     }
   }

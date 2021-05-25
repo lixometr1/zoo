@@ -34,7 +34,7 @@ body {
 }
 
 h1 {
-  @apply text-grey font-bold text-4xl md:text-2xl sm:text-2lg sm:leading-5;
+  @apply text-grey font-bold text-4xl md:text-2xl sm:text-2lg sm:leading-7;
 }
 h2 {
   @apply text-grey font-bold text-4xl md:text-2xl sm:text-lg sm:leading-5;

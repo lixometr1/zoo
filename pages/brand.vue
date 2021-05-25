@@ -10,15 +10,13 @@
       >
         {{ title }}
       </h1>
-      <StockBanner :type="2" />
-      <StockBanner :type="1" />
+      <BrandBlocks />
       <StockProducts
         v-if="products.length > 0"
         :items="products"
-        class="mt-14"
-        :title="$t('stockProducts')"
+        class="mt-20"
       />
-      <StockOffersSlider class="mt-18 lg:mt-14 sm:mt-8" />
+      <SeoText class="mt-14"/>
     </div>
   </div>
 </template>
@@ -40,7 +38,7 @@ export default defineComponent({
       },
     ]
     const title = computed(() => {
-      return 'Старт распродаж Royal Canin ADULT'
+      return 'Royal Canin'
     })
     const products = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
     return { breadcrumbs, title, products }

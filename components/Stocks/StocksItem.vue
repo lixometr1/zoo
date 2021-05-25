@@ -4,7 +4,7 @@
     <div class="font-bold text-grey text-opacity-50 mb-1">
       {{ item.date }}
     </div>
-    <h4 v-html="item.title" class="sm:leading-4"></h4>
+    <h4 class="sm:leading-4 leading-7" v-html="item.title"></h4>
     <div class="font-medium sm:mt-1.5">
       {{ item.description }}
     </div>

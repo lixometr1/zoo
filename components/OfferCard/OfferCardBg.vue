@@ -28,6 +28,7 @@ export default defineComponent({
 <style lang="postcss">
 .offer-card-bg {
   @apply absolute top-0 left-0 right-0 bottom-0;
+  box-shadow: inset 0 0 5px 2px rgba(255,255,255, 0.3);
   &__circle {
     @apply absolute z-[2] opacity-10;
     z-index: 2;
