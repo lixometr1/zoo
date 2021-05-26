@@ -4,17 +4,21 @@
       <div class="app-input__prefix">
         <slot name="prefix"> </slot>
       </div>
+
       <input
+        :id="inputId"
         ref="el"
         v-mask="mask"
         class="app-input__el"
         v-bind="_inputAttrs"
         v-on="_inputListeners"
       />
-      <label class="app-input__label" :for="inputId">
-        {{ label }}
-        <span v-if="required" class="text-red">*</span>
-      </label>
+      <client-only>
+        <label class="app-input__label" :for="inputId">
+          {{ label }}
+          <span v-if="required" class="text-red">*</span>
+        </label>
+      </client-only>
       <div v-if="$slots.sufix" class="app-input__sufix">
         <slot name="sufix"> </slot>
       </div>
@@ -65,12 +69,14 @@ export default defineComponent({
       if (value?.value) return
       isActive.value = false
     }
-    const inputId = uid(11)
+
+    const inputId = ref(uid(11))
 
     const _inputAttrs = computed(() => {
       return Object.assign(
         {},
-        { value: value?.value, id: inputId },
+        { ...attrs },
+        { value: value?.value },
         inputAttrs?.value
       )
     })
@@ -125,7 +131,7 @@ export default defineComponent({
   }
 
   &__label {
-    @apply text-base font-medium text-grey text-opacity-50 absolute left-12 top-1/2 transform -translate-y-1/2  
+    @apply text-base font-medium text-grey select-none text-opacity-50 absolute left-12 top-1/2 transform -translate-y-1/2  
             cursor-text sm:text-sm;
     transition: theme('transitionDuration.DEFAULT');
     &::before {

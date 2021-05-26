@@ -93,7 +93,7 @@ export default {
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      onlyOnRoot: true,
+      // onlyOnRoot: true,
     },
     locales: [
       {

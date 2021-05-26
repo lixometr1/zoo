@@ -14,7 +14,7 @@
         width="6"
       />
     </a>
-    <transition>
+    <transition name="t-fade">
       <div
         v-if="isOpen"
         class="absolute top-8 left-0 bg-white border border-grey-light rounded-md p-3"

@@ -6,7 +6,7 @@
         <HeaderDelivery />
         <a
           href="#"
-          class="text-green uppercase text-base ml-auto border-circle-green"
+          class="text-green uppercase text-base ml-auto border-circle-green hover:border-solid"
           @click.prevent="openConsult"
         >
           {{ $t('needConsult') }}

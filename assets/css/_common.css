@@ -111,7 +111,16 @@ h4 {
       content: '';
       background: url(~@/assets/icons/checkmark_green.svg) center center
         no-repeat;
-        background-size: contain;
+      background-size: contain;
     }
+  }
+}
+
+.line-cross {
+  @apply relative;
+  &::before {
+    content: '';
+    @apply absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 rotate-[-15deg] 
+    bg-green opacity-60 w-full px-0.5 box-content h-[2px];
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-checkbox" :class="{ active: value }">
+  <div class="app-checkbox" :class="{ active: value }" v-on="$listeners">
     <svgCheckmark width="10" class="app-checkbox__mark" />
   </div>
 </template>

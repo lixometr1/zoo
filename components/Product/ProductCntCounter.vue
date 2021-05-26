@@ -2,7 +2,7 @@
   <div class="product-cnt-counter">
     <div class="product-cnt-counter__inner">
       <div
-        class="select-none cursor-pointer h-3 flex-center group"
+        class="select-none cursor-pointer flex-center group"
         @click="minus"
       >
         <svgMinus
@@ -10,11 +10,11 @@
           class="text-grey opacity-50 group-hover:opacity-100 transition-opacity"
         />
       </div>
-      <div class="text-2lg font-medium sm:text-base">
+      <div class="text-2lg font-medium sm:text-base flex-center select-none">
         {{ value }}
       </div>
       <div
-        class="select-none cursor-pointer h-3 flex-center group"
+        class="select-none cursor-pointer  flex-center group"
         @click="plus"
       >
         <svgPlus
@@ -23,7 +23,7 @@
         />
       </div>
     </div>
-    <div class="product-cnt-counter__tooltip">
+    <div v-if="showInfo" class="product-cnt-counter__tooltip">
       {{ $t('onSum') }}: {{ cntPrice }} {{ currency }}
     </div>
   </div>
@@ -41,6 +41,14 @@ export default defineComponent({
       type: Number,
       default: 1,
     },
+    cntPrice: {
+      type: [Number, String],
+      default: '9 822',
+    },
+    showInfo: {
+      type: Boolean,
+      default: true,
+    },
   },
   setup(props, { emit }) {
     const { value } = toRefs(props)
@@ -51,9 +59,8 @@ export default defineComponent({
       if (value.value < 2) return
       emit('input', value.value - 1)
     }
-    const cntPrice = computed(() => '9 822')
     const currency = computed(() => CurrencyModule.currency)
-    return { minus, plus, cntPrice, currency }
+    return { minus, plus, currency }
   },
 })
 </script>
@@ -84,7 +91,8 @@ export default defineComponent({
     }
   }
   &__inner {
-    @apply rounded-md h-full w-full bg-white flex items-center justify-between px-4.5 py-4 border sm:py-1 border-grey-500;
+    @apply rounded-md h-full w-full bg-white flex items-stretch justify-between 
+          px-4.5 py-4 border sm:py-1 border-grey-500;
   }
   &:hover &__inner {
     background: #f8f8f8;

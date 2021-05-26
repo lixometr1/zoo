@@ -26,7 +26,7 @@
       </div>
       <div class="flex items-center lg:justify-end">
         <div class="w-5 mr-2">
-          <img class="mr-2" src="@/assets/icons/email.svg" alt="image" />
+          <svgEmail class="mr-2" width="18"/>
         </div>
         <a href="mailto:support@zoo.com.ua" class="border-circle-grey">
           support@zoo.com.ua
@@ -42,8 +42,9 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import svgPhone from '@/assets/icons/smartphone.svg?inline'
+import svgEmail from '@/assets/icons/email.svg?inline'
 export default defineComponent({
-  components: { svgPhone },
+  components: { svgPhone, svgEmail },
   setup() {
     return {}
   },
