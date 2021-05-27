@@ -1,7 +1,15 @@
 <template>
   <div class="flex items-center px-8 space-x-6 text-grey">
-    <a href="#"> <svgCompare class="cursor-pointer text-grey hover:text-green transition" width="33" /></a>
-    <a href="#"><svgWishList class="cursor-pointer text-grey hover:text-green transition" width="30" /></a>
+    <NuxtLink :to="{ name: 'compare' }">
+      <svgCompare
+        class="cursor-pointer text-grey hover:text-green transition"
+        width="33"
+    /></NuxtLink>
+    <a href="#"
+      ><svgWishList
+        class="cursor-pointer text-grey hover:text-green transition"
+        width="30"
+    /></a>
   </div>
 </template>
 

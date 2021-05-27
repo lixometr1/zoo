@@ -126,6 +126,12 @@ export default {
   deliveryCost: "Стоимость доставки",
   agreeWithContact: 'Я согласен с договором',
   publicOfferta: "Публичной оферты",
+  setupMain: "Установить основным",
+  main: "Основной",
+  itemsAdded: "Добавлено товаров",
+  clearList: "Очистить список",
+  show: "Показывать",
+  otherLists: "Другие списки",
   footer: {
     copyright: 'Copyright © Zoo.com.ua, 2021 | Все права защищены',
     questions: 'По всем вопросам',

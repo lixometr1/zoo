@@ -18,4 +18,21 @@
   &:not(.ps) {
     overflow: hidden;
   }
+  .ps__rail-x {
+    @apply rounded-full shadow-inner;
+    
+    opacity: 1 !important;
+  }
+  .ps__thumb-x {
+    background: theme('backgroundColor.green.DEFAULT') !important;
+    bottom: 0;
+    &:hover {
+      background: theme('backgroundColor.green.700') !important;
+    }
+  }
+  .ps__thumb-x,
+  .ps__rail-x {
+    height: 8px !important;
+  }
+
 }
