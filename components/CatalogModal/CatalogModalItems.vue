@@ -102,6 +102,6 @@ export default defineComponent({
 
 <style lang="postcss">
 .catalog-modal-items {
-  background: #f8f8f8;
+  @apply bg-grey-600;
 }
 </style>

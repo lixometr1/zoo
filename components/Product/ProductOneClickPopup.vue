@@ -36,7 +36,7 @@ export default defineComponent({
 
 <style lang="postcss">
 .product-one-click-popup {
-  @apply absolute bottom-6 transform translate-y-full  
+  @apply absolute bottom-6 transform translate-y-full  bg-grey-600
     border-4 border-white 
     right-0
     px-9 py-8 z-20
@@ -46,7 +46,7 @@ export default defineComponent({
    lg:max-w-full
    sm:top-10 sm:-translate-y-full sm:bottom-auto
    sm:p-5.5;
-  background: #f8f8f8;
+
   box-shadow: 10px 10px 70px rgba(62, 63, 67, 0.2);
   &::before {
     @apply w-[36px] h-[17px] absolute top-0 transform -translate-y-full left-[35%]

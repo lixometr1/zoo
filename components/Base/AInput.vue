@@ -14,7 +14,7 @@
         v-on="_inputListeners"
       />
       <client-only>
-        <label class="app-input__label" :for="inputId">
+        <label v-if="label" class="app-input__label" :for="inputId">
           {{ label }}
           <span v-if="required" class="text-red">*</span>
         </label>

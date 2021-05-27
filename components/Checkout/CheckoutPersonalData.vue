@@ -1,6 +1,6 @@
 <template>
   <div class="checkout-personal-data">
-    <h4 class="sm:text-lg mb-1.5">
+    <h4 class="sm:text-lg mb-1.5 sm:mb-1">
       {{ $t('personalData') }}
     </h4>
     <div class="font-medium">
@@ -14,22 +14,22 @@
         >{{ $t('enter') }}</a
       >
     </div>
-    <div class="flex flex-wrap -mx-3 mt-4">
-      <div class="px-1.5 py-1.5 w-1/2">
+    <div class="flex flex-wrap -mx-3 mt-4 sm:flex-col sm:mx-0">
+      <div class="px-1.5 py-1.5 w-1/2 sm:w-full sm:px-0">
         <AInput v-model="data.name" :label="$t('personName')" :required="true">
           <template #prefix>
             <svgUser width="18" class="text-grey text-opacity-50" />
           </template>
         </AInput>
       </div>
-      <div class="px-1.5 py-1.5 w-1/2">
+      <div class="px-1.5 py-1.5 w-1/2 sm:w-full sm:px-0">
         <AInput v-model="data.surname" :label="$t('surname')" :required="true">
           <template #prefix>
             <svgUser width="18" class="text-grey text-opacity-50" />
           </template>
         </AInput>
       </div>
-      <div class="px-1.5 py-1.5 w-1/2">
+      <div class="px-1.5 py-1.5 w-1/2 sm:w-full sm:px-0">
         <AInput
           v-model="data.phone"
           :label="$t('phone')"
@@ -42,7 +42,7 @@
           </template>
         </AInput>
       </div>
-      <div class="px-1.5 py-1.5 w-1/2">
+      <div class="px-1.5 py-1.5 w-1/2 sm:w-full sm:px-0">
         <AInput
           v-model="data.email"
           :label="$t('email')"
@@ -54,11 +54,12 @@
           </template>
         </AInput>
       </div>
-      <div class="px-1.5 py-1.5 w-full">
+      <div class="px-1.5 py-1.5 w-full sm:w-full sm:px-0">
         <ATextArea
           v-model="data.comment"
           :label="$t('orderComment')"
           :required="true"
+          :inputAttrs="{class: 'sm:leading-4'}"
         >
           <template #prefix>
             <svgComment
@@ -99,7 +100,7 @@ export default defineComponent({
   .app-input,
   .app-text-area {
     &__inner {
-      background: #f8f8f8;
+      @apply bg-grey-600;
     }
   }
 }

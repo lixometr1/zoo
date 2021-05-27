@@ -84,8 +84,7 @@ export default defineComponent({
 <style lang="postcss">
 .catalog-modal-menu {
   &__item {
-    @apply rounded-sm px-5.5 py-[12px] flex-y-center cursor-pointer w-full border-2 border-white text-grey;
-    background: #f8f8f8;
+    @apply rounded-sm px-5.5 py-[12px] flex-y-center cursor-pointer w-full border-2 border-white text-grey bg-grey-600;
     box-shadow: 10px 10px 40px rgba(62, 63, 67, 0.1);
     &.active,
     &:hover {

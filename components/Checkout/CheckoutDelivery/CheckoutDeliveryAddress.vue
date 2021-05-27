@@ -1,6 +1,6 @@
 <template>
   <div class="checkout-delivery-address border-b border-grey-light pb-5.5">
-    <div class="font-bold mb-4">
+    <div class="font-bold mb-4 sm:text-sm sm:mb-3">
       {{ $t('deliveryAddress') }} <span class="text-red">*</span>
     </div>
     <AInput v-model="inputModel" :label="$t('deliveryAddress')">
@@ -37,7 +37,7 @@ export default defineComponent({
 .checkout-delivery-address {
   .app-input {
     &__inner {
-      background: #f8f8f8;
+      @apply bg-grey-600;
     }
   }
 }

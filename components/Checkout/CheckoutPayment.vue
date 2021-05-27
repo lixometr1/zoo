@@ -3,7 +3,7 @@
     <h4 class="sm:text-lg mb-3">
       {{ $t('paymentWay') }}
     </h4>
-    <ARadioGroup v-model="paymentType" :items="paymentTypes" />
+    <ARadioGroup v-model="paymentType" :items="paymentTypes" class="sm:space-y-3"/>
   </div>
 </template>
 
