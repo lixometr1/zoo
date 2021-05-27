@@ -74,13 +74,12 @@ export default defineComponent({
     border-4 border-white 
    -left-8 -top-6 -translate-y-full
    text-base font-medium text-center
-   py-3 px-4
+   py-3 px-4 bg-grey-600
    lg:right-0 lg:left-auto
    sm:w-[180px]
    sm:left-auto sm:right-0
    sm:py-3 
     sm:text-sm;
-    background: #f8f8f8;
     box-shadow: 10px 10px 70px rgba(62, 63, 67, 0.2);
     &::before {
       @apply w-[36px] h-[17px] absolute bottom-0 transform rotate-180 translate-y-full left-[30%]
@@ -95,7 +94,7 @@ export default defineComponent({
           px-4.5 py-4 border sm:py-1 border-grey-500;
   }
   &:hover &__inner {
-    background: #f8f8f8;
+    @apply bg-grey-600;
   }
   &:hover &__tooltip {
     @apply flex;

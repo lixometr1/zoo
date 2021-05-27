@@ -1,8 +1,8 @@
 <template>
   <div class="checkout-card">
-    <h4>{{ $t('yourCurrentOrder') }}</h4>
+    <h4 class="sm:text-lg sm:mb-2">{{ $t('yourCurrentOrder') }}</h4>
     <div
-      class="mt-9 text-grey text-opacity-50 text-lg font-medium grid grid-cols-5 pb-3 border-b border-grey-500"
+      class="mt-9 text-grey text-opacity-50 text-lg font-medium grid grid-cols-5 pb-3 border-b border-grey-500 md:mt-5 md:text-base sm:hidden"
     >
       <div>{{ $t('photo') }}</div>
       <div class="col-span-2">
@@ -23,10 +23,10 @@
       />
     </div>
     <div
-      class="border-b-2 border-dashed border-grey border-opacity-20 pb-4 pt-5 text-right space-y-2.5"
+      class="border-b-2 border-dashed border-grey border-opacity-20 pb-4 pt-5 text-right space-y-2.5 sm:space-y-2"
     >
       <div>
-        <div class="text-grey text-opacity-50 text-sm">
+        <div class="text-grey text-opacity-50 text-sm xs:text-xs">
           {{ $t('orderSum') }}
         </div>
         <div class="font-medium">
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div>
-        <div class="text-grey text-opacity-50 text-sm">
+        <div class="text-grey text-opacity-50 text-sm xs:text-xs">
           {{ $t('sale') }}
         </div>
         <div class="font-medium text-green">
@@ -42,14 +42,14 @@
         </div>
       </div>
     </div>
-    <div class="mt-7 flex flex-col items-end">
+    <div class="mt-7 flex flex-col items-end sm:mt-4.5">
       <div>
-        <div class="font-medium text-sm mb-2 opacity-50">
+        <div class="font-medium text-sm mb-2 opacity-50 xs:text-xs xs:mb-0">
           {{ $t('totalToPay') }}:
         </div>
         <div>
-          <span class="text-3xl"> {{ totalToPay }}</span
-          ><span class="opacity-50 text-lg ml-1.5">{{ currency }}</span>
+          <span class="text-3xl xs:text-lg"> {{ totalToPay }}</span
+          ><span class="opacity-50 text-lg ml-1.5 xs:text-xs">{{ currency }}</span>
         </div>
       </div>
     </div>

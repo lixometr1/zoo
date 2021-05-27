@@ -1,9 +1,9 @@
 <template>
   <div class="checkout-delivery-type pb-5.5 border-b border-grey-light">
-    <div class="font-bold mb-3.5">
+    <div class="font-bold mb-3.5 sm:text-sm sm:mb-2">
       {{ $t('deliveryWay') }} <span class="text-red">*</span>
     </div>
-    <ARadioGroup v-model="typeModel" :items="types">
+    <ARadioGroup v-model="typeModel" :items="types" class="sm:space-y-3">
       <template #label="{ item }">
         <span v-if="item.type !== 'tooltip'">
           {{ item.label }}
@@ -11,11 +11,11 @@
         <span v-else class="flex-y-center relative">
           {{ item.label }}
           <span
-            class="checkout-delivery-type__tooltip-trigger ml-3 flex-center w-4 h-4 bg-green bg-opacity-50 text-white rounded-full hover:bg-opacity-100 transition-all"
+            class="checkout-delivery-type__tooltip-trigger ml-3 flex-center w-4 h-4 bg-green bg-opacity-50 text-white rounded-full hover:bg-opacity-100 transition-all xs:hidden"
           >
             <svgInfo width="3" />
           </span>
-          <span class="checkout-delivery-type__tooltip">{{
+          <span class="checkout-delivery-type__tooltip xs:hidden">{{
             $t('checkoutSelfDeliveryTooltip')
           }}</span>
         </span>

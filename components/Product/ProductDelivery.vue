@@ -118,9 +118,8 @@ export default defineComponent({
 .product-delivery {
   @apply text-sm xs:text-xs relative ;
   &__header {
-    @apply border border-grey-light px-7 py-4.5 sm:px-4.5 sm:py-4
+    @apply bg-grey-600 border border-grey-light px-7 py-4.5 sm:px-4.5 sm:py-4
           flex-y-center sm:cursor-pointer rounded-lg select-none;
-    background: #f8f8f8;
   }
   &__content {
     @apply border-l border-r border-b border-grey-light bg-white rounded-br-lg rounded-bl divide-y divide-grey-light;

@@ -26,3 +26,7 @@ declare module 'v-mask' {
   export const content: any
   export default content
 }
+declare module 'vue2-datepicker/locale/*' {
+  export const content: any
+  export default content
+}

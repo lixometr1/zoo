@@ -3,11 +3,11 @@
     class="checkout-card checkout-bonus-progress"
     :class="[isDanger && 'is-danger']"
   >
-    <div class="checkout-bonus-progress__header">
+    <div class="checkout-bonus-progress__header sm:space-x-5">
       <div>
         {{ doneText }}
       </div>
-      <div v-html="getText"></div>
+      <div v-html="getText" class="text-right"></div>
     </div>
     <AProgressBar :progress="progress">
       <template #before>
@@ -31,12 +31,12 @@
         </div>
       </template>
     </AProgressBar>
-    <div class="checkout-bonus-progress__footer">
+    <div class="checkout-bonus-progress__footer sm:space-x-4">
       <div>{{ getRequirements }}</div>
       <div>
         <NuxtLink
           to="#"
-          class="border-b-2 border-dotted border-grey border-opacity-50 hover:border-green hover:text-green transition-all"
+          class="border-b-2 border-dotted border-grey border-opacity-50 hover:border-green hover:text-green transition-all whitespace-nowrap"
         >
           {{ $t('continueShopping') }}
         </NuxtLink>
@@ -73,7 +73,7 @@ export default defineComponent({
   .progress-bar {
     @apply relative;
     &__line {
-      @apply h-[12px];
+      @apply h-[12px] sm:h-[10px];
       background: #efefef;
       box-shadow: inset -1px -1px 4px rgba(255, 255, 255, 0.35),
         inset 1px 1px 4px rgba(0, 0, 0, 0.15);

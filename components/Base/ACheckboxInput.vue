@@ -1,6 +1,11 @@
 <template>
   <div class="app-checkbox-input">
-    <ACheckbox :value="value" tabindex="0" @click="toggle" />
+    <ACheckbox
+      :value="value"
+      tabindex="0"
+      class="flex-shrink-0"
+      @click="toggle"
+    />
     <span class="app-checkbox-input__label" @click="toggle">
       <slot name="label">
         {{ label }}
