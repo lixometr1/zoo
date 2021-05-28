@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="font-bold mb-3">{{ $t('show') }}</div>
-    <ARadioGroup v-model="valueModel" :items="filterItems" />
+    <div class="font-bold mb-3 sm:text-sm">{{ $t('show') }}:</div>
+    <ARadioGroup v-model="valueModel" :items="filterItems" class="md:space-y-3"/>
   </div>
 </template>
 

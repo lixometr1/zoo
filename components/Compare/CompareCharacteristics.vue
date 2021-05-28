@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="md:w-[180px] sm:w-[140px] ">
     <div
       v-for="(item, i) in items"
       :key="i"
-      class="font-bold pb-3 pt-5.5 border-b border-grey-500 text-grey"
+      class="font-bold pb-3 pt-5.5 border-b border-grey-500 text-grey pr-4 md:pr-2 overflow-hidden overflow-ellipsis whitespace-nowrap"
     >
-      {{ item.title }}
+      <span > {{ item.title }}</span>
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default defineComponent({
   setup() {
     const items = computed(() => [
       {
-        title: 'Характеристика',
+        title: 'Характеристика adasdad asdassasds asdss',
       },
       {
         title: 'Характеристика',

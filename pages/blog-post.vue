@@ -4,7 +4,7 @@
       <AppBreadcrumbs :items="breadcrumbs" />
       <BlogPostHero />
       <div class="flex mt-16 sm:mt-10 md:flex-col" sticky-container>
-        <BlogPostContent class="flex-1 mr-20 lg:mr-12" />
+        <BlogPostContent class="flex-1 mr-20 lg:mr-12 md:mr-0" />
         <div class="w-[400px] sm:w-full flex-shrink-0 sm:mt-6">
           <BlogPostSidebar
             v-sticky="shouldStick"

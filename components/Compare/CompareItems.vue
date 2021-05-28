@@ -1,10 +1,10 @@
 <template>
   <div>
     <perfect-scrollbar
-      class="custom-scrollbar pb-18"
+      class="custom-scrollbar pb-18 md:pb-12 sm:pb-7"
       :options="{ wheelPropagation: true }"
     >
-      <div class="flex">
+      <div class="flex md:pl-[180px] sm:pl-[140px]">
         <CompareItem
           v-for="(item, i) in items"
           :key="i"

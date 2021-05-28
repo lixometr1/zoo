@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center px-8 space-x-6 text-grey">
-    <NuxtLink :to="{ name: 'compare' }">
+    <NuxtLink :to="localeLocation('compare')">
       <svgCompare
         class="cursor-pointer text-grey hover:text-green transition"
         width="33"

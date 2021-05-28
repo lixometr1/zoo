@@ -6,6 +6,7 @@
       :label="item.label"
       :value="value === item.value"
       tabindex="0"
+      class="focus:outline-none"
       @click="selectItem(item.value)"
     >
       <template #label>

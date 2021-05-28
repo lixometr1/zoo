@@ -1,5 +1,5 @@
 <template>
-  <div
+  <a
     href="javascript:void(0)"
     class="app-radio-button"
     :class="{ active: value }"
@@ -9,7 +9,7 @@
     <div class="app-radio-button__label">
       <slot name="label">{{ label }}</slot>
     </div>
-  </div>
+  </a>
 </template>
 
 <script lang="ts">

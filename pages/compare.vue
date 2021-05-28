@@ -1,5 +1,5 @@
 <template>
-  <div class="page-compare">
+  <div class="page-compare sm:pb-5">
     <div class="container">
       <AppBreadcrumbs :items="breadcrumbs" />
     </div>
@@ -8,10 +8,10 @@
       class="container !pr-0 !max-w-full mt-14 md:mt-8"
       :style="{ paddingLeft: offsetLeft }"
     >
-      <div class="flex">
-        <div class="w-[280px] flex-shrink-0 flex flex-col pb-18">
-          <CompareSidebar class="pr-4" :filter.sync="filter" />
-          <CompareCharacteristics class="mt-auto" />
+      <div class="flex md:flex-col relative">
+        <div class="w-[280px] flex-shrink-0 flex flex-col pb-18 md:w-full md:pb-12 sm:pb-8">
+          <CompareSidebar class="pr-4 md:pr-5.5" :filter.sync="filter" />
+          <CompareCharacteristics class="mt-auto md:absolute md:bottom-12 sm:bottom-7 md:bg-grey-bg md:z-20" />
         </div>
         <div class="flex-1 min-w-0">
           <CompareItems />
