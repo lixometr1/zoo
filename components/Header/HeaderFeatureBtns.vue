@@ -5,11 +5,11 @@
         class="cursor-pointer text-grey hover:text-green transition"
         width="33"
     /></NuxtLink>
-    <a href="#"
+    <NuxtLink :to="localeLocation('cabinet-wishlist')" href="#"
       ><svgWishList
         class="cursor-pointer text-grey hover:text-green transition"
         width="30"
-    /></a>
+    /></NuxtLink>
   </div>
 </template>
 

@@ -1,19 +1,21 @@
 <template>
   <div class="product-one-click-popup">
-    <h4 class="mb-1 sm:mb-0">{{ $t('oneClick.title') }}</h4>
-    <div class="font-medium">{{ $t('oneClick.description') }}</div>
-    <form class="mt-5 flex sm:mt-4 xs:flex-col" action="#" @submit.prevent="onSubmit">
-      <AInput
+    <h4 class="mb-1 sm:mb-0">
+      {{ $t('oneClick.title') }}
+    </h4>
+    <div class="font-medium">
+      {{ $t('oneClick.description') }}
+    </div>
+    <form
+      class="mt-5 flex sm:mt-4 xs:flex-col"
+      action="#"
+      @submit.prevent="onSubmit"
+    >
+      <InputPhone
         v-model="phone"
-        mask="+38 ### ### ## ##"
-        :required="true"
-        :label="$t('phone')"
         class="mr-2 flex-1 min-w-0 xs:mr-0 xs:mb-1.5"
-      >
-        <template #prefix>
-          <svgPhone width="11" class="text-grey text-opacity-50" />
-        </template>
-      </AInput>
+      />
+
       <button class="btn-green whitespace-nowrap !px-10" type="submit">
         {{ $t('oneClick.btn') }}
       </button>
@@ -23,9 +25,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@nuxtjs/composition-api'
-import svgPhone from '@/assets/icons/smartphone.svg?inline'
 export default defineComponent({
-  components: { svgPhone },
   setup() {
     const phone = ref('')
     const onSubmit = () => {}
@@ -55,6 +55,11 @@ export default defineComponent({
     content: '';
     background: url(~@/assets/icons/one_click_buy_arrow.svg) center center
       no-repeat;
+  }
+  .app-input {
+    &__inner {
+      @apply bg-white;
+    }
   }
 }
 </style>

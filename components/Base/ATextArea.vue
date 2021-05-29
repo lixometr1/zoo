@@ -85,7 +85,7 @@ export default defineComponent({
     @apply outline-none flex-1 border-none bg-transparent font-medium sm:text-sm;
   }
   &__inner {
-    @apply flex items-start border border-grey-light bg-white rounded-md
+    @apply flex items-start border border-grey-light bg-grey-600 rounded-md
             px-5 py-3 h-full;
   }
   &__errors {

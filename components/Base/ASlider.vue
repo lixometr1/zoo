@@ -110,7 +110,7 @@ export default defineComponent({
     @apply slider:pt-[80px] sm:pt-[60px];
   }
   &__arrow-next {
-    @apply transform translate-x-full -translate-y-1/2  -right-9 slider:right-0 slider:transform-none;
+    @apply transform translate-x-full -translate-y-1/2  !-right-9 slider:right-0 slider:transform-none;
 
     /* @media screen and (max-width: 1680px) {
       right: 20px;

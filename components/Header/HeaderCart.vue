@@ -1,5 +1,9 @@
 <template>
-  <a href="#" class="flex items-center group" @click.prevent="openCart">
+  <NuxtLink
+    :to="localeLocation('checkout')"
+    class="flex items-center group"
+    @click.prevent="openCart"
+  >
     <div class="relative">
       <svgCart width="30" class="text-grey group-hover:text-green transition" />
       <div
@@ -12,7 +16,7 @@
       <span class="text-green font-medium">{{ cartPrice }}</span>
       <span class="text-sm text-grey text-opacity-70">грн</span>
     </div>
-  </a>
+  </NuxtLink>
 </template>
 
 <script lang="ts">

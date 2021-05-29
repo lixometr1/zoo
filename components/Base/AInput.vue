@@ -19,7 +19,7 @@
           <span v-if="required" class="text-red">*</span>
         </label>
       </client-only>
-      <div v-if="$slots.sufix" class="app-input__sufix">
+      <div class="app-input__sufix">
         <slot name="sufix"> </slot>
       </div>
     </div>
@@ -113,7 +113,7 @@ export default defineComponent({
     @apply outline-none flex-1 border-none bg-transparent font-medium sm:text-sm;
   }
   &__inner {
-    @apply flex-y-center border border-grey-light bg-white rounded-md
+    @apply flex-y-center border border-grey-light bg-grey-600 rounded-md
             px-5 py-3 h-full;
   }
   &__errors {

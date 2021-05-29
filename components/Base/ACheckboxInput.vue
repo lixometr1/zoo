@@ -6,7 +6,7 @@
       class="flex-shrink-0"
       @click="toggle"
     />
-    <span class="app-checkbox-input__label" @click="toggle">
+    <span class="app-checkbox-input__label" :class="labelClass" @click="toggle">
       <slot name="label">
         {{ label }}
       </slot>
@@ -21,6 +21,7 @@ export default defineComponent({
   props: {
     value: Boolean,
     label: String,
+    labelClass: null
   },
   setup(props, { emit }) {
     const toggle = () => {

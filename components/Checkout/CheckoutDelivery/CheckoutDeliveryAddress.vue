@@ -35,10 +35,6 @@ export default defineComponent({
 
 <style lang="postcss">
 .checkout-delivery-address {
-  .app-input {
-    &__inner {
-      @apply bg-grey-600;
-    }
-  }
+ 
 }
 </style>
