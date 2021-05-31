@@ -1,7 +1,7 @@
 <template>
   <div>
-    <CabinetSidebarUser :isAuth="isAuth" />
-    <CabinetSidebarMenu class="mt-7" :isAuth="isAuth" />
+    <CabinetBonusInfo v-if="isApproved" />
+    <CabinetBonusApprove v-else />
   </div>
 </template>
 
@@ -9,9 +9,10 @@
 import { defineComponent, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
+    scrollToTop: true,
   setup() {
-    const isAuth = ref(true)
-    return { isAuth }
+    const isApproved = ref(true)
+    return { isApproved }
   },
 })
 </script>

@@ -1,10 +1,8 @@
 <template>
-  <div
-    class="cabinet-personal-data-card cabinet-personal-data-bonus-card !p-0 flex divide-x divide-grey-light"
-  >
-    <div class="cabinet-personal-data-bonus-card__item">
+  <div class="cabinet-bonus-card !p-0 flex divide-x divide-grey-light">
+    <div class="cabinet-bonus-card__item">
       <div>
-        <div class="cabinet-personal-data-bonus-card__title">
+        <div class="cabinet-bonus-card__title">
           {{ $t('onBonusBalance') }}
         </div>
         <div>
@@ -17,9 +15,9 @@
         </div>
       </div>
     </div>
-    <div class="cabinet-personal-data-bonus-card__item">
+    <div class="cabinet-bonus-card__item">
       <div>
-        <div class="cabinet-personal-data-bonus-card__title">
+        <div class="cabinet-bonus-card__title">
           {{ $t('availableToUse') }}
         </div>
         <div>
@@ -30,9 +28,9 @@
         </div>
       </div>
     </div>
-    <div class="cabinet-personal-data-bonus-card__item">
+    <div class="cabinet-bonus-card__item">
       <div>
-        <div class="cabinet-personal-data-bonus-card__title">
+        <div class="cabinet-bonus-card__title">
           {{ $t('willBeAvailableThrough') }}
           <span class="lowercase text-green font-bold"
             >{{ willAvailableThrough }} {{ daySclon }}</span
@@ -50,25 +48,42 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
-
+import {
+  computed,
+  defineComponent,
+  toRefs,
+  useContext,
+} from '@nuxtjs/composition-api'
+import CurrencyModule from '@/store/currency'
+import useWordSclon from '~/utils/compositions/useWordSclon'
 export default defineComponent({
+  inheritAttrs: false,
   props: {
     bonusBalance: [String, Number],
-    currency: String,
     availableBalance: [String, Number],
     willAvailableBalance: [String, Number],
-    willAvailableThrough: [String, Number],
-    daySclon: String,
+    willAvailableThrough: {
+      required: true,
+      type: Number,
+    },
   },
-  setup() {
-    return {}
+  setup(props) {
+    const { willAvailableThrough } = toRefs(props)
+    const daysSclon = (useContext().i18n.t('days') as any) as string[]
+    const daySclon = computed(() => {
+      const { exec } = useWordSclon(daysSclon)
+      return exec(willAvailableThrough.value)
+    })
+    const currency = computed(() => CurrencyModule.currency)
+    return { daySclon, currency }
   },
 })
 </script>
 
 <style lang="postcss">
-.cabinet-personal-data-bonus-card {
+.cabinet-bonus-card {
+  @apply bg-white py-7 px-9 border border-grey-light rounded-xl sm:p-5.5 sm:rounded-lg;
+  box-shadow: 10px 10px 40px rgba(62, 63, 67, 0.1);
   &__item {
     @apply py-10 flex-center px-7 flex-1;
     > div {

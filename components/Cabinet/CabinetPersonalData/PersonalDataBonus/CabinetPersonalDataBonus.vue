@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CabinetPersonalDataBonusCard v-if="isDesktop" v-bind="balanceData" />
+    <CabinetBonusCard v-if="isDesktop" v-bind="balanceData" />
     <CabinetPersonalDataBonusCollapse v-else v-bind="balanceData" />
   </div>
 </template>

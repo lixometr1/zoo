@@ -1,7 +1,9 @@
 <template>
-  <div class="mobile-select">
-    <label :for="cId"><slot /></label>
-    <select :id="cId" v-model="selectModel" class="invisible w-0 h-0">
+  <div class="mobile-select flex">
+    <client-only>
+      <label :for="cId"><slot /></label>
+    </client-only>
+    <select :id="cId" v-model="selectModel" class="w-0 h-0 opacity-0">
       <option v-for="(item, i) in options" :key="i" :value="item.value">
         {{ item.name }}
       </option>

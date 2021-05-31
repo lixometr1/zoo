@@ -9,9 +9,11 @@
 import { computed, defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
+  props: {
+    isAuth: Boolean,
+  },
   setup() {
-    const isAuth = computed(() => true)
-    return { isAuth }
+    return {}
   },
 })
 </script>

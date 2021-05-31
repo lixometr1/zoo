@@ -12,6 +12,8 @@
 import { computed, defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
+    scrollToTop: true,
+
   setup() {
     const hasOrders = computed(() => true)
     return { hasOrders }

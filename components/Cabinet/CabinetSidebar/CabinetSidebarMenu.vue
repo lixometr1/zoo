@@ -4,10 +4,11 @@
       <NuxtLink
         v-for="(item, idx) in items"
         :key="idx"
-        :to="item.routeName || '#'"
-        :class="{ disabled: item.disabled }"
+        :to="!isDisabled(item) ? item.routeName : '#'"
+        :class="{ disabled: isDisabled(item) }"
         class="cabinet-menu__item"
         exact-active-class="active"
+        :event="isDisabled(item) ? '' : 'click'"
       >
         {{ item.name }}
         <svgArrowRight width="10" class="ml-auto text-opacity-50" />
@@ -17,10 +18,11 @@
       <NuxtLink
         v-for="(item, idx) in items2"
         :key="idx"
-        :to="item.routeName || '#'"
+        :to="!isDisabled(item) ? item.routeName : '#'"
         class="cabinet-menu__item"
-        :class="{ disabled: item.disabled }"
+        :class="{ disabled: isDisabled(item) }"
         exact-active-class="active"
+        :event="isDisabled(item) ? '' : 'click'"
       >
         {{ item.name }}
         <svgArrowRight width="10" class="ml-auto text-opacity-50" />
@@ -30,11 +32,21 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, useContext } from '@nuxtjs/composition-api'
+import {
+  computed,
+  defineComponent,
+  toRef,
+  toRefs,
+  useContext,
+} from '@nuxtjs/composition-api'
 import svgArrowRight from '@/assets/icons/arrow_right.svg?inline'
 export default defineComponent({
   components: { svgArrowRight },
-  setup() {
+  props: {
+    isAuth: Boolean,
+  },
+  setup(props) {
+    const { isAuth } = toRefs(props)
     const { app } = useContext()
     const items = computed(() => {
       return [
@@ -53,10 +65,12 @@ export default defineComponent({
         {
           name: 'Список желаний',
           routeName: app.localeLocation('cabinet-wishlist'),
+          public: true,
         },
         {
           name: 'Просмотренные товары',
           routeName: app.localeLocation('cabinet-watched'),
+          public: true,
         },
       ]
     })
@@ -64,14 +78,18 @@ export default defineComponent({
       return [
         {
           name: 'Рассылки',
-          // routeName:
+          routeName: app.localeLocation('cabinet-mailings'),
         },
         {
           name: 'Бонусный счет',
+          routeName: app.localeLocation('cabinet-bonus'),
         },
       ]
     })
-    return { items, items2 }
+    const isDisabled = (item: { public: boolean }) => {
+      return !isAuth.value && !item.public
+    }
+    return { items, items2, isDisabled }
   },
 })
 </script>
@@ -79,7 +97,9 @@ export default defineComponent({
 <style lang="postcss">
 .cabinet-menu {
   &__item {
-    @apply rounded-sm px-5.5 py-[12px] flex-y-center cursor-pointer w-full border-2 border-white text-grey bg-grey-600 transition-all;
+    @apply rounded-sm px-5.5 py-3 flex-y-center cursor-pointer 
+          w-full border-2 border-white text-grey bg-grey-600 transition-all
+          sm:text-sm;
     box-shadow: 10px 10px 40px rgba(62, 63, 67, 0.1);
     &.active,
     &:hover {
@@ -90,6 +110,12 @@ export default defineComponent({
     }
     &.active {
       @apply transform translate-x-4;
+    }
+    &.disabled {
+      @apply text-grey text-opacity-50 cursor-default;
+    }
+    &.disabled:hover {
+      @apply bg-grey-600 border-white;
     }
   }
 }

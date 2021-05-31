@@ -5,7 +5,7 @@
         <div class="pr-12 border-r border-grey-500 w-[320px] md:hidden">
           <CabinetSidebar />
         </div>
-        <div class="flex-1 pl-14 md:pl-0">
+        <div class="flex-1 pl-14 md:pl-0 lg:pl-9">
           <div class="md:block hidden mb-2.5 text-grey text-opacity-50">
             <NuxtLink v-if="!isIndex" :to="localeLocation('cabinet')">
               <svgArrowLeft width="18" />

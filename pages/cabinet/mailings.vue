@@ -1,8 +1,11 @@
 <template>
-  <div class="hidden md:block">
-    <div class="w-[320px] sm:w-full">
-      <CabinetSidebar />
-    </div>
+  <div>
+    <h3 class="mb-12 sm:mb-8">{{ $t('mailings') }}</h3>
+    <h4 class="mb-8 sm:mb-3.5">
+      {{ $t('mailingsTypes') }}
+    </h4>
+    <CabinetMailingsAgreements />
+    <CabinetMailingsChannels class="mt-10 sm:mt-6"/>
   </div>
 </template>
 
