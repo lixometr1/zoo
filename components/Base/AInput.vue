@@ -110,7 +110,7 @@ export default defineComponent({
 .app-input {
   position: relative;
   &__el {
-    @apply outline-none flex-1 border-none bg-transparent font-medium sm:text-sm;
+    @apply min-w-0 outline-none flex-1 border-none bg-transparent font-medium sm:text-sm;
   }
   &__inner {
     @apply flex-y-center border border-grey-light bg-grey-600 rounded-md

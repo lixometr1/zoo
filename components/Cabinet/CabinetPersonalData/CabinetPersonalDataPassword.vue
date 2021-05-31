@@ -6,9 +6,9 @@
       @deny="onDeny"
     >
       <div class="space-y-3.5">
-        <PasswordInput v-model="oldPassword" :label="$t('oldPassword')"  />
-        <PasswordInput v-model="newPassword" :label="$t('newPassword')" />
-        <PasswordInput
+        <InputPassword v-model="oldPassword" :label="$t('oldPassword')"  />
+        <InputPassword v-model="newPassword" :label="$t('newPassword')" />
+        <InputPassword
           v-model="newPasswordRepeat"
           :label="$t('passwordConfirm')"
         />

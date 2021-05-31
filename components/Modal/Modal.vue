@@ -15,6 +15,7 @@
 <script>
 import useModal from '@/utils/compositions/useModal'
 import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
+import useStopScroll from '@/utils/compositions/useStopScroll'
 export default defineComponent({
   setup(props, { emit }) {
     const isOpen = ref(false)
@@ -24,14 +25,17 @@ export default defineComponent({
     const activeModal = ref({})
     const modalTransition = ref('modal-fade')
     const { api } = useModal()
+    const { stop: blockScroll, reset: resetScroll } = useStopScroll()
     const open = () => {
       isOpen.value = true
+      blockScroll()
     }
     const close = () => {
       isOpen.value = false
       cProps.value = {}
       cListeners.value = {}
       activeName.value = ''
+      resetScroll()
     }
     api.on('open', ({ component, name, transition, props = {}, on = {} }) => {
       cProps.value = props
@@ -80,7 +84,7 @@ export default defineComponent({
 }
 
 .modal-content {
-  @apply relative z-20 rounded-lg bg-white border border-grey-light p-7 transition-all;
+  @apply relative z-20 rounded-lg bg-white border border-grey-light p-7 transition-all max-h-full overflow-auto;
 }
 
 .modal-close {

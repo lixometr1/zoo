@@ -9,8 +9,14 @@
         :productOptions="{ showChooseCnt: true }"
       />
       <HomeStocksSlider class="mb-18 md:mb-10" />
-      <ProductsSliderCollapse :title="$t('sellingHits')" class="mb-18 md:mb-10" />
-      <ProductsSliderCollapse :title="$t('productsNew')" class="mb-18 md:mb-10" />
+      <ProductsSliderCollapse
+        :title="$t('sellingHits')"
+        class="mb-18 md:mb-10"
+      />
+      <ProductsSliderCollapse
+        :title="$t('productsNew')"
+        class="mb-18 md:mb-10"
+      />
     </div>
     <BrandsBlock
       :title="$t('brands')"
@@ -25,9 +31,13 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
+import { ModalName } from '~/types/modal.enum'
+import useModal from '~/utils/compositions/useModal'
 
 export default defineComponent({
   setup() {
+    const { showByName } = useModal()
+    showByName(ModalName.signup)
     return {}
   },
 })

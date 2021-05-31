@@ -13,10 +13,15 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import svgUser from '@/assets/icons/user.svg?inline'
+import useModal from '~/utils/compositions/useModal'
+import { ModalName } from '~/types/modal.enum'
 export default defineComponent({
   components: { svgUser },
   setup() {
-    const login = () => {}
+    const login = () => {
+      const { showByName } = useModal()
+      showByName(ModalName.login)
+    }
     return {
       login,
     }
