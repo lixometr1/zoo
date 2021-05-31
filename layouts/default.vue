@@ -9,7 +9,12 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, ref } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  onMounted,
+  ref,
+  useMeta,
+} from '@nuxtjs/composition-api'
 import imagesLoaded from 'imagesloaded'
 export default defineComponent({
   setup() {
@@ -24,6 +29,10 @@ export default defineComponent({
     return {
       isLoading,
     }
+  },
+  head() {
+    const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
+    return { ...i18nHead }
   },
 })
 </script>

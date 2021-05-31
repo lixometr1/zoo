@@ -3,12 +3,11 @@ export default {
   head: {
     title: 'zoo',
     htmlAttrs: {
-      lang: 'ru',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Zoo' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -18,7 +17,10 @@ export default {
     "~assets/css/styles.css"
   ],
   loading: false,
-
+  pageTransition: {
+    name: 't-fade',
+    mode: 'out-in',
+  },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {
@@ -97,10 +99,12 @@ export default {
     },
     locales: [
       {
+        iso: 'ru-RU',
         code: 'ru',
         file: 'ru.ts'
       },
       {
+        iso: 'ua-UA',
         code: 'ua',
         file: 'ua.ts'
       },
@@ -108,6 +112,7 @@ export default {
     lazy: true,
     langDir: 'lang/',
     defaultLocale: 'ru',
+    seo: false
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
