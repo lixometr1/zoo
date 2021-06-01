@@ -1,12 +1,14 @@
 <template>
-  <div class="p-5.5 flex flex-col min-h-0 max-h-full">
+  <div class="p-5.5 flex flex-col min-h-0 max-h-full menu-mob-categories">
     <MenuMobSubHeader
       :title="$t('catalogItems')"
       class="mb-5.5 flex-shrink-0"
       @back="goBack"
     />
-    <div class="mb-5 flex-shrink-0"><SearchInput /></div>
-    <div class="overflow-auto flex-1 min-h-0">
+    <div class="mb-5 flex-shrink-0">
+      <SearchInput :label="$t('searchPlaceholderMob')" class="text-sm" />
+    </div>
+    <div class="overflow-auto flex-1 min-h-0 pb-16">
       <div class="pb-5.5 border-b border-grey-light">
         <div class="text-xxs font-bold mb-4.5">
           {{ $t('popularCategories') }}
@@ -26,7 +28,7 @@
           </NuxtLink>
         </div>
       </div>
-      <div class="pt-5.5 blur-down">
+      <div class="pt-5.5 ">
         <div class="text-xxs font-bold mb-4.5">{{ $t('allCategories') }}</div>
         <div class="space-y-1.5">
           <NuxtLink
@@ -44,7 +46,9 @@
         </div>
       </div>
     </div>
-    <div class="absolute bottom-0 z-10 w-full bg-white left-0 right-0 px-5.5 py-1.5">
+    <div
+      class="menu-mob-categories__btn absolute bottom-0 z-10 w-full bg-white left-0 right-0 px-5.5 py-1.5 blur-down "
+    >
       <div class="btn-green">
         {{ $t('allCategories') }} <svgArrowDown class="ml-2" width="10" />
       </div>
@@ -145,10 +149,32 @@ export default defineComponent({
         name: 'Для птиц',
       },
     ]
+
     return { goBack, items, categories, popularCategories }
   },
 })
 </script>
 
 <style lang="postcss">
+.menu-mob-categories {
+  .search-input {
+    @apply flex items-center;
+    &__input {
+      @apply mr-0 pr-12
+      py-2.5 px-5;
+    }
+    &__icon {
+      @apply cursor-pointer absolute right-10;
+      svg {
+        @apply w-4.5;
+      }
+    }
+  }
+  &__btn {
+    &::before {
+      @apply top-0 transform -translate-y-full h-8;
+      background: linear-gradient( to top, #FFF 20%, rgba(255, 255, 255, 0) 100% );
+    }
+  }
+}
 </style>

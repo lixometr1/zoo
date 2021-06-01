@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="text-grey text-opacity-50 font-medium mb-4.5 sm:mb-2.5">
+    <div class="text-grey text-opacity-50 font-medium mb-4 sm:mb-2.5">
       {{ $t('enterUsing') }}:
     </div>
     <div class="flex justify-center space-x-1.5">

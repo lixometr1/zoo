@@ -20,7 +20,7 @@
         <div class="w-5 mr-2">
           <svgPhone width="12" class="text-grey mx-auto" />
         </div>
-        <a href="tel:+38 066 364 19 19" class="border-circle-grey">
+        <a href="tel:+38 066 364 19 19" class="border-circle-grey hover:text-green hover:border-green transition-all">
           +38 066 364 19 19
         </a>
       </div>
@@ -28,7 +28,7 @@
         <div class="w-5 mr-2">
           <svgEmail class="mr-2" width="18"/>
         </div>
-        <a href="mailto:support@zoo.com.ua" class="border-circle-grey">
+        <a href="mailto:support@zoo.com.ua" class="border-circle-grey hover:text-green hover:border-green transition-all">
           support@zoo.com.ua
         </a>
       </div>

@@ -3,7 +3,7 @@
     <AInput
       v-model="login"
       :label="$t('login.loginPlaceholder')"
-      class="mb-3.5 "
+      class="mb-3.5"
     >
       <template #prefix>
         <svgEmail width="18" class="text-grey text-opacity-50" />
@@ -20,7 +20,10 @@
       </a>
     </div>
     <div class="flex-x-center">
-      <button type="submit" class="btn-green mt-8 w-10/12 sm:text-sm sm:w-full sm:!py-4 sm:mt-7">
+      <button
+        type="submit"
+        class="btn-green mt-8 w-10/12 sm:text-sm sm:w-full sm:!py-4 sm:mt-7"
+      >
         {{ $t('enter') }}
       </button>
     </div>
@@ -41,7 +44,7 @@ export default defineComponent({
     const onForgotPassword = () => {
       emit('submit')
       const { showByName } = useModal()
-      showByName(ModalName.restore)
+      showByName(ModalName.restorePassword)
     }
 
     return { onSubmit, password, onForgotPassword, login }

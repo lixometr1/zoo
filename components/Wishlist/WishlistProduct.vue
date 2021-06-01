@@ -5,7 +5,7 @@
       :hoverCollapse="false"
       :showBtn="false"
       v-bind="$attrs"
-      class="!rounded-none "
+      class="!rounded-none !border-l-0 !border-t-0"
       v-on="$listeners"
     />
     <ACheckbox

@@ -27,7 +27,13 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
+import {
+  computed,
+  defineComponent,
+  inject,
+  Ref,
+  ref,
+} from '@nuxtjs/composition-api'
 import { ModalName } from '~/types/modal.enum'
 import useModal from '~/utils/compositions/useModal'
 
@@ -59,13 +65,15 @@ export default defineComponent({
     const activeImage = computed(() => {
       return images.value[activeImageIndex.value]
     })
+    const mode = inject<Ref<string>>('mode')
     const openModal = (startIndex: number) => {
+      if (mode?.value === 'modal') return
       const { showByName } = useModal()
       showByName(ModalName.productImages, {
         props: {
           startIndex,
-          items: images.value
-        }
+          items: images.value,
+        },
       })
     }
     return { images, activeImage, activeImageIndex, openModal }

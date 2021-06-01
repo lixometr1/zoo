@@ -1,6 +1,12 @@
 <template>
   <div class="flex space-x-1">
-    <a :href="icon.link" target="_blank" v-for="(icon, idx) in socIcons" :key="idx" class="footer-soc-icon">
+    <a
+      :href="icon.link"
+      target="_blank"
+      v-for="(icon, idx) in socIcons"
+      :key="idx"
+      class="footer-soc-icon"
+    >
       <component :is="icon.icon" />
     </a>
   </div>
@@ -16,15 +22,15 @@ export default defineComponent({
     const socIcons = [
       {
         icon: svgInstagram,
-        link: "https://instagram.com"
+        link: 'https://instagram.com',
       },
       {
         icon: svgFacebook,
-        link: "https://facebook.com"
+        link: 'https://facebook.com',
       },
       {
         icon: svgYoutube,
-        link: "https://youtube.com"
+        link: 'https://youtube.com',
       },
     ]
     return { socIcons }
@@ -34,6 +40,8 @@ export default defineComponent({
 
 <style lang="postcss">
 .footer-soc-icon {
-  @apply rounded-full w-7 h-7 flex-center bg-green text-white transition hover:to-green-700;
+  @apply rounded-full w-7 h-7 flex-center bg-green text-white transition hover:to-green-700
+  border-green border
+        hover:bg-transparent hover:text-green;
 }
 </style>

@@ -20,7 +20,7 @@
       </div>
       <WishlistSort v-model="sort" :cnt="checkedCnt" />
     </div>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap border-t  border-grey-light">
       <WishlistProduct
         v-for="(product, idx) in products"
         :key="idx"

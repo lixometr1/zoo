@@ -19,7 +19,11 @@
     >
       <img :src="image" alt="" />
       <transition name="t-fade">
-        <button v-if="isHover" class="product-card__quick-view" @click.prevent>
+        <button
+          v-if="isHover"
+          class="product-card__quick-view"
+          @click.prevent="openQuickView"
+        >
           {{ $t('quickView') }}
         </button>
       </transition>
@@ -98,6 +102,8 @@ import useProductCardFields from './product-card-fields'
 import useResizeValue from '~/utils/compositions/useResizeValue'
 import useTextShort from '~/utils/compositions/useTextShort'
 import { ProductEntity } from '~/utils/models/product.entity'
+import useModal from '~/utils/compositions/useModal'
+import { ModalName } from '~/types/modal.enum'
 export default defineComponent({
   components: { CollapseTransition },
   props: {
@@ -235,8 +241,19 @@ export default defineComponent({
     const beforeHoverLeave = () => {
       animatingState.value = 'leave'
     }
-    onUnmounted(() => afterHoverLeave())
+    onUnmounted(() => {
+      if (selfEl.value) {
+        selfEl.value.remove()
+      }
+      if (itemClone.value) {
+        itemClone.value.remove()
+      }
+    })
     const activeCnt = ref(1)
+    const openQuickView = () => {
+      const { showByName } = useModal()
+      showByName(ModalName.quickView)
+    }
     return {
       activeCnt,
       afterHoverEnter,
@@ -262,6 +279,7 @@ export default defineComponent({
       addToCart,
       productLink,
       isFullImage,
+      openQuickView,
     }
   },
 })
@@ -314,7 +332,7 @@ export default defineComponent({
     box-shadow: 0px 0px 15px rgba(82, 98, 114, 0.25);
   }
   &__image {
-    @apply h-[180px] flex items-center justify-center pt-6 relative md:px-5 ;
+    @apply h-[180px] flex items-center justify-center pt-6 relative md:px-5;
 
     img {
       @apply max-w-full max-h-full object-contain sm:max-w-[80%];

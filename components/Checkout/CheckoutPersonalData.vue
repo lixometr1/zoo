@@ -10,7 +10,7 @@
       <a
         href="#"
         class="border-circle-green hover:border-solid transition-all"
-        @click.prevent
+        @click.prevent="openLoginModal"
         >{{ $t('enter') }}</a
       >
     </div>
@@ -40,17 +40,22 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { ModalName } from '~/types/modal.enum'
+import useModal from '~/utils/compositions/useModal'
 export default defineComponent({
   components: {},
   setup() {
     const data = ref({})
-    return { data }
+    const openLoginModal = () => {
+      const { showByName } = useModal()
+      showByName(ModalName.login)
+    }
+    return { data, openLoginModal }
   },
 })
 </script>
 
 <style lang="postcss">
 .checkout-personal-data {
- 
 }
 </style>

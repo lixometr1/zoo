@@ -110,8 +110,9 @@ export default defineComponent({
       if (item.type === 'catalog') {
         emit('input', 'categories')
       }
-      if (item.type === 'brand') {
-      }
+      // if (item.type === 'brand') {
+      //   return
+      // }
     }
     return { menuItems, actionItems, onItemClick }
   },

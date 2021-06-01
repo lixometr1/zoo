@@ -37,7 +37,7 @@ import useModal from '~/utils/compositions/useModal'
 export default defineComponent({
   setup() {
     const { showByName } = useModal()
-    showByName(ModalName.signup)
+    showByName(ModalName.restorePassword)
     return {}
   },
 })

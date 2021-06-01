@@ -4,7 +4,7 @@
       v-model="text"
       type="text"
       class="search-input__input"
-      :placeholder="inpPlaceholder"
+      :placeholder="label"
       @keypress.enter="search"
     />
     <div class="search-input__icon" @click="search">
@@ -20,24 +20,16 @@ import useResizeValue from '@/utils/compositions/useResizeValue'
 import { Breakpoints } from '~/types/constants'
 export default defineComponent({
   components: { svgSearch },
+  props: {
+    label: String
+  },
   setup(props, { emit }) {
     const text = ref('')
     const search = () => {
       emit('search', text.value)
     }
-    const placeholderTexts = {
-      desktop: useContext().i18n.t('searchPlaceholder'),
-      mob: useContext().i18n.t('searchPlaceholderMob'),
-    }
-    const { value: inpPlaceholder } = useResizeValue((wWidth) => {
-      if (wWidth < Breakpoints.md) {
-        return placeholderTexts.mob
-      } else {
-        return placeholderTexts.desktop
-      }
-    })
+    
     return {
-      inpPlaceholder,
       search,
       text,
     }

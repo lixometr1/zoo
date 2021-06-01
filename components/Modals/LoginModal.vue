@@ -4,7 +4,7 @@
     <div class="mt-1 opacity-70 leading-5 w-10/12 mx-auto sm:leading-4">
       {{ $t('login.description') }}
     </div>
-    <LoginForm @submit="onLogin" class="mt-4" />
+    <LoginForm class="mt-4" @submit="onLogin" />
     <LoginSoc class="mt-10 sm:mt-5" />
     <LoginFooter class="mt-5.5 sm:mt-3.5" @close="$emit('close')" />
   </ModalContent>

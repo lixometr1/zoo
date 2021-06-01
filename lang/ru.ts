@@ -227,8 +227,14 @@ export default {
     title: 'Регистрация',
     description: 'Пожалуйста, введите некоторую информацию',
   },
-  register: "Зарегистрироваться",
-  IAgreeWithPolicy: ["Я согласен с", "Политикой конфиденциальности"],
+  restorePassword: {
+    title: 'Восстановление пароля',
+    description: 'Пожалуйста, введите ваш Е-mail',
+    btn: "Восстановить пароль",
+  },
+  register: 'Зарегистрироваться',
+  IAgreeWithPolicy: ['Я согласен с', 'Политикой конфиденциальности'],
+  viewAllInformation: 'Посмотреть всю информацию',
   footer: {
     copyright: 'Copyright © Zoo.com.ua, 2021 | Все права защищены',
     questions: 'По всем вопросам',

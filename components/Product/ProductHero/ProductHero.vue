@@ -1,8 +1,9 @@
 <template>
   <div
-    class="border border-grey-light rounded-xl p-7 flex items-start bg-white md:flex-col md:items-stretch md:no-gutter relative"
+    class="border border-grey-light rounded-xl p-7 flex items-start bg-white md:flex-col md:items-stretch relative"
+    :class="{ 'md:no-gutter': mode !== 'modal' }"
     sticky-container
-  > 
+  >
     <div class="flex-1 mr-3 h-full relative">
       <ProductHeroImage
         v-sticky="shouldStick"
@@ -17,24 +18,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { defineComponent, provide, ref, toRefs } from '@nuxtjs/composition-api'
 import { Breakpoints } from '~/types/constants'
 import useResize from '~/utils/compositions/useResize'
+import useResizeValue from '~/utils/compositions/useResizeValue'
 export default defineComponent({
   props: {
     item: {
       type: Object,
       default: () => ({}),
     },
+    mode: {
+      type: String,
+      // product/modal
+      default: 'product',
+      validator: (val: string) => ['modal', 'product'].includes(val),
+    },
   },
-  setup() {
-    const shouldStick = ref(false)
-    useResize((wWidth) => {
-      if (wWidth < Breakpoints.md) {
-        shouldStick.value = false
-      } else {
-        shouldStick.value = true
-      }
+  setup(props) {
+    const { mode } = toRefs(props)
+    provide('mode', mode)
+    const { value: shouldStick } = useResizeValue((wWidth) => {
+      if (props.mode === 'modal') return false
+      return wWidth >= Breakpoints.md
     })
     return { shouldStick }
   },

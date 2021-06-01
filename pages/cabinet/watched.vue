@@ -3,13 +3,13 @@
     <h3 v-if="hasItems" class="mb-14 sm:mb-6">
       {{ $t('watchedProducts') }}
     </h3>
-    <div v-if="hasItems" class="flex flex-wrap">
+    <div v-if="hasItems" class="flex flex-wrap border-t border-l border-grey-light">
       <ProductCard
         v-for="(product, idx) in products"
         :key="idx"
         :showBtn="false"
         :hoverCollapse="false"
-        class="w-1/4 lg:w-1/3 sm:w-1/2 !rounded-none"
+        class="w-1/4 lg:w-1/3 sm:w-1/2 !rounded-none !border-l-0 !border-t-0"
       />
     </div>
     <CabinetWatchedEmpty v-else />
