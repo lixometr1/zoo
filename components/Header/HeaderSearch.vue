@@ -1,5 +1,5 @@
 <template>
-  <div class="header-search">
+  <div class="header-search font-medium">
     <SearchInput @search="search" :label="inpPlaceholder" />
   </div>
 </template>

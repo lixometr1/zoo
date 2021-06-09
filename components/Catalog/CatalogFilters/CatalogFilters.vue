@@ -5,7 +5,8 @@
     <CatalogFiltersBrand /> 
     <CatalogFiltersAttribute title="Возраст" /> 
     <CatalogFiltersAttribute title="Основа корма" />
-    
+    <CatalogFiltersImagesList title="Основа корма"/>
+    <CatalogFiltersImagesGrid title="Основа корма"/>
   </div>
 </template>
 

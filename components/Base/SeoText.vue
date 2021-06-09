@@ -1,37 +1,13 @@
 <template>
   <div class="catalog-seo-text">
-    <h2>
-      Забота о животных вместе с
-      <span class="text-green">Zoo.com.ua (SEO)</span>
-    </h2>
-    <div class="catalog-seo-text__content blur-down" :class="{ open: isOpen }">
-      <p class="mt-7">
-        Интернет-магазин "Zoo.com.ua" доставляет продукты к вам домой, в офис,
-        на дачу, а вы экономите время и силы. Мы внимательно следим за сроками
-        годности, поэтому гарантируем свежесть товара, который вы приобретаете.
-        <br />
-        В нашем интернет-магазине вы можете купить все самые необходимые
-        продукты питания на каждый день и для особых случаев, готовые блюда,
-        напитки, товары для гигиены и быта. Все заказы мы привозим с
-        собственного оборудованного склада, который ежедневно пополняется
-        товарами от надежных поставщиков. <br />
-        У нас регулярно проходят акции на весь ассортимент. Также вы можете
-        экономить, оформив пластиковую или виртуальную карту Клуба
-        "Перекресток". Доставляем заказы в Москве и области день в день или на
-        следующий день после заказа. Есть возможность бесплатной доставки.
-        Сделайте покупку через сайт или мобильное приложение: зарегистрируйтесь,
-        выберете продукты и положите их в корзину, укажите адрес, временной
-        интервал и способ оплаты. Статус заказа можно отслеживать онлайн. Курьер
-        позвонит вам заранее, поднимет ваши продукты до квартиры и поставит
-        пакеты туда, куда вы скажете. До оплаты вы имеете право отказаться от
-        любого товара, даже если он уже привезен. После оплаты курьер
-        предоставит вам кассовый и товарный чеки.
-      </p>
-      <p class="mt-5">
-        <i class="font-italic font-bold">
-          Мы будем рады видеть вас в числе наших постоянных клиентов!</i
-        >
-      </p>
+    <div
+      class="catalog-seo-text__content blur-down space-y-9 md:space-y-5 sm:space-y-3"
+      :class="{ open: isOpen }"
+    >
+      <div v-for="(item, idx) in items" :key="idx">
+        <h2 class="mb-6 md:mb-4 sm:mb-2" v-html="item.attributes.title"></h2>
+        <div v-html="item.attributes.description"></div>
+      </div>
     </div>
     <ArrowMore class="sm:!flex !hidden" :open="isOpen" @click="toggle" />
   </div>
@@ -40,7 +16,14 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import useOpen from '@/utils/compositions/useOpen'
+import { SeoBlockEntity } from '~/utils/models/seo-block.entity'
 export default defineComponent({
+  props: {
+    items: {
+      type: Array as () => SeoBlockEntity[],
+      default: () => [],
+    },
+  },
   setup() {
     const { isOpen, open, close, toggle } = useOpen()
     return { isOpen, open, close, toggle }

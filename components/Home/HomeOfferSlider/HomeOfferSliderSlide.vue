@@ -1,34 +1,64 @@
 <template>
   <div class="home-offer-slider-slide">
-    <OfferCard class="home-offer-card" v-bind="$attrs">
+    <OfferCard
+      class="home-offer-card"
+      v-bind="$attrs"
+      :title="title"
+      :description="subTitle"
+      :image="image"
+      :color="background"
+    >
       <template #other>
         <div class="offer-card__prices">
           <div class="offer-card__old-price">
-            <span> {{ oldPrice }} {{ currency }}</span>
+            <span> {{ price }} {{ currency }}</span>
           </div>
 
           <div class="offer-card__price">
-            <span>{{ price }} {{ currency }}</span>
+            <span>{{ salePrice }} {{ currency }}</span>
           </div>
         </div>
-        <div class="offer-card__label">{{ $t('shockPrice') }}</div>
+        <div v-if="isShock" class="offer-card__label">
+          {{ $t('shockPrice') }}
+        </div>
       </template>
     </OfferCard>
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from '@nuxtjs/composition-api'
+import { computed, defineComponent, toRefs } from '@nuxtjs/composition-api'
 import CurrencyModule from '@/store/currency'
+import { HomeSliderItem } from '~/utils/models/home.entity'
 export default defineComponent({
   inheritAttrs: false,
   props: {
-    oldPrice: String,
-    price: String,
+    item: {
+      type: Object as () => HomeSliderItem,
+      default: () => ({}),
+    },
   },
-  setup() {
+  setup(props) {
+    const { item } = toRefs(props)
+    const values = computed(() => item.value.attributes)
     const currency = computed(() => CurrencyModule.currency)
-    return { currency }
+    const price = computed(() => values.value.price)
+    const salePrice = computed(() => values.value['sale-price'])
+    const title = computed(() => values.value.title)
+    const subTitle = computed(() => values.value.subtitle)
+    const background = computed(() => values.value.background)
+    const image = computed(() => values.value.photoUrl)
+    const isShock = computed(() => values.value['shock-price'])
+    return {
+      currency,
+      price,
+      salePrice,
+      title,
+      subTitle,
+      background,
+      image,
+      isShock,
+    }
   },
 })
 </script>

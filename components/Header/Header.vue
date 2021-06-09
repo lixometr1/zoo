@@ -5,7 +5,7 @@
       <HeaderMainBar />
       <HeaderActionsBar />
     </div>
-    <div class="hidden md:block">
+    <div class="hidden md:block h-[113px] sm:h-[109px]">
       <HeaderMob />
     </div>
   </div>

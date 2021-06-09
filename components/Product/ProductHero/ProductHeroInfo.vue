@@ -13,19 +13,32 @@
       <ProductCntChooser v-model="activeCnt" class="mt-4" />
     </div>
     <ProductVariations v-model="activeVariations" class="mt-7" />
+    <!-- id for floating cart btn -->
     <ProductPriceBlock
-      class="mt-7 "
+      id="product-price-block"
+      class="mt-7"
       :price="'3 276'"
       :oldPrice="'3 787'"
       :sale="12"
     />
-    <ProductReviewBlock class="mt-7 sm:mt-10" :total="totalReviews" :stars="stars" />
+    <ProductReviewBlock
+      class="mt-7 sm:mt-10"
+      :total="totalReviews"
+      :stars="stars"
+    />
     <ProductDelivery class="mt-10 sm:mt-5.5" />
   </div>
 </template>
 
 <script lang="ts">
-import { computed, ComputedRef, defineComponent, inject, ref, toRefs } from '@nuxtjs/composition-api'
+import {
+  computed,
+  ComputedRef,
+  defineComponent,
+  inject,
+  ref,
+  toRefs,
+} from '@nuxtjs/composition-api'
 import { ProductEntity } from '~/utils/models/product.entity'
 
 export default defineComponent({

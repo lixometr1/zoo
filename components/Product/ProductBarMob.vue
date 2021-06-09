@@ -1,7 +1,7 @@
 <template>
   <div class="product-bar-mob">
     <div class="product-bar-mob__row">
-      <ProductCntCounter v-model="cnt" class="product-bar-mob__cnt" />
+      <ProductCntCounter v-model="cnt" :showInfo="false" class="product-bar-mob__cnt" />
       <div class="btn-green flex-1 text-sm">
         {{ $t('toCart') }}
       </div>

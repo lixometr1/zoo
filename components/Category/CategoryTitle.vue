@@ -11,7 +11,7 @@
       >
     </div>
     <h2 class="pb-9 md:pb-5 border-b border-grey border-opacity-20">
-      Товары для собак
+      {{ title }}
     </h2>
   </div>
 </template>
@@ -21,6 +21,9 @@ import { defineComponent } from '@nuxtjs/composition-api'
 import svgArrowLeft from '@/assets/icons/arrow_long_left.svg?inline'
 export default defineComponent({
   components: { svgArrowLeft },
+  props: {
+    title: String,
+  },
   setup() {
     return {}
   },

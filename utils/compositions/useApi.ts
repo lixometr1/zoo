@@ -1,8 +1,8 @@
-import { Ref, ref, watch } from '@vue/composition-api'
 import useAxios from '@/utils/compositions/useAxios'
 import { AxiosError, AxiosRequestConfig } from 'axios'
 import { errorHandler } from '@/utils/helpers/error-handler'
 // import useGlobalLoading from './useGlobalLoading'
+import { ssrRef, Ref, ref, watch, computed, WritableComputedRef } from '@nuxtjs/composition-api'
 import useToast from './useToast'
 export interface ToastMessages {
   error?: (err: any) => string
@@ -15,21 +15,27 @@ export interface UseApiOptions {
 export default function useApi<T, R extends any>(
   factory: (opts: T) => AxiosRequestConfig,
   options: UseApiOptions = { toast: false, loading: false },
-  handleResponse = (data: any): Promise<R> | R => data.data
+  handleResult = (data: R): R => data,
+  handleResponse = (data: any): R => data.data,
 ) {
   const axios = useAxios()
 
   const isLoading = ref(false)
-  const result: Ref<R | null> = ref(null)
-  const error: Ref<any> = ref(null)
+  const _result: Ref<any> = ssrRef(null)
+  const result: WritableComputedRef<R | null> = computed({
+    get: () => handleResult(_result.value),
+    set: () => {},
+  })
+
+  const error: Ref<any> = ssrRef(null)
   const exec = async (args: T) => {
     const request = factory(args)
     isLoading.value = true
     error.value = null
     try {
       const response = await axios(request)
-      const valueResponse: R = await handleResponse(response)
-      result.value = valueResponse
+      const valueResponse: R = handleResponse(response)
+      _result.value = valueResponse
       return valueResponse
     } catch (e) {
       if (e.isAxiosError === true) {
@@ -38,7 +44,7 @@ export default function useApi<T, R extends any>(
         console.log('strange error ', e)
         error.value = e
       }
-      result.value = null
+      _result.value = null
     } finally {
       isLoading.value = false
     }

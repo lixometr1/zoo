@@ -2,7 +2,7 @@
   <client-only>
     <swiper class="home-offer-slider h-full" :options="sliderOpts">
       <swiper-slide v-for="(item, idx) in items" :key="idx">
-        <HomeOfferSliderSlide v-bind="item" />
+        <HomeOfferSliderSlide :item="item" />
       </swiper-slide>
       <div
         slot="pagination"
@@ -17,6 +17,12 @@ import { defineComponent } from '@nuxtjs/composition-api'
 import { SwiperOptions } from 'swiper/index'
 
 export default defineComponent({
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+  },
   setup() {
     const items = [
       {
@@ -69,7 +75,7 @@ export default defineComponent({
         bgType: 1,
       },
     ]
-    return { items }
+    return {}
   },
   computed: {
     sliderOpts(): SwiperOptions {

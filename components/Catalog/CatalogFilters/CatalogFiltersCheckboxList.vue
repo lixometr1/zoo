@@ -1,13 +1,13 @@
 <template>
   <div>
-    <perfect-scrollbar class="custom-scrollbar max-h-[270px] space-y-1.5">
+    <perfect-scrollbar class="custom-scrollbar max-h-[270px] space-y-1.5 pr-3">
       <div
         v-for="(item, idx) in items"
         :key="idx"
         class="flex-y-center select-none cursor-pointer text-base font-medium sm:text-xs"
         @click="toggle(idx)"
       >
-        <ACheckbox class="mr-2" :value="activeValues.includes(idx)" />
+        <ACheckbox class="mr-2 flex-shrink-0" :value="activeValues.includes(idx)" />
         <span class="mr-2"> {{ item.name }}</span>
         <span v-if="item.cnt" class="text-grey text-opacity-50">{{
           item.cnt

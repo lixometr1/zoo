@@ -28,14 +28,19 @@ import {
   ref,
   useContext,
 } from '@nuxtjs/composition-api'
+import { ModalName } from '~/types/modal.enum'
+import useModal from '~/utils/compositions/useModal'
 
 import useWordSclon from '~/utils/compositions/useWordSclon'
 export default defineComponent({
   setup() {
-    const leftReview = () => {}
+    const leftReview = () => {
+      const { showByName } = useModal()
+      showByName(ModalName.sendReview)
+    }
     const loadMoreReviews = () => {}
     const reviewsToLoad = ref(23)
-    const reviewsSclon = (useContext().i18n.t('reviews') as any) as string[]
+    const reviewsSclon = useContext().i18n.t('reviews') as any as string[]
     const itemsText = computed(() => {
       const { exec } = useWordSclon(reviewsSclon)
       return exec(reviewsToLoad.value)

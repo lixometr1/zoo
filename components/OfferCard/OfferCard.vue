@@ -30,7 +30,7 @@
       </div>
       <slot name="content" />
     </div>
-    <img class="offer-card__image" :src="image" :alt="title" />
+    <img v-if="image" class="offer-card__image" :src="image" :alt="title" />
 
     <slot name="other" />
   </component>

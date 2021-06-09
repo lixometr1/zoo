@@ -67,7 +67,7 @@ export default defineComponent({
     &-link {
       @apply w-9 h-9 rounded-full border-2 border-transparent 
             flex items-center justify-center cursor-pointer
-            sm:text-sm sm:w-7 sm:h-7;
+            sm:text-sm sm:w-7 sm:h-7 font-medium;
       &:hover {
         @apply bg-[#A2A5AC] border-white text-white;
       }

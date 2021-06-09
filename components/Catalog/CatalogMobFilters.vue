@@ -2,10 +2,20 @@
   <APanel
     :isOpen="isOpen"
     contentClass="catalog-mob-filters__content"
+    class="!z-300"
     @close="close"
   >
     <div
-      class="flex bg-green text-white justify-between items-center py-4 px-5.5 font-bold"
+      class="
+        flex
+        bg-green
+        text-white
+        justify-between
+        items-center
+        py-4
+        px-5.5
+        font-bold
+      "
     >
       <div class="text-sm">{{ $t('filters') }} (202)</div>
       <a href="javascript:void(0)" class="flex-y-center" @click.prevent="done">

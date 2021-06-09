@@ -6,7 +6,7 @@
       <h4 class="mb-5 sm:mb-2">{{ menuCol.title }}</h4>
       <ul class="space-y-2">
         <li v-for="(link, index) in menuCol.items" :key="index">
-          <NuxtLink class="text-grey text-opacity-70 hover:text-green" :to="link.link || '#'">
+          <NuxtLink class="text-grey font-medium text-opacity-70 hover:text-green" :to="link.link || '#'">
             {{ link.name }}
           </NuxtLink>
         </li>

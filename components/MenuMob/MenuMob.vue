@@ -34,7 +34,7 @@ export default defineComponent({
       active.value = 'main'
     }
     const transitionName = computed(() => {
-      return active.value === 'main' ? 't-switch-back' : 't-switch'
+      return active.value === 'main' ? 't-switch' : 't-switch-back'
     })
     return {
       transitionName,
@@ -49,7 +49,8 @@ export default defineComponent({
 
 <style lang="postcss">
 .menu-mob {
-  @apply z-50 fixed top-0 left-0 right-0 bottom-0 lg:block hidden;
+  @apply  fixed top-0 left-0 right-0 bottom-0 lg:block hidden;
+  z-index: 300!important;
   &.main &__content {
     @apply max-w-[300px] sm:max-w-[250px];
   }

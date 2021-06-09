@@ -58,18 +58,9 @@ export default defineComponent({
     const { exec, error, result } = useApiGetCategory({
       toast: { error: errorHandler() },
     })
-    
-    const resultProducts = useAsync(async () => {
-      if (categorySlug.value === 'dog-items/toys') {
-        await exec({ id: 12 })
-        // if (error.value) return
-        return result.value
-      }
-    })
-    const products = computed(() => {
-      const prods = resultProducts.value?.product || []
-      return prods.map((p: ProductEntity) => plainToClass(ProductEntity, p))
 
+    const products = computed(() => {
+      return []
     })
     const breadcrumbs = [
       {

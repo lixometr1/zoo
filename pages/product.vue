@@ -13,6 +13,7 @@
       <ProductSubCategories class="mt-18 md:mt-14" />
     </div>
     <ProductBarMob />
+    <ProductFloatCart />
   </div>
 </template>
 

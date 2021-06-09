@@ -2,9 +2,11 @@
   <div class="product-thumb-slider">
     <client-only>
       <swiper
+        ref="slider"
         class="min-h-0 h-full"
         :options="sliderOpts"
         @clickSlide="makeSlideActive"
+        @ready="onSwiperRedied"
       >
         <swiper-slide
           v-for="(item, idx) in items"
@@ -18,8 +20,8 @@
             alt="product-thumbnail"
           />
           <VideoIcon
-            class="product-thumb-slider__video-icon"
             v-if="item.type === 'video'"
+            class="product-thumb-slider__video-icon"
           />
         </swiper-slide>
       </swiper>
@@ -28,8 +30,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
-import { SwiperOptions } from 'swiper/index'
+import {
+  defineComponent,
+  onMounted,
+  Ref,
+  ref,
+  set,
+} from '@nuxtjs/composition-api'
+import Swiper, { SwiperOptions } from 'swiper/index'
 interface Item {
   src: string
   type: 'video' | 'image'
@@ -45,25 +53,32 @@ export default defineComponent({
     },
   },
   setup(props, { emit }) {
+    const swiper = ref()
     const makeSlideActive = (idx: number) => {
       emit('input', idx)
     }
-    return { makeSlideActive }
+    const sliderOpts = ref<SwiperOptions>({
+      direction: 'vertical',
+      spaceBetween: 8,
+      slidesPerView: 'auto',
+      centeredSlides: false,
+      centeredSlidesBounds: true,
+      threshold: 5,
+      initialSlide: 0,
+      on: {
+        click() {
+          this.slideTo(this.clickedIndex - 1)
+        },
+      },
+    })
+    onMounted(() => {})
+    const onSwiperRedied = (sw: any) => {
+      swiper.value = sw
+      console.log(swiper.value)
+    }
+    return { makeSlideActive, sliderOpts, onSwiperRedied }
   },
-  computed: {
-    sliderOpts(): SwiperOptions {
-      return {
-        direction: 'vertical',
-        spaceBetween: 8,
-        slidesPerView: 'auto',
-        slideToClickedSlide: true,
-        centeredSlides: true,
-        centeredSlidesBounds: true,
-        threshold: 5,
-        initialSlide: 0
-      }
-    },
-  },
+  computed: {},
 })
 </script>
 
@@ -71,7 +86,7 @@ export default defineComponent({
 .product-thumb-slider {
   &__video-icon {
     @apply absolute top-1/2 left-1/2 
-    transform -translate-x-1/2 -translate-y-1/2 ;
+    transform -translate-x-1/2 -translate-y-1/2;
   }
 }
 </style>

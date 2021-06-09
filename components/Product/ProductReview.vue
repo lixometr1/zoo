@@ -13,7 +13,17 @@
       </StarsPanel>
     </div>
     <a
-      class="ml-4 font-semibold border-circle-grey text-grey opacity-50 text-sm hover:opacity-100 transition sm:ml-0"
+      class="
+        ml-4
+        font-semibold
+        border-circle-grey
+        text-grey
+        opacity-50
+        text-sm
+        hover:opacity-100
+        transition
+        sm:ml-0
+      "
       href="#"
       @click.prevent="sendReview"
     >
@@ -29,6 +39,8 @@ import {
   toRefs,
   useContext,
 } from '@nuxtjs/composition-api'
+import { ModalName } from '~/types/modal.enum'
+import useModal from '~/utils/compositions/useModal'
 import useWordSclon from '~/utils/compositions/useWordSclon'
 
 export default defineComponent({
@@ -41,8 +53,11 @@ export default defineComponent({
   },
   setup(props) {
     const { total } = toRefs(props)
-    const sendReview = () => {}
-    const reviewsSclon = (useContext().i18n.t('reviews') as any) as string[]
+    const sendReview = () => {
+      const { showByName } = useModal()
+      showByName(ModalName.sendReview)
+    }
+    const reviewsSclon = useContext().i18n.t('reviews') as any as string[]
     const reviewText = computed(() => {
       const { exec } = useWordSclon(reviewsSclon)
       return exec(total.value)

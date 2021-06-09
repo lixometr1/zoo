@@ -1,6 +1,16 @@
 <template>
   <div
-    class="border border-grey-light rounded-xl p-7 flex items-start bg-white md:flex-col md:items-stretch relative"
+    class="
+      border border-grey-light
+      rounded-xl
+      p-7
+      flex
+      items-start
+      bg-white
+      md:flex-col
+      md:items-stretch
+      relative
+    "
     :class="{ 'md:no-gutter': mode !== 'modal' }"
     sticky-container
   >
@@ -8,7 +18,7 @@
       <ProductHeroImage
         v-sticky="shouldStick"
         sticky-side="0"
-        sticky-offset="{top: 30, bottom: 30}"
+        sticky-offset="stickyOffset"
       />
     </div>
     <div class="flex-1">
@@ -18,7 +28,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, provide, ref, toRefs } from '@nuxtjs/composition-api'
+import {
+  computed,
+  defineComponent,
+  provide,
+  ref,
+  toRefs,
+} from '@nuxtjs/composition-api'
 import { Breakpoints } from '~/types/constants'
 import useResize from '~/utils/compositions/useResize'
 import useResizeValue from '~/utils/compositions/useResizeValue'
@@ -42,7 +58,16 @@ export default defineComponent({
       if (props.mode === 'modal') return false
       return wWidth >= Breakpoints.md
     })
-    return { shouldStick }
+
+    const { value: stickyOffset } = useResizeValue(() => {
+      let top = 30
+      if (process.client) {
+        top = window.innerHeight / 2 - 212
+      }
+      console.log(top)
+      return { top, bottom: 30 }
+    })
+    return { shouldStick, stickyOffset }
   },
 })
 </script>

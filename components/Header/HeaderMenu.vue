@@ -1,6 +1,6 @@
 <template>
   <ul class="flex items-center justify-center">
-    <li v-for="(item, idx) in items" :key="idx" class="px-4">
+    <li v-for="(item, idx) in items" :key="idx" class="px-4 font-medium">
       <NuxtLink
         :to="item.routeName ? localePath({ name: item.routeName }) : '#'"
         class="px-4 py-2 rounded-md transition hover:bg-green hover:text-white"

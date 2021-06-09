@@ -4,7 +4,7 @@
       {{ title }}
       <svgArrowRight width="6" class="ml-1.5 inline-block" />
     </NuxtLink>
-    <div class="space-y-0.5 mt-2">
+    <div class="space-y-0.5 mt-2 font-medium">
       <NuxtLink
         v-for="(subCategory, idx) in subCategories"
         :key="idx"

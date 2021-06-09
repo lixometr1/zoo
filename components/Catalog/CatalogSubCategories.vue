@@ -9,7 +9,12 @@
         >
           <NuxtLink
             :to="item.link || '#'"
-            class="sm:flex sm:flex-col sm:items-center group"
+            class="
+              sm:flex sm:flex-col
+              sm:items-center
+              group
+              catalog-sub-category-link
+            "
           >
             <!-- <img
               
@@ -30,6 +35,16 @@
         </swiper-slide>
       </swiper>
     </client-only>
+    <div
+      class="
+        swiper-button-next
+        catalog-sub-categories__arrow-next
+        circle-arrow
+        swiper-button-reset
+      "
+    >
+      <svgArrowRight width="8" class="sm:w-1.5" />
+    </div>
   </div>
 </template>
 
@@ -38,9 +53,11 @@ import { defineComponent, useContext } from '@nuxtjs/composition-api'
 // eslint-disable-next-line import/named
 import { SwiperOptions } from 'swiper'
 import useTextShort from '@/utils/compositions/useTextShort'
+import svgArrowRight from '@/assets/icons/arrow_right.svg?inline'
 import useResizeValue from '~/utils/compositions/useResizeValue'
 import { Breakpoints } from '~/types/constants'
 export default defineComponent({
+  components: { svgArrowRight },
   setup() {
     const items = [
       {
@@ -97,6 +114,9 @@ export default defineComponent({
     ]
 
     const sliderOpts: SwiperOptions = {
+      navigation: {
+        nextEl: '.catalog-sub-categories__arrow-next',
+      },
       slidesPerView: 'auto',
       // freeMode: true,
       // spaceBetween: 20,
@@ -122,10 +142,39 @@ export default defineComponent({
 
 <style lang="postcss">
 .catalog-sub-categories {
+  @apply relative;
+  &::before {
+    content: '';
+    @apply absolute right-0 h-full top-0 bottom-0 w-[100px] z-20 pointer-events-none;
+    background: linear-gradient(
+      270deg,
+      #f6f6f6 10%,
+      rgba(246, 246, 246, 0) 100%
+    );
+  }
+  .catalog-sub-category-link {
+    &:hover .catalog-sub-category {
+      transform: translateZ(0) scale(1.1);
+    }
+  }
   .catalog-sub-category {
-    @apply transition transform  group-hover:scale-110;
+    @apply transition;
+    -webkit-backface-visibility: hidden;
+
     &::before {
       @apply shadow-image;
+    }
+  }
+  &__arrow-next {
+    @apply absolute top-1/2 transform -translate-y-1/2 z-30 sm:mt-0 sm:top-6 sm:transform-none;
+    width: theme('width.10') !important;
+    height: theme('height.10') !important;
+    @media screen and (max-width: theme('screens.sm.max')) {
+      width: theme('width.7') !important;
+      height: theme('height.7') !important;
+    }
+    &.swiper-button-disabled {
+      @apply hidden;
     }
   }
 }

@@ -51,6 +51,7 @@ import svgArrowLeft from '@/assets/icons/arrow_left_long_bold.svg?inline'
 export default defineComponent({
   components: { svgArrowLeft },
   setup() {
+    // make slug "home" - 404
     const breadcrumbs = [
       {
         name: 'Товари для кошек',

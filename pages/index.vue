@@ -1,67 +1,69 @@
 <template>
-  <div class="container">
-    <AppBreadcrumbs :items="breadcrumbs" />
-    <div class="flex mt-7 sm:mt-2">
-      <div class="w-[300px] flex-shrink-0 mr-12 lg:hidden">
-        <CatalogFilters />
-      </div>
-      <div class="flex-1 min-w-0">
-        <CatalogHeader />
-        <div class="border-b border-grey border-opacity-20 pb-5.5">
-          <CatalogSubCategories class="lg:-mr-9 md:-mr-5.5" />
-        </div>
-        <div class="py-5.5 lg:border-b border-grey border-opacity-20 lg:mb-5.5">
-          <CatalogTags class="lg:-mr-9 md:-mr-5.5" />
-        </div>
-        <div>
-          <CatalogMobFilterBtns class="hidden lg:flex mb-4" />
-          <CatalogProducts />
-          <div class="-mt-3">
-            <CatalogLazyLoadBar class="!rounded-t-none" :cnt="22" />
-          </div>
-          <div class="flex justify-center mt-7">
-            <APagination v-model="page" />
-          </div>
-        </div>
-      </div>
+  <div class="pt-5.5">
+    <div class="container">
+      <HomeFirstBlock
+        class="mb-16 lg:mb-10 md:mb-12"
+        :sliderItems="offerSliderItems"
+      />
+      <HomeCategories class="mb-18 md:mb-8" />
+      <ProductsSliderCollapse
+        :title="$t('stockItems')"
+        class="mb-18 md:mb-8"
+        :productOptions="{ showChooseCnt: true }"
+      />
+      <HomeStocksSlider class="mb-18 md:mb-10" />
+      <ProductsSliderCollapse
+        :title="$t('sellingHits')"
+        class="mb-18 md:mb-10"
+      />
+      <ProductsSliderCollapse
+        :title="$t('productsNew')"
+        class="mb-18 md:mb-10"
+      />
     </div>
-    <div class="mt-28 sm:mt-16">
-      <SmallProductsSlider title="Акции" />
-      <SmallProductsSlider class="mt-20 md:mt-9" title="Просмотренные товары" />
+    <BrandsBlock
+      :title="$t('brands')"
+      :showAll="true"
+      description="Наш интернет-магазин является официальным дилером представленных торговых марок. Это означает, что вся продукция действительно фирменная, никакого «серого импорта», на все товары распространяется гарантия производителя, цены в нашем магазине соответствуют, рекомендованным производителем."
+    />
+    <div class="container">
+      <SeoText class="mt-18 md:mt-10" :items="seoContent" />
     </div>
-    <div class="mt-20 sm:mt-10">
-      <SeoText />
-    </div>
-    <CatalogMobFilters />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
-import { ModalName } from '~/types/modal.enum'
+import {
+  computed,
+  defineComponent,
+  useAsync,
+  useFetch,
+  useMeta,
+} from '@nuxtjs/composition-api'
+import { useApiGetHomePage } from '@/utils/api/home'
+import useSeo from '@/utils/compositions/useSeo'
+import setComputed from '@/utils/helpers/set-computed'
 import useModal from '~/utils/compositions/useModal'
-
+import { ModalName } from '~/types/modal.enum'
 export default defineComponent({
   setup() {
-    const breadcrumbs = [
-      {
-        name: 'Каталог',
-      },
-      {
-        name: 'Товары для кошек',
-      },
-      {
-        name: 'Корм и лакомства для кошек',
-      },
-    ]
-    const page = ref(1)
-    return {
-      page,
-      breadcrumbs,
-    }
+    const { exec, result } = useApiGetHomePage({
+      loading: true,
+    })
+    // useAsync(async () => {
+    //   // await exec({})
+    //   console.log(result.value)
+    // })
+    useSeo(computed(() => result.value?.seo))
+    const offerSliderItems = setComputed(
+      () => result.value?.data?.home_top_slider
+    )
+    const seoContent = setComputed(() => result.value?.data?.main_page_content)
+    return { result, offerSliderItems, seoContent }
   },
+  head: {},
 })
 </script>
 
-<style >
+<style lang="postcss">
 </style>

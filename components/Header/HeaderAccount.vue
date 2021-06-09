@@ -1,12 +1,12 @@
 <template>
   <div class="flex items-center">
-    <svgUser class="mr-4 text-grey" alt="user" />
+    <svgUser class="mr-4 text-grey" alt="user" width="22" />
     <a
       href="#"
       class="cursor-pointer border-circle-grey text-sm font-bold"
       @click.prevent="login"
-      >{{ $t('enter') }}</a
-    >
+      >{{ $t('enter') }}
+    </a>
   </div>
 </template>
 
